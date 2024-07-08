@@ -94,39 +94,40 @@
       </div>
     </div>
     <div>
-      <img  src="images/user.jpg" alt="Admin Profile" class="h-10 w-10 rounded-full mr-5">
+      <img src="images/user.jpg" alt="Admin Profile" class="h-10 w-10 rounded-full mr-5">
     </div>
   </header>
   <div class="flex flex-col items-center py-6">
     <div class="flex space-x-2 -mt-10">
-      <a href="inventory" class="bg-gray-300 text-blue-600 border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
+      <a href="inventory" class="{{ request()->is('inventory') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
         INVENTORY
       </a>
-      <a href="suppliers" class="bg-gray-300 text-blue-600 border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
+      <a href="suppliers" class="{{ request()->is('suppliers') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
         SUPPLIER
       </a>
-      <a href="items" class="bg-gray-300 text-blue-600 border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
+      <a href="items" class="{{ request()->is('items') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
         ITEM
       </a>
-      <a href="orders" class="bg-gray-300 text-blue-600 border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
+      <a href="orders" class="{{ request()->is('orders') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
         ORDER
       </a>
-      <a href="pos" class="bg-gray-300 text-blue-600 border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
+      <a href="pos" class="{{ request()->is('pos') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
         POS
       </a>
-      <a href="products" class="bg-yellow-400 text-blue-600 border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
+      <a href="products" class="{{ request()->is('products') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
         PRODUCT
       </a>
-      <a href="add-ons" class="bg-gray-300 text-blue-600 border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
+      <a href="add-ons" class="{{ request()->is('add-ons') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
         ADD-ONS
       </a>
-      <a href="reports" class="bg-gray-300 text-blue-600 border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
+      <a href="reports" class="{{ request()->is('reports') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
         REPORTS
       </a>
     </div>
-    <div class=" w-3/5 h-1 bg-gray-400 mt-2 rounded-sm"></div>
+    <div class="w-3/5 h-1 bg-gray-400 mt-2 rounded-sm"></div>
   </div>
   <main class="py-4">
     @yield('content')
-</main>
+  </main>
 </div>
+

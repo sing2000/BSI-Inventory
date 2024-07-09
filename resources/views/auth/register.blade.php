@@ -1,6 +1,7 @@
 @extends('layouts.header')
-
+@vite('resources/css/app.css')
 @section('content')
+<div class="min-h-screen flex flex-col">
 <div class="container container-register">
     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
@@ -96,6 +97,10 @@
             </div>
         </div>
     </form>
+</div>
+<footer class="w-full text-secondary-foreground py-8 mt-24 bg-blue-600 text-center">
+    <p class="pb-1">BSI Inventory System version 1.0.0</p>
+</footer>
 </div>
 @endsection
 <style>

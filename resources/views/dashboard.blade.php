@@ -1,8 +1,8 @@
 @extends('layouts.app-nav')
 @section('content')
 
-<div class="flex justify-center items-center mt-6">
-  <div class="p-4 grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:w-4/5 mb-6 mt-1">
+<div class="flex justify-center items-center mt-8">
+  <div class="p-4 grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:w-4/5 mb-16 mt-1">
       <div class="w-full md:w-auto">
           <div class="border-2 border-yellow-500 rounded-lg p-12 text-center shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform">
               <h2 class="text-xl font-bold text-yellow-700 mb-2">DAILY SALE</h2>
@@ -106,9 +106,4 @@
       </div>
   </div>
 </div>
-<div class="w-full text-secondary-foreground py-8 mt-16 bg-blue-600 text-center">
-  <p class="pb-1">BSI Inventory System version 1.0.0</p>
-</div>
-
-
 @endsection

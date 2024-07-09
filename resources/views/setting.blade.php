@@ -1,6 +1,6 @@
 @vite('resources/css/app.css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<div class="bg-background text-foreground">
+<div class="min-h-screen bg-background text-foreground">
   <header class="flex flex-row items-center space-x-4 mt-2">
     <div class="ml-5">
         <img src="images/official_logo.png" alt="BSI Logo" class="h-10 w-12 rounded">
@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-</header>
+  </header>
     
     <div class="flex flex-col items-center py-6">
       <div class="flex space-x-2 -mt-10">
@@ -36,7 +36,7 @@
     </div>
   
     {{-- Sidebar Menu --}}
-    <div class="flex">
+    <div class="flex mb-22">
       <aside class="text-gray-500 w-64 h-full p-6 bg-gray-300">
         <nav class="flex flex-col py-4">
           <a href="#shop" class="flex bg-yellow-400 items-center py-2 px-4 hover:bg-yellow-400 rounded-lg my-1">
@@ -79,10 +79,10 @@
       </main>
  
     </div>
+    <footer class="w-full text-secondary-foreground py-8 bg-blue-600 text-center">
+      <p class="pb-1">BSI Inventory System version 1.0.0</p>
+    </footer>
   </div>
-  <footer class="w-full text-secondary-foreground mt-10 py-8 bg-blue-600 text-center">
-    <p class="pb-1">BSI Inventory System version 1.0.0</p>
-  </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {

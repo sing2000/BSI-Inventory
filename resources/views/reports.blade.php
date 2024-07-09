@@ -1,29 +1,28 @@
 @vite('resources/css/app.css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ['1st Qtr', 11],
+      ['2nd Qtr', 6],
+      ['3rd Qtr', 3],
+      ['4th Qtr', 3]
+    ]);
 
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['1st Qtr', 11],
-          ['2nd Qtr', 6],
-          ['3rd Qtr', 3],
-          ['4th Qtr', 3]
-        ]);
+    var options = {
+      title: 'Sales'
+    };
 
-        var options = {
-          title: 'Sales'
-        };
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-      }
-    </script>
+    chart.draw(data, options);
+  }
+</script>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
@@ -55,46 +54,46 @@
 @extends('layouts.app-nav')
 
 @section('content')
-<div class="flex flex-col bg-background text-foreground">
-  <div class="flex flex-col items-center flex-grow p-4">
-    <div class="w-4/5 bg-card text-card-foreground">
-      <div class="flex">
-        <div class="bg-white rounded-lg p-4 w-1/4 pr-4">
-          <h2 class="text-xl font-bold mb-6 text-gray-800">Report Overview</h2>
-          <ul class="space-y-2">
+<div class="flex flex-col">
+  <div class="flex flex-col flex-grow p-4 bg-background text-foreground">
+    <div class="flex flex-col items-center flex-grow p-4">
+      <div class="w-4/5 bg-card text-card-foreground">
+        <div class="flex">
+          <div class="bg-white rounded-lg p-4 w-1/4 pr-4">
+            <h2 class="text-xl font-bold mb-6 text-gray-800">Report Overview</h2>
+            <ul class="space-y-2">
               <li class="flex items-center cursor-pointer text-primary hover:text-primary-700">
-                  <span class="text-lg mr-2">+</span> Inventory Detail
+                <span class="text-lg mr-2">+</span> Inventory Detail
               </li>
               <li class="flex items-center cursor-pointer text-gray-600">
-                  <span class="text-lg mr-2">+</span> Detailed Report
+                <span class="text-lg mr-2">+</span> Detailed Report
               </li>
               <li class="flex items-center cursor-pointer text-gray-600">
-                  <span class="text-lg mr-2">+</span> Sales Trends
+                <span class="text-lg mr-2">+</span> Sales Trends
               </li>
               <li class="flex items-center cursor-pointer text-gray-600">
-                  <span class="text-lg mr-2">+</span> Customer Insights
+                <span class="text-lg mr-2">+</span> Customer Insights
               </li>
               <li class="flex items-center cursor-pointer text-gray-600">
-                  <span class="text-lg mr-2">+</span> Profit Analysis
+                <span class="text-lg mr-2">+</span> Profit Analysis
               </li>
-          </ul>
-      </div>
-        <div class="w-3/4">
-            <div class="flex items-center mb-16">
-                <label class="mr-2 font-semibold">Start Date:</label>
-                <input type="date" class="border border-input p-2 rounded-lg mr-4" />
-                <span class="mr-4 font-semibold">End Date:</span>
-                <input type="date" class="border border-input p-2 rounded-lg mr-4" />
-                <button class="bg-primary text-primary-foreground p-2 px-4 rounded-lg">SEARCH</button>
-              </div>
-              
-          <div class="flex">
-            <div class="w-1/2 pr-4">
-              <div id="columnchart_material" style="width: 600px; height: 400px;"></div>
+            </ul>
+          </div>
+          <div class="w-3/4">
+            <div class="flex items-center mb-6">
+              <label class="mr-2 font-semibold">Start Date:</label>
+              <input type="date" class="border border-input p-2 rounded-lg mr-4" />
+              <span class="mr-4 font-semibold">End Date:</span>
+              <input type="date" class="border border-input p-2 rounded-lg mr-4" />
+              <button class="bg-primary text-primary-foreground p-2 px-4 rounded-lg">SEARCH</button>
             </div>
-
-            <div class="w-1/2">
+            <div class="flex">
+              <div class="w-1/2 pr-4">
+                <div id="columnchart_material" style="width: 600px; height: 400px;"></div>
+              </div>
+              <div class="w-1/2">
                 <div id="piechart" style="width: 400px; height: 400px;"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -102,8 +101,4 @@
     </div>
   </div>
 </div>
-<div class="w-full text-secondary-foreground py-8 mt-14 bg-blue-600 text-center">
-  <p class="pb-1">BSI Inventory System version 1.0.0</p>
-</div>
-
 @endsection

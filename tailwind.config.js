@@ -36,6 +36,9 @@ module.exports = {
           900: '#000000',
         },
       },
+      fontFamily: {
+        'times': ['"Times New Roman"', 'serif'],
+      },
     },
   },
   plugins: [],

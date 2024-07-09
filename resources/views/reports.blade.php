@@ -52,50 +52,35 @@
   }
 </script>
 
-<div class="min-h-screen flex flex-col bg-background text-foreground">
-  <header class="flex flex-row items-center space-x-4 mt-2">
-    <div class="ml-5">
-      <img src="images/official_logo.png" alt="BSI Logo" class="h-10 w-12 rounded">
-    </div>
-    <div class="bg-primary p-3 shadow-md flex items-end justify-end flex-1">
-      <div class="space-x-2 items-end justify-end">
-        <h1 class="text-sm font-bold text-primary-foreground">BSI ADMIN</h1>
-      </div>
-    </div>
-    <div>
-      <img  src="images/user.jpg" alt="Admin Profile" class="h-10 w-10 rounded-full mr-5">
-    </div>
-  </header>
-  
+@extends('layouts.app-nav')
 
-
+@section('content')
+<div class="flex flex-col bg-background text-foreground">
   <div class="flex flex-col items-center flex-grow p-4">
     <div class="w-4/5 bg-card text-card-foreground">
       <div class="flex">
         <div class="bg-white rounded-lg p-4 w-1/4 pr-4">
-    <h2 class="text-xl font-bold mb-4 text-gray-800">Report Overview</h2>
-    <ul class="space-y-2">
-        <li class="flex items-center cursor-pointer text-primary hover:text-primary-700">
-            <span class="text-lg mr-2">+</span> Inventory Detail
-        </li>
-        <li class="flex items-center cursor-pointer text-gray-600">
-            <span class="text-lg mr-2">+</span> Detailed Report
-        </li>
-        <li class="flex items-center cursor-pointer text-gray-600">
-            <span class="text-lg mr-2">+</span> Sales Trends
-        </li>
-        <li class="flex items-center cursor-pointer text-gray-600">
-            <span class="text-lg mr-2">+</span> Customer Insights
-        </li>
-        <li class="flex items-center cursor-pointer text-gray-600">
-            <span class="text-lg mr-2">+</span> Profit Analysis
-        </li>
-    </ul>
-</div>
-
-
+          <h2 class="text-xl font-bold mb-6 text-gray-800">Report Overview</h2>
+          <ul class="space-y-2">
+              <li class="flex items-center cursor-pointer text-primary hover:text-primary-700">
+                  <span class="text-lg mr-2">+</span> Inventory Detail
+              </li>
+              <li class="flex items-center cursor-pointer text-gray-600">
+                  <span class="text-lg mr-2">+</span> Detailed Report
+              </li>
+              <li class="flex items-center cursor-pointer text-gray-600">
+                  <span class="text-lg mr-2">+</span> Sales Trends
+              </li>
+              <li class="flex items-center cursor-pointer text-gray-600">
+                  <span class="text-lg mr-2">+</span> Customer Insights
+              </li>
+              <li class="flex items-center cursor-pointer text-gray-600">
+                  <span class="text-lg mr-2">+</span> Profit Analysis
+              </li>
+          </ul>
+      </div>
         <div class="w-3/4">
-            <div class="flex items-center mb-4">
+            <div class="flex items-center mb-16">
                 <label class="mr-2 font-semibold">Start Date:</label>
                 <input type="date" class="border border-input p-2 rounded-lg mr-4" />
                 <span class="mr-4 font-semibold">End Date:</span>
@@ -116,9 +101,9 @@
       </div>
     </div>
   </div>
-
-  <div class="w-full text-secondary-foreground py-16 mt-3 bg-blue-600 text-center">
-    <p class="pb-1">BSI Inventory System version 1.0.0</p>
-    <h2 class="text-xl font-bold text-slate-50">REPORTS PAGE</h2>
-  </div>
 </div>
+<div class="w-full text-secondary-foreground py-8 mt-14 bg-blue-600 text-center">
+  <p class="pb-1">BSI Inventory System version 1.0.0</p>
+</div>
+
+@endsection

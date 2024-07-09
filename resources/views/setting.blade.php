@@ -1,19 +1,30 @@
 @vite('resources/css/app.css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<div class="min-h-screen bg-background text-foreground">
+<div class="bg-background text-foreground">
   <header class="flex flex-row items-center space-x-4 mt-2">
     <div class="ml-5">
-      <img src="images/official_logo.png" alt="BSI Logo" class="h-10 w-12 rounded">
+        <img src="images/official_logo.png" alt="BSI Logo" class="h-10 w-12 rounded">
     </div>
     <div class="bg-primary p-3 shadow-md flex items-end justify-end flex-1">
-      <div class="space-x-2 items-end justify-end">
-        <h1 class="text-sm font-bold text-primary-foreground">BSI ADMIN</h1>
-      </div>
+        <div class="space-x-2 items-end justify-end">
+            <h1 class="text-sm font-bold text-primary-foreground">BSI ADMIN</h1>
+        </div>
     </div>
-    <div>
-      <img  src="images/user.jpg" alt="Admin Profile" class="h-10 w-10 rounded-full mr-5">
+    <div class="relative">
+        <img src="images/user.jpg" alt="Admin Profile" class="h-10 w-10 rounded-full mr-5 cursor-pointer"
+            id="profileDropdownToggle">
+        <div id="profileDropdown"
+            class="hidden absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg border-2 border-green-500 z-10">
+            <div class="py-1">
+                <a href="dashboard" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Dashboard</a>
+                <a href="setting" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Settings</a>
+                <a href="account" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Account</a>
+                <a href="#" class="block px-5 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 border-2 border-green-500">Contact Admin</a>
+                <a href="logout" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Log Out</a>
+            </div>
+        </div>
     </div>
-  </header>
+</header>
     
     <div class="flex flex-col items-center py-6">
       <div class="flex space-x-2 -mt-10">
@@ -28,31 +39,31 @@
     <div class="flex">
       <aside class="text-gray-500 w-64 h-full p-6 bg-gray-300">
         <nav class="flex flex-col py-4">
-          <a href="#shop" class="flex bg-yellow-400 items-center py-2 px-4 hover:bg-yellow-400 rounded-lg">
+          <a href="#shop" class="flex bg-yellow-400 items-center py-2 px-4 hover:bg-yellow-400 rounded-lg my-1">
             <i class="fas fa-store mr-2"></i> Shop
           </a>
-          <a href="#location" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg">
+          <a href="#location" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg my-1">
             <i class="fas fa-map-marker-alt mr-2"></i> Location
           </a>
-          <a href="#user" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg">
+          <a href="#user" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg my-1">
             <i class="fas fa-user mr-2"></i> User
           </a>
-          <a href="#category" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg">
+          <a href="#category" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg my-1">
             <i class="fas fa-list mr-2"></i> Category
           </a>
-          <a href="#role" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg">
+          <a href="#role" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg my-1">
             <i class="fas fa-user-tag mr-2"></i> Role
           </a>
-          <a href="#module" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg">
+          <a href="#module" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg my-1">
             <i class="fas fa-puzzle-piece mr-2"></i> Module
           </a>
-          <a href="#product" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg">
+          <a href="#product" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg my-1">
             <i class="fas fa-box-open mr-2"></i> Product
           </a>
-          <a href="#addons" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg">
+          <a href="#addons" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg my-1">
             <i class="fas fa-plus-circle mr-2"></i> Add-ons
           </a>
-          <a href="#uom-size" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg">
+          <a href="#uom-size" class="flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg my-1">
             <i class="fas fa-ruler-combined mr-2"></i> UOM/Size
           </a>
         </nav>
@@ -68,9 +79,23 @@
       </main>
  
     </div>
-
-    <footer class="w-full text-secondary-foreground mt-32 py-16 bg-blue-600 text-center">
-        <p class="pb-1">BSI Inventory System version 1.0.0</p>
-        <h2 class="text-xl font-bold text-slate-50">SETTING PAGE</h2>
-    </footer>
   </div>
+  <footer class="w-full text-secondary-foreground mt-10 py-8 bg-blue-600 text-center">
+    <p class="pb-1">BSI Inventory System version 1.0.0</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const profileDropdownToggle = document.getElementById('profileDropdownToggle');
+        const profileDropdown = document.getElementById('profileDropdown');
+  
+        profileDropdownToggle.addEventListener('click', function () {
+            profileDropdown.classList.toggle('hidden');
+        });
+        document.addEventListener('click', function (event) {
+            if (!profileDropdownToggle.contains(event.target)) {
+                profileDropdown.classList.add('hidden');
+            }
+        });
+    });
+  </script>

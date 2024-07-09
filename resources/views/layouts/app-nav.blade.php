@@ -82,19 +82,45 @@
 
 
 @vite('resources/css/app.css')
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const profileDropdownToggle = document.getElementById('profileDropdownToggle');
+      const profileDropdown = document.getElementById('profileDropdown');
+
+      profileDropdownToggle.addEventListener('click', function () {
+          profileDropdown.classList.toggle('hidden');
+      });
+      document.addEventListener('click', function (event) {
+          if (!profileDropdownToggle.contains(event.target)) {
+              profileDropdown.classList.add('hidden');
+          }
+      });
+  });
+</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<div class="min-h-screen bg-background text-foreground">
+<div class=" bg-background text-foreground">
   <header class="flex flex-row items-center space-x-4 mt-2">
     <div class="ml-5">
-      <img src="images/official_logo.png" alt="BSI Logo" class="h-10 w-12 rounded">
+        <img src="images/official_logo.png" alt="BSI Logo" class="h-10 w-12 rounded">
     </div>
     <div class="bg-primary p-3 shadow-md flex items-end justify-end flex-1">
-      <div class="space-x-2 items-end justify-end">
-        <h1 class="text-sm font-bold text-primary-foreground">BSI ADMIN</h1>
-      </div>
+        <div class="space-x-2 items-end justify-end">
+            <h1 class="text-sm font-bold text-primary-foreground">BSI ADMIN</h1>
+        </div>
     </div>
-    <div>
-      <img src="images/user.jpg" alt="Admin Profile" class="h-10 w-10 rounded-full mr-5">
+    <div class="relative">
+        <img src="images/user.jpg" alt="Admin Profile" class="h-10 w-10 rounded-full mr-5 cursor-pointer"
+            id="profileDropdownToggle">
+        <div id="profileDropdown"
+            class="hidden absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg border-2 border-green-500 z-10">
+            <div class="py-1">
+                <a href="dashboard" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Dashboard</a>
+                <a href="setting" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Settings</a>
+                <a href="account" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Account</a>
+                <a href="#" class="block px-5 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 border-2 border-green-500">Contact Admin</a>
+                <a href="logout" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Log Out</a>
+            </div>
+        </div>
     </div>
   </header>
   <div class="flex flex-col items-center py-6">
@@ -126,7 +152,7 @@
     </div>
     <div class="w-3/5 h-1 bg-gray-400 mt-2 rounded-sm"></div>
   </div>
-  <main class="py-4">
+  <main>
     @yield('content')
   </main>
 </div>

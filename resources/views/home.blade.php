@@ -280,7 +280,7 @@
 @endsection --}}
 @vite('resources/css/app.css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<div class="min-h-screen bg-background text-foreground">
+<div class="min-h-screen bg-background text-foreground flex flex-col">
     <header class="flex flex-row items-center space-x-4 mt-2">
         <div class="ml-5">
             <img src="images/official_logo.png" alt="BSI Logo" class="h-10 w-12 rounded">
@@ -431,27 +431,26 @@
                 </div>
             </div>
         </main>
-        </div>
-        <footer class="w-full bg-blue-600 text-white py-14 mt-2 text-center">
-            <p>BSI Inventory System version 1.0.0</p>
-          </footer>
-      </body>
+    <footer class="w-full bg-blue-600 text-white py-8 mt-14 text-center">
+        <p>BSI Inventory System version 1.0.0</p>
+    </footer>
+</div>
 
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const profileDropdownToggle = document.getElementById('profileDropdownToggle');
-            const profileDropdown = document.getElementById('profileDropdown');
-      
-            profileDropdownToggle.addEventListener('click', function () {
-                profileDropdown.classList.toggle('hidden');
-            });
-            document.addEventListener('click', function (event) {
-                if (!profileDropdownToggle.contains(event.target)) {
-                    profileDropdown.classList.add('hidden');
-                }
-            });
-        });
-      </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const profileDropdownToggle = document.getElementById('profileDropdownToggle');
+    const profileDropdown = document.getElementById('profileDropdown');
+
+    profileDropdownToggle.addEventListener('click', function () {
+        profileDropdown.classList.toggle('hidden');
+    });
+    document.addEventListener('click', function (event) {
+        if (!profileDropdownToggle.contains(event.target)) {
+            profileDropdown.classList.add('hidden');
+        }
+    });
+});
+</script>
       
 
 

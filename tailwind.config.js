@@ -39,6 +39,9 @@ module.exports = {
       fontFamily: {
         'times': ['"Times New Roman"', 'serif'],
       },
+      spacing: {
+        '22': '90px',
+      },
     },
   },
   plugins: [],

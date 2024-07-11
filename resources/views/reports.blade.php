@@ -57,9 +57,9 @@
 <div class="flex flex-col">
   <div class="flex flex-col flex-grow p-4 bg-background text-foreground">
     <div class="flex flex-col items-center flex-grow p-4">
-      <div class="w-4/5 bg-card text-card-foreground">
-        <div class="flex">
-          <div class="bg-white rounded-lg p-4 w-1/4 pr-4">
+      <div class="w-full lg:w-4/5 bg-card text-card-foreground">
+        <div class="flex flex-col lg:flex-row">
+          <div class="bg-white rounded-lg p-4 w-full lg:w-1/4 lg:pr-4 mb-4 lg:mb-0">
             <h2 class="text-xl font-bold mb-6 text-gray-800">Report Overview</h2>
             <ul class="space-y-2">
               <li class="flex items-center cursor-pointer text-primary hover:text-primary-700">
@@ -79,20 +79,20 @@
               </li>
             </ul>
           </div>
-          <div class="w-3/4">
-            <div class="flex items-center mb-6">
+          <div class="w-full lg:w-3/4">
+            <div class="flex flex-col lg:flex-row items-center mb-6">
               <label class="mr-2 font-semibold">Start Date:</label>
-              <input type="date" class="border border-input p-2 rounded-lg mr-4" />
-              <span class="mr-4 font-semibold">End Date:</span>
-              <input type="date" class="border border-input p-2 rounded-lg mr-4" />
-              <button class="bg-primary text-primary-foreground p-2 px-4 rounded-lg">SEARCH</button>
+              <input type="date" class="border border-input p-2 rounded-lg mb-4 lg:mb-0 lg:mr-4 w-full lg:w-auto" />
+              <label class="mr-2 font-semibold">End Date:</label>
+              <input type="date" class="border border-input p-2 rounded-lg mb-4 lg:mb-0 lg:mr-4 w-full lg:w-auto" />
+              <button class="bg-primary text-primary-foreground p-2 px-4 rounded-lg w-full lg:w-auto">SEARCH</button>
             </div>
-            <div class="flex">
-              <div class="w-1/2 pr-4">
-                <div id="columnchart_material" style="width: 600px; height: 400px;"></div>
+            <div class="flex flex-col lg:flex-row">
+              <div class="w-full lg:w-2/3 pr-0 lg:pr-4 mb-4 lg:mb-0">
+                <div id="columnchart_material" class="w-full" style="height: 400px;"></div>
               </div>
-              <div class="w-1/2">
-                <div id="piechart" style="width: 400px; height: 400px;"></div>
+              <div class="w-full lg:w-1/3">
+                <div id="piechart" class="w-full" style="height: 400px;"></div>
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 @vite('resources/css/app.css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <div class="min-h-screen flex flex-col bg-background text-foreground">
-  <header class="flex flex-row items-center space-x-4 mt-2">
+  <header class="flex flex-row items-center space-x-4 mt-2 flex-grow">
     <div class="ml-5">
         <img src="images/official_logo.png" alt="BSI Logo" class="h-10 w-12 rounded">
     </div>
@@ -29,84 +29,84 @@
   <div class="flex-grow">
     <div class="flex flex-col items-center py-6">
       <div class="flex space-x-2 -mt-10">
-        <a href="accounting" class="bg-yellow-400 text-blue-600 border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-6 py-2">
+        <a href="accounting" class="bg-yellow-400 text-blue-600 border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm">
           ACCOUNTING
         </a>
       </div>
-      <hr class=" w-10 h-1 bg-gray-400 mt-2 rounded-sm"></hr>
+      <hr class=" w-10 h-1 bg-gray-500 mt-2 rounded-sm"></hr>
     </div>
 
-    <div class="bg-background flex flex-col items-center mb-2">
-      <div class="flex justify-between items-center w-4/5">
-        <a href="#" class="bg-primary text-primary-foreground py-2 px-4 rounded-lg">CREATE</a>
-        <div class="relative">
-          <div class="flex items-center mb-4 bg-gray-200 rounded-lg shadow-lg px-3 py-2">
-            <label class="mr-2 font-semibold">Start Date:</label>
-            <input type="date" class="border border-input p-2 rounded-lg mr-4" />
-            <span class="mr-4 font-semibold">End Date:</span>
-            <input type="date" class="border border-input p-2 rounded-lg mr-4" />
-            <button class="bg-yellow-400 text-primary-foreground p-2 px-4 rounded-lg">SEARCH</button>
+    <div class="bg-background flex flex-col items-center mb-4">
+        <div class="flex flex-col sm:flex-row justify-between items-center w-full sm:w-4/5 px-4 sm:px-0">
+          <a href="#" class="bg-primary text-primary-foreground py-1 px-8 rounded-lg text-sm mb-4 sm:mb-0">CREATE</a>
+          <div class="relative w-full sm:w-auto">
+            <div class="flex flex-col sm:flex-row items-center bg-gray-100 rounded-lg shadow-lg px-2 py-1">
+              <label class="mr-1 font-semibold mb-2 sm:mb-0">Start Date:</label>
+              <input type="date" class="border border-input p-1 rounded-lg mr-2 text-sm w-full sm:w-auto mb-2 sm:mb-0" />
+              <span class="mr-2 font-semibold mb-2 sm:mb-0">End Date:</span>
+              <input type="date" class="border border-input p-1 rounded-lg mr-2 text-sm w-full sm:w-auto mb-2 sm:mb-0" />
+              <button class="bg-yellow-400 text-primary-foreground p-1 px-2 rounded-lg text-sm">SEARCH</button>
+            </div>
+          </div>
+        </div>
+      </div>        
+
+      <div class="bg-background text-foreground p-2 flex flex-col items-center justify-center">
+        <div class="w-full md:w-4/5">
+          <div class="flex flex-col md:flex-row gap-4 mb-6">
+            <div class="flex flex-col w-full md:w-1/3">
+              <div class="flex flex-col border-2 border-yellow-400 rounded-lg p-6 text-center bg-gradient-to-r shadow-lg mb-4 h-full">
+                <h2 class="text-lg font-semibold text-yellow-700 mb-2">TOTAL SALE AMOUNT</h2>
+                <div class="border-t-2 border-yellow-500 my-6"></div>
+                <p class="text-3xl font-bold text-yellow-900">123</p>
+              </div>
+              <div class="flex flex-col border-2 border-yellow-400 rounded-lg p-6 text-center bg-gradient-to-r shadow-lg h-full">
+                <h2 class="text-lg font-semibold text-yellow-700 mb-2">TOTAL ORDER AMOUNT</h2>
+                <div class="border-t-2 border-yellow-500 my-6"></div>
+                <p class="text-3xl font-bold text-yellow-900">123</p>
+              </div>
+            </div>
+            <div class="flex flex-col w-full md:w-1/3">
+              <div class="flex flex-col border-2 border-yellow-400 rounded-lg p-6 text-center bg-gradient-to-r shadow-lg mb-4 h-full">
+                <h2 class="text-lg font-semibold text-yellow-700 mb-2">TOTAL INCOME</h2>
+                <div class="border-t-2 border-yellow-500 my-6"></div>
+                <p class="text-2xl font-bold text-yellow-900">USD: 123</p>
+                <p class="text-2xl font-bold text-yellow-900">RIEL: 123</p>
+              </div>
+              <div class="flex flex-col border-2 border-yellow-400 rounded-lg p-6 text-center bg-gradient-to-r shadow-lg h-full">
+                <h2 class="text-lg font-semibold text-yellow-700 mb-2">TOTAL EXPENSE</h2>
+                <div class="border-t-2 border-yellow-500 my-6"></div>
+                <p class="text-2xl font-bold text-yellow-900">USD: 123</p>
+                <p class="text-2xl font-bold text-yellow-900">RIEL: 123</p>
+              </div>
+            </div>
+            <div class="flex flex-col w-full md:w-1/3">
+              <div class="flex flex-col border-2 border-yellow-400 rounded-lg p-6 text-center bg-gradient-to-r shadow-lg h-full">
+                <h2 class="text-lg font-semibold text-yellow-700 mb-2">TOTAL PROFIT</h2>
+                <div class="border-t-2 border-yellow-500 my-6"></div>
+                <div class="grid grid-cols-3 gap-6 text-center items-center">
+                  <div>
+                    <p class="text-3xl font-bold text-yellow-700">USD</p>
+                    <div class="border-t-2 border-yellow-500 my-6"></div>
+                    <p class="text-3xl font-bold text-yellow-900">123</p>
+                  </div>
+                  <div class="border-l-2 border-yellow-500 h-24 mx-auto mt-4"></div>
+                  <div>
+                    <p class="text-3xl font-bold text-yellow-700">RIEL</p>
+                    <div class="border-t-2 border-yellow-500 my-6"></div>
+                    <p class="text-3xl font-bold text-yellow-900">123</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="bg-background text-foreground p-2 flex flex-col items-center justify-center">
-      <div class="w-4/5">
-          <div class="flex flex-row gap-4 mb-6">
-              <div class="flex flex-col w-full md:w-1/3">
-                <div class="flex flex-col border-2 border-yellow-400 rounded-lg p-6 text-center bg-gradient-to-r shadow-lg mb-4 h-full transform hover:scale-105 transition-transform">
-                    <h2 class="text-lg font-semibold text-yellow-700 mb-2">TOTAL SALE AMOUNT</h2>
-                    <div class="border-t-2 border-yellow-500 my-6"></div>
-                    <p class="text-3xl font-bold text-yellow-900">123</p>
-                </div>
-                <div class="flex flex-col border-2 border-yellow-400 rounded-lg p-6 text-center bg-gradient-to-r shadow-lg h-full transform hover:scale-105 transition-transform">
-                    <h2 class="text-lg font-semibold text-yellow-700 mb-2">TOTAL ORDER AMOUNT</h2>
-                    <div class="border-t-2 border-yellow-500 my-6"></div>
-                    <p class="text-3xl font-bold text-yellow-900">123</p>
-                </div>
-            </div>
-            <div class="flex flex-col w-full md:w-1/3">
-                <div class="flex flex-col border-2 border-yellow-400 rounded-lg p-6 text-center bg-gradient-to-r shadow-lg mb-4 h-full transform hover:scale-105 transition-transform">
-                    <h2 class="text-lg font-semibold text-yellow-700 mb-2">TOTAL INCOME</h2>
-                    <div class="border-t-2 border-yellow-500 my-6"></div>
-                    <p class="text-2xl font-bold text-yellow-900">USD: 123</p>
-                    <p class="text-2xl font-bold text-yellow-900">RIEL: 123</p>
-                </div>
-                <div class="flex flex-col border-2 border-yellow-400 rounded-lg p-6 text-center bg-gradient-to-r shadow-lg h-full transform hover:scale-105 transition-transform">
-                    <h2 class="text-lg font-semibold text-yellow-700 mb-2">TOTAL EXPENSE</h2>
-                    <div class="border-t-2 border-yellow-500 my-6"></div>
-                    <p class="text-2xl font-bold text-yellow-900">USD: 123</p>
-                    <p class="text-2xl font-bold text-yellow-900">RIEL: 123</p>
-                </div>
-            </div>
-            <div class="flex flex-col w-full md:w-1/3">
-                <div class="flex flex-col border-2 border-yellow-400 rounded-lg p-6 text-center bg-gradient-to-r shadow-lg h-full transform hover:scale-105 transition-transform">
-                    <h2 class="text-lg font-semibold text-yellow-700 mb-2">TOTAL PROFIT</h2>
-                    <div class="border-t-2 border-yellow-500 my-6"></div>
-                    <div class="grid grid-cols-3 gap-6 text-center items-center">
-                        <div>
-                            <p class="text-3xl font-bold text-yellow-700">USA</p>
-                            <div class="border-t-2 border-yellow-500 my-6"></div>
-                            <p class="text-3xl font-bold text-yellow-900">123</p>
-                        </div>
-                        <div class="border-l-2 border-yellow-500 h-24 mx-auto mt-4"></div>
-                        <div>
-                            <p class="text-3xl font-bold text-yellow-700">RIEL</p>
-                            <div class="border-t-2 border-yellow-500 my-6"></div>
-                            <p class="text-3xl font-bold text-yellow-900">123</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>
-      </div>
-    </div>
+      
   </div>
   
-  <footer class="w-full text-secondary-foreground py-8 bg-blue-600 text-center">
-    <p class="pb-1">BSI Inventory System version 1.0.0</p>
-  </footer>
+  @include('layouts.footer')
+
 </div>
 
 

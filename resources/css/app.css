@@ -13,3 +13,17 @@ body {
     display: flex;
     flex-direction: column;
   }
+  
+  @media only screen and (max-width: 640px) {
+    #createButton{
+      margin-bottom: 8px !important;
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    #dashboard{
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+
+  

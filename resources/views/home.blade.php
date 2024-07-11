@@ -306,134 +306,132 @@
         </div>
     </header>
         <!-- Main content section -->
-        <main class="flex-grow flex items-center justify-center mt-4">
-            <div class="p-8 w-4/5 mx-auto">
-                <div class="grid grid-cols-4 gap-8">
-                    <!-- Dashboard -->
-                    <div class="flex flex-col items-center">
-                        <a href="/dashboard" class="flex flex-col items-center">
-                            <div class="h-28 w-28 border-4 border-yellow-400 rounded-md flex items-center justify-center">
-                                <i class="fas fa-chart-line text-6xl text-gray-500"></i>
-                            </div>
-                            <span class="mt-4 text-lg text-muted-foreground text-center">Dashboard</span>
-                        </a>
+        <main class="flex-grow flex items-center justify-center">
+            <div class="p-6 w-4/5 mx-auto">
+              <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Dashboard -->
+                <div class="flex flex-col mb-4 items-center">
+                  <a href="/dashboard" class="flex flex-col items-center">
+                    <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
+                      <i class="fas fa-chart-line text-6xl text-gray-500"></i>
                     </div>
-        
-                    <!-- Inventory -->
-                    <div class="flex flex-col items-center">
-                        <a href="/inventory" class="flex flex-col items-center">
-                            <div class="h-28 w-28 border-4 border-yellow-400 rounded-md flex items-center justify-center">
-                                <i class="fas fa-boxes text-6xl text-gray-500"></i>
-                            </div>
-                            <span class="mt-4 text-lg text-muted-foreground text-center">Inventory</span>
-                        </a>
-                    </div>
-        
-                    <!-- Suppliers -->
-                    <div class="flex flex-col items-center">
-                        <a href="/suppliers" class="flex flex-col items-center">
-                            <div class="h-28 w-28 border-4 border-yellow-400 rounded-md flex items-center justify-center">
-                                <i class="fas fa-truck text-6xl text-gray-500"></i>
-                            </div>
-                            <span class="mt-4 text-lg text-muted-foreground text-center">Suppliers</span>
-                        </a>
-                    </div>
-        
-                    <!-- Items -->
-                    <div class="flex flex-col items-center">
-                        <a href="/items" class="flex flex-col items-center">
-                            <div class="h-28 w-28 border-4 border-yellow-400 rounded-md flex items-center justify-center">
-                                <i class="fas fa-shopping-basket text-6xl text-gray-500"></i>
-                            </div>
-                            <span class="mt-4 text-lg text-muted-foreground text-center">Items</span>
-                        </a>
-                    </div>
-        
-                    <!-- Sales -->
-                    <div class="flex flex-col items-center">
-                        <a href="/sales" class="flex flex-col items-center">
-                            <div class="h-28 w-28 border-4 border-yellow-400 rounded-md flex items-center justify-center">
-                                <i class="fas fa-chart-bar text-6xl text-gray-500"></i>
-                            </div>
-                            <span class="mt-4 text-lg text-muted-foreground text-center">Sales</span>
-                        </a>
-                    </div>
-        
-                    <!-- Orders -->
-                    <div class="flex flex-col items-center">
-                        <a href="/orders" class="flex flex-col items-center">
-                            <div class="h-28 w-28 border-4 border-yellow-400 rounded-md flex items-center justify-center">
-                                <i class="fas fa-shopping-cart text-6xl text-gray-500"></i>
-                            </div>
-                            <span class="mt-4 text-lg text-muted-foreground text-center">Orders</span>
-                        </a>
-                    </div>
-        
-                    <!-- POS -->
-                    <div class="flex flex-col items-center">
-                        <a href="/pos" class="flex flex-col items-center">
-                            <div class="h-28 w-28 border-4 border-yellow-400 rounded-md flex items-center justify-center">
-                                <i class="fas fa-cash-register text-6xl text-gray-500"></i>
-                            </div>
-                            <span class="mt-4 text-lg text-muted-foreground text-center">POS</span>
-                        </a>
-                    </div>
-        
-                    <!-- Reports -->
-                    <div class="flex flex-col items-center">
-                        <a href="/reports" class="flex flex-col items-center">
-                            <div class="h-28 w-28 border-4 border-yellow-400 rounded-md flex items-center justify-center">
-                                <i class="fas fa-file-alt text-6xl text-gray-500"></i>
-                            </div>
-                            <span class="mt-4 text-lg text-muted-foreground text-center">Reports</span>
-                        </a>
-                    </div>
-        
-                    <!-- Products -->
-                    <div class="flex flex-col items-center">
-                        <a href="/products" class="flex flex-col items-center">
-                            <div class="h-28 w-28 border-4 border-yellow-400 rounded-md flex items-center justify-center">
-                                <i class="fas fa-cube text-6xl text-gray-500"></i>
-                            </div>
-                            <span class="mt-4 text-lg text-muted-foreground text-center">Products</span>
-                        </a>
-                    </div>
-        
-                    <!-- Add-ons -->
-                    <div class="flex flex-col items-center">
-                        <a href="/add-ons" class="flex flex-col items-center">
-                            <div class="h-28 w-28 border-4 border-yellow-400 rounded-md flex items-center justify-center">
-                                <i class="fas fa-puzzle-piece text-6xl text-gray-500"></i>
-                            </div>
-                            <span class="mt-4 text-lg text-muted-foreground text-center">Add-ons</span>
-                        </a>
-                    </div>
-        
-                    <!-- Accounting -->
-                    <div class="flex flex-col items-center">
-                        <a href="/accounting" class="flex flex-col items-center">
-                            <div class="h-28 w-28 border-4 border-yellow-400 rounded-md flex items-center justify-center">
-                                <i class="fas fa-calculator text-6xl text-gray-500"></i>
-                            </div>
-                            <span class="mt-4 text-lg text-muted-foreground text-center">Accounting</span>
-                        </a>
-                    </div>
-        
-                    <!-- Settings -->
-                    <div class="flex flex-col items-center">
-                        <a href="/setting" class="flex flex-col items-center">
-                            <div class="h-28 w-28 border-4 border-yellow-400 rounded-md flex items-center justify-center">
-                                <i class="fas fa-cog text-6xl text-gray-500"></i>
-                            </div>
-                            <span class="mt-4 text-lg text-muted-foreground text-center">Settings</span>
-                        </a>
-                    </div>
+                    <span class="mt-0 text-lg text-muted-foreground text-center">Dashboard</span>
+                  </a>
                 </div>
+            
+                <!-- Inventory -->
+                <div class="flex flex-col mb-4 items-center">
+                  <a href="/inventory" class="flex flex-col items-center">
+                    <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
+                      <i class="fas fa-boxes text-6xl text-gray-500"></i>
+                    </div>
+                    <span class="mt-0 text-lg text-muted-foreground text-center">Inventory</span>
+                  </a>
+                </div>
+            
+                <!-- Suppliers -->
+                <div class="flex flex-col mb-4 items-center">
+                  <a href="/suppliers" class="flex flex-col items-center">
+                    <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
+                      <i class="fas fa-truck text-6xl text-gray-500"></i>
+                    </div>
+                    <span class="mt-0 text-lg text-muted-foreground text-center">Suppliers</span>
+                  </a>
+                </div>
+            
+                <!-- Items -->
+                <div class="flex flex-col mb-4 items-center">
+                  <a href="/items" class="flex flex-col items-center">
+                    <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
+                      <i class="fas fa-shopping-basket text-6xl text-gray-500"></i>
+                    </div>
+                    <span class="mt-0 text-lg text-muted-foreground text-center">Items</span>
+                  </a>
+                </div>
+            
+                <!-- Sales -->
+                <div class="flex flex-col mb-4 items-center">
+                  <a href="/sales" class="flex flex-col items-center">
+                    <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
+                      <i class="fas fa-chart-bar text-6xl text-gray-500"></i>
+                    </div>
+                    <span class="mt-0 text-lg text-muted-foreground text-center">Sales</span>
+                  </a>
+                </div>
+            
+                <!-- Orders -->
+                <div class="flex flex-col mb-4 items-center">
+                  <a href="/orders" class="flex flex-col items-center">
+                    <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
+                      <i class="fas fa-shopping-cart text-6xl text-gray-500"></i>
+                    </div>
+                    <span class="mt-0 text-lg text-muted-foreground text-center">Orders</span>
+                  </a>
+                </div>
+            
+                <!-- POS -->
+                <div class="flex flex-col mb-4 items-center">
+                  <a href="/pos" class="flex flex-col items-center">
+                    <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
+                      <i class="fas fa-cash-register text-6xl text-gray-500"></i>
+                    </div>
+                    <span class="mt-0 text-lg text-muted-foreground text-center">POS</span>
+                  </a>
+                </div>
+            
+                <!-- Reports -->
+                <div class="flex flex-col mb-4 items-center">
+                  <a href="/reports" class="flex flex-col items-center">
+                    <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
+                      <i class="fas fa-file-alt text-6xl text-gray-500"></i>
+                    </div>
+                    <span class="mt-0 text-lg text-muted-foreground text-center">Reports</span>
+                  </a>
+                </div>
+            
+                <!-- Products -->
+                <div class="flex flex-col mb-4 items-center">
+                  <a href="/products" class="flex flex-col items-center">
+                    <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
+                      <i class="fas fa-cube text-6xl text-gray-500"></i>
+                    </div>
+                    <span class="mt-0 text-lg text-muted-foreground text-center">Products</span>
+                  </a>
+                </div>
+            
+                <!-- Add-ons -->
+                <div class="flex flex-col mb-4 items-center">
+                  <a href="/add-ons" class="flex flex-col items-center">
+                    <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
+                      <i class="fas fa-puzzle-piece text-6xl text-gray-500"></i>
+                    </div>
+                    <span class="mt-0 text-lg text-muted-foreground text-center">Add-ons</span>
+                  </a>
+                </div>
+            
+                <!-- Accounting -->
+                <div class="flex flex-col mb-4 items-center">
+                  <a href="/accounting" class="flex flex-col items-center">
+                    <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
+                      <i class="fas fa-calculator text-6xl text-gray-500"></i>
+                    </div>
+                    <span class="mt-0 text-lg text-muted-foreground text-center">Accounting</span>
+                  </a>
+                </div>
+            
+                <!-- Settings -->
+                <div class="flex flex-col mb-4 items-center">
+                  <a href="/setting" class="flex flex-col items-center">
+                    <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
+                      <i class="fas fa-cog text-6xl text-gray-500"></i>
+                    </div>
+                    <span class="mt-0 text-lg text-muted-foreground text-center">Settings</span>
+                  </a>
+                </div>
+              </div>
             </div>
         </main>
-    <footer class="w-full bg-blue-600 text-white py-8 mt-14 text-center">
-        <p>BSI Inventory System version 1.0.0</p>
-    </footer>
+        @include('layouts.footer')
 </div>
 
 <script>

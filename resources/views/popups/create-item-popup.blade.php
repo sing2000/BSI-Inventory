@@ -24,7 +24,10 @@
         </div>
         <div class="mb-6">
           <label for="itemImage" class="block text-lg font-medium text-gray-700 mb-1">Item Image</label>
-          <input type="file" id="itemImage" name="itemImage" class="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+          <div>
+            <button class="select-logo">Browse</button>
+            <input type='file' hidden>
+        </div>
         </div>
         <div class="text-center">
           <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">Save</button>

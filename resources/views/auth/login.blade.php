@@ -3,17 +3,17 @@
 @section('content')
 <div class="min-h-screen flex flex-col items-center justify-center bg-background text-foreground">
     <div class="flex-grow mt-24">
-        <div class="w-full max-w-3xl p-8 space-y-6 bg-card rounded-lg shadow-lg flex flex-col pb-6">
+        <div class="w-full max-w-3xl p-12 space-y-6 bg-card rounded-lg shadow-lg flex flex-col pb-6">
             <div class="flex justify-center mb-3">
                 <h1 class="text-2xl font-bold">INVENTORY MANAGEMENT SYSTEM</h1>
             </div>
-            <div class="flex flex-col sm:flex-row lg:items-center lg:justify-between">
+            <div class="flex flex-col sm:flex-row lg:items-center lg:justify-between p-4">
                 <div class="w-full flex flex-col items-center justify-center space-y-2 lg:w-1/2">
                     <img src="images/official_logo.png" alt="Company Logo" class="rounded-lg" style="max-width: 150px; height: auto;" />
                     <h2 class="text-lg font-semibold">HOMETOWN CAFÉ</h2>
                     <p class="text-muted-foreground">Address:</p>
                 </div>
-                <div class="w-full lg:w-1/2 sm:pl-4">
+                <div class="w-full lg:w-3/5 sm:pl-4">
                     <div class="w-full border border-border p-2 rounded-lg">
                         <h3 class="text-center text-lg font-semibold pb-2">User Information</h3>
                         <form class="space-y-2" method="POST" action="{{ route('login') }}">
@@ -41,9 +41,7 @@
             </div>
         </div>
     </div>
-    
     @include('layouts.footer')
-
 </div>
 
 @endsection

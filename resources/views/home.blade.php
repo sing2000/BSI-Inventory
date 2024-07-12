@@ -19,12 +19,12 @@
             <img src="images/user.jpg" alt="Admin Profile" class="h-10 w-10 rounded-full mr-5 cursor-pointer"
                 id="profileDropdownToggle">
             <div id="profileDropdown"
-                class="hidden absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg border-2 border-green-500 z-10">
+                class="hidden absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg border-2 border-yellow-400 z-10">
                 <div class="py-1">
                     <a href="dashboard" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Dashboard</a>
                     <a href="setting" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Settings</a>
                     <a href="account" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Account</a>
-                    <a href="#" class="block px-5 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 border-2 border-green-500">Contact Admin</a>
+                    <a href="#" class="block px-5 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 border-b-2 border-yellow-400" id="editProfile">Profile</a>
                     <a class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
@@ -36,6 +36,7 @@
                 </div>
             </div>
         </div>
+      @include('popups.edit-profile-popup')
     </header>
         <!-- Main content section -->
         <main class="flex-grow flex items-center justify-center">
@@ -45,7 +46,7 @@
                 <div class="flex flex-col mb-4 items-center">
                   <a href="/dashboard" class="flex flex-col items-center">
                     <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                      <i class="fas fa-chart-line text-6xl text-gray-500"></i>
+                      <i class="fas fa-chart-line text-6xl text-gray-700"></i>
                     </div>
                     <span class="mt-0 text-lg text-muted-foreground text-center">Dashboard</span>
                   </a>
@@ -55,7 +56,7 @@
                 <div class="flex flex-col mb-4 items-center">
                   <a href="/inventory" class="flex flex-col items-center">
                     <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                      <i class="fas fa-boxes text-6xl text-gray-500"></i>
+                      <i class="fas fa-boxes text-6xl text-gray-700"></i>
                     </div>
                     <span class="mt-0 text-lg text-muted-foreground text-center">Inventory</span>
                   </a>
@@ -65,7 +66,7 @@
                 <div class="flex flex-col mb-4 items-center">
                   <a href="/suppliers" class="flex flex-col items-center">
                     <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                      <i class="fas fa-truck text-6xl text-gray-500"></i>
+                      <i class="fas fa-truck text-6xl text-gray-700"></i>
                     </div>
                     <span class="mt-0 text-lg text-muted-foreground text-center">Suppliers</span>
                   </a>
@@ -75,7 +76,7 @@
                 <div class="flex flex-col mb-4 items-center">
                   <a href="/items" class="flex flex-col items-center">
                     <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                      <i class="fas fa-shopping-basket text-6xl text-gray-500"></i>
+                      <i class="fas fa-shopping-basket text-6xl text-gray-700"></i>
                     </div>
                     <span class="mt-0 text-lg text-muted-foreground text-center">Items</span>
                   </a>
@@ -85,7 +86,7 @@
                 <div class="flex flex-col mb-4 items-center">
                   <a href="/sales" class="flex flex-col items-center">
                     <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                      <i class="fas fa-chart-bar text-6xl text-gray-500"></i>
+                      <i class="fas fa-chart-bar text-6xl text-gray-700"></i>
                     </div>
                     <span class="mt-0 text-lg text-muted-foreground text-center">Sales</span>
                   </a>
@@ -95,7 +96,7 @@
                 <div class="flex flex-col mb-4 items-center">
                   <a href="/orders" class="flex flex-col items-center">
                     <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                      <i class="fas fa-shopping-cart text-6xl text-gray-500"></i>
+                      <i class="fas fa-shopping-cart text-6xl text-gray-700"></i>
                     </div>
                     <span class="mt-0 text-lg text-muted-foreground text-center">Orders</span>
                   </a>
@@ -105,7 +106,7 @@
                 <div class="flex flex-col mb-4 items-center">
                   <a href="/pos" class="flex flex-col items-center">
                     <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                      <i class="fas fa-cash-register text-6xl text-gray-500"></i>
+                      <i class="fas fa-cash-register text-6xl text-gray-700"></i>
                     </div>
                     <span class="mt-0 text-lg text-muted-foreground text-center">POS</span>
                   </a>
@@ -115,7 +116,7 @@
                 <div class="flex flex-col mb-4 items-center">
                   <a href="/reports" class="flex flex-col items-center">
                     <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                      <i class="fas fa-file-alt text-6xl text-gray-500"></i>
+                      <i class="fas fa-file-alt text-6xl text-gray-700"></i>
                     </div>
                     <span class="mt-0 text-lg text-muted-foreground text-center">Reports</span>
                   </a>
@@ -125,7 +126,7 @@
                 <div class="flex flex-col mb-4 items-center">
                   <a href="/products" class="flex flex-col items-center">
                     <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                      <i class="fas fa-cube text-6xl text-gray-500"></i>
+                      <i class="fas fa-cube text-6xl text-gray-700"></i>
                     </div>
                     <span class="mt-0 text-lg text-muted-foreground text-center">Products</span>
                   </a>
@@ -135,7 +136,7 @@
                 <div class="flex flex-col mb-4 items-center">
                   <a href="/add-ons" class="flex flex-col items-center">
                     <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                      <i class="fas fa-puzzle-piece text-6xl text-gray-500"></i>
+                      <i class="fas fa-puzzle-piece text-6xl text-gray-700"></i>
                     </div>
                     <span class="mt-0 text-lg text-muted-foreground text-center">Add-ons</span>
                   </a>
@@ -145,7 +146,7 @@
                 <div class="flex flex-col mb-4 items-center">
                   <a href="/accounting" class="flex flex-col items-center">
                     <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                      <i class="fas fa-calculator text-6xl text-gray-500"></i>
+                      <i class="fas fa-calculator text-6xl text-gray-700"></i>
                     </div>
                     <span class="mt-0 text-lg text-muted-foreground text-center">Accounting</span>
                   </a>
@@ -155,7 +156,7 @@
                 <div class="flex flex-col mb-4 items-center">
                   <a href="/setting" class="flex flex-col items-center">
                     <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                      <i class="fas fa-cog text-6xl text-gray-500"></i>
+                      <i class="fas fa-cog text-6xl text-gray-700"></i>
                     </div>
                     <span class="mt-0 text-lg text-muted-foreground text-center">Settings</span>
                   </a>

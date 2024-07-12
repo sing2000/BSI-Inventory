@@ -5,14 +5,14 @@
 <div class="min-h-screen flex flex-col bg-background text-foreground">
     <header class="flex flex-row items-center space-x-4 mt-2">
       <div class="ml-5">
-        <div class="ml-5">
+        <div class="ml-0">
           @if(Auth::check() && Auth::user()->invshop && Auth::user()->invshop->S_logo)
               <img src="{{ asset('storage/' . Auth::user()->invshop->S_logo) }}" alt="Shop Logo" class="h-10 w-12 rounded">
           @else
               <img src="{{ asset('images/official_logo.png') }}" alt="Default Logo" class="h-10 w-12 rounded">
           @endif
-      </div>
-    </div>
+        </div>
+       </div>
 
       <div class="bg-primary p-3 shadow-md flex items-end justify-end flex-1">
           <div class="space-x-2 items-end justify-end">
@@ -26,7 +26,7 @@
                 <a href="dashboard" class="block px-4 py-2 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Dashboard</a>
                 <a href="setting" class="block px-4 py-2 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Settings</a>
                 <a href="account" class="block px-4 py-2 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Account</a>
-                <a href="#" class="block px-5 py-3 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 border-2 border-yellow-400">Contact Admin</a>
+                <a href="#" class="block px-5 py-3 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 border-b-2 border-yellow-400" id="editProfile">Profile</a>
                 <a class="block px-4 py-2 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -37,7 +37,8 @@
                 </form>
             </div>
         </div>
-      </div>
+    </div>
+    @include('popups.edit-profile-popup')
     </header>
 
     <div class="flex flex-col items-center py-6 -mb-4 -mt-10 flex-grow">

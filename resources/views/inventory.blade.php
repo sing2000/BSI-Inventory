@@ -9,11 +9,11 @@
           CREATE
           <i class="fas fa-caret-down ml-2"></i>
         </button>
-        <div id="dropdownMenu" class="absolute left-1 mt-4 w-60 bg-white rounded-md shadow-lg border-2 border-yellow-400 hidden z-10">
-          <a href="#" id="createSupplier" class="block px-6 py-3 text-gray-700 text-lg hover:bg-gray-100 hover:text-blue-600 transition duration-150 ease-in-out border-b">Supplier</a>
-          <a href="#" id="createItem" class="block px-6 py-3 text-gray-700 text-lg hover:bg-gray-100 hover:text-blue-600 transition duration-150 ease-in-out border-b">Item</a>
-          <a href="#" id="createOrder" class="block px-6 py-3 text-gray-700 text-lg hover:bg-gray-100 hover:text-blue-600 transition duration-150 ease-in-out">Order</a>
-        </div>      
+        <div id="dropdownMenu" class="absolute left-1 mt-2 w-60 bg-gray-300 rounded-md shadow-lg border-2 border-yellow-400 hidden z-10">
+          <a href="#" id="createSupplier" class="block px-6 py-2 text-blue-700 text-lg hover:bg-yellow-400 hover:text-blue-800 transition duration-150 ease-in-out border-b-2 border-yellow-400">Supplier</a>
+          <a href="#" id="createItem" class="block px-6 py-2 text-blue-700 text-lg hover:bg-yellow-400 hover:text-blue-800 transition duration-150 ease-in-out border-b-2 border-yellow-400">Item</a>
+          <a href="#" id="createOrder" class="block px-6 py-2 text-blue-700 text-lg hover:bg-yellow-400 hover:text-blue-800 transition duration-150 ease-in-out">Order</a>
+        </div>
       </div>
       <div class="relative flex w-full md:w-auto">
         <form id="searchForm" method="GET" class="w-full md:w-auto flex items-center">

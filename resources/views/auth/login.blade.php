@@ -18,7 +18,7 @@
                         <h3 class="text-center text-lg font-semibold pb-2">User Information</h3>
                         <form class="space-y-2" method="POST" action="{{ route('login') }}">
                             @csrf
-                            <input id="U_name" type="U_name" class="form-control @error('U_name') is-invalid @enderror" name="U_name" value="{{ old('U_name') }}" required placeholder="U_name" autocomplete="U_name" autofocus>
+                            <input id="U_name" type="U_name" class="form-control @error('U_name') is-invalid @enderror" name="U_name" value="{{ old('U_name') }}" required placeholder="user name" autocomplete="U_name" autofocus>
 
                             @error('U_name')
                                 <span class="invalid-feedback" role="alert">

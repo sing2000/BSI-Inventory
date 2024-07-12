@@ -9,7 +9,7 @@
           CREATE
           <i class="fas fa-caret-down ml-2"></i>
         </button>
-        <div id="dropdownMenu" class="absolute left-1 mt-4 w-60 bg-white rounded-md shadow-lg border-2 border-green-400 hidden z-10">
+        <div id="dropdownMenu" class="absolute left-1 mt-4 w-60 bg-white rounded-md shadow-lg border-2 border-yellow-400 hidden z-10">
           <a href="#" id="createSupplier" class="block px-6 py-3 text-gray-700 text-lg hover:bg-gray-100 hover:text-blue-600 transition duration-150 ease-in-out border-b">Supplier</a>
           <a href="#" id="createItem" class="block px-6 py-3 text-gray-700 text-lg hover:bg-gray-100 hover:text-blue-600 transition duration-150 ease-in-out border-b">Item</a>
           <a href="#" id="createOrder" class="block px-6 py-3 text-gray-700 text-lg hover:bg-gray-100 hover:text-blue-600 transition duration-150 ease-in-out">Order</a>

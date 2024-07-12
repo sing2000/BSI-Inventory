@@ -8,8 +8,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        bsicolor: {
+          DEFAULT: '#FF6608',
+        },
         primary: {
-          DEFAULT: '#3490dc', // Default primary color
+          DEFAULT: '#0066CB', // Default primary color
           foreground: '#ffffff', // Foreground color for primary
           // Add more shades if needed
           100: '#ebf8ff',

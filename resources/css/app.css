@@ -26,4 +26,12 @@ body {
     }
   }
 
+  @media only screen and (max-width: 768px) {
+    #createButton{
+      margin-bottom: 8px !important;
+    }
+  }
   
+  #logout-form{
+    margin-top: -15px;
+  }

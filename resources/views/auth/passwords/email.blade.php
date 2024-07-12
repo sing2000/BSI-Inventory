@@ -14,16 +14,16 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <form method="POST" action="{{ route('password.U_name') }}">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <label for="U_name" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="U_name" type="U_name" class="form-control @error('U_name') is-invalid @enderror" name="U_name" value="{{ old('U_name') }}" required autocomplete="U_name" autofocus>
 
-                                @error('email')
+                                @error('U_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

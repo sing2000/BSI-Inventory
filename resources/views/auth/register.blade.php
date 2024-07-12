@@ -7,40 +7,48 @@
         <div class="row">
             <!-- Shop Information Section -->
             <div class="col-md-6 form-section" >
-                <h4><strong> INFORMATION SECTION:</strong></h4>
+                <h4><strong>SHOP INFORMATION SECTION:</strong></h4>
                 <div class="form-group">
-                    <label for="s_name">Name:</label>
-                    <input type="text" class="form-control" id="s_name" name="s_name" placeholder="Name of your shop" required>
+                    <label for="S_name">Shop Name:</label>
+                    <input type="text" class="form-control" id="S_name" name="S_name"  value="{{ old('S_name') }}" placeholder="Name of your shop" required>
                 </div>
                 <div class="form-group">
-                    <label for="s_address">Address:</label>
-                    <input type="text" class="form-control" id="s_address" name="s_address" placeholder="Shop address" required>
+                    <label for="L_address">Address:</label>
+                    <input type="text" class="form-control" id="L_address" name="L_address" placeholder="Shop address" required>
                 </div>
                 <div class="form-group">
-                    <label for="s_logo">Logo:</label>
+                    <label for="L_name">Location Name:</label>
+                    <input type="text" class="form-control" id="L_name" name="L_name"  value="{{ old('L_name') }}" placeholder="Location name " required>
+                </div>
+                <div class="form-group">
+                    <label for="L_contact">Location Contact:</label>
+                    <input type="text" class="form-control" id="L_contact" name="L_contact"  value="{{ old('L_contact') }}" placeholder="Location Contact" required>
+                </div>
+                <div class="form-group">
+                    <label for="S_logo">Logo:</label>
                     <div>
-                        <button class="select-logo" onclick="document.getElementById('s_logo').click()">Browse</button>
-                        <input type='file' id="s_logo" name="s_logo" style="display:none">
+                        <button class="select-logo" onclick="document.getElementById('S_logo').click()">Browse</button>
+                        <input type='file' id="S_logo" name="S_logo" style="display:none">
                     </div>
                 </div>
                   <!-- owner Information Section -->
                   <div class="pt-4">
                     <h4><strong> INFORMATION SECTION:</strong></h4>
                     <div class="form-group">
-                        <label for="o_name">Name:</label>
-                        <input type="text" class="form-control" id="o_name" name="o_name" placeholder="Owner's name" required>
+                        <label for="O_name">Name:</label>
+                        <input type="text" class="form-control" id="O_name" name="O_name"  value="{{ old('O_name') }}" placeholder="Owner's name" required>
                     </div>
                     <div class="form-group">
-                        <label for="o_email">Email:</label>
-                        <input type="email" class="form-control" id="o_email" name="o_email" placeholder="Email address" required>
+                        <label for="O_email">Email:</label>
+                        <input type="email" class="form-control" id="O_email" name="O_email" value="{{ old('O_email') }}" placeholder="Email address" required>
                     </div>
                     <div class="form-group">
-                        <label for="o_contact">Phone:</label>
-                        <input type="text" class="form-control" id="o_contact" name="o_contact" placeholder="Owner's contact number" required>
+                        <label for="O_contact">Phone:</label>
+                        <input type="text" class="form-control" id="O_contact" name="O_contact" value="{{ old('O_contact') }}" placeholder="Owner's contact number" required>
                     </div>
                     <div class="form-group">
-                        <label for="o_address">Address:</label>
-                        <input type="text" class="form-control" id="o_address" name="o_address" placeholder="Owner's address" required>
+                        <label for="O_address">Address:</label>
+                        <input type="text" class="form-control" id="O_address" name="O_address" value="{{ old('O_address') }}" placeholder="Owner's address" required>
                     </div>
                 </div>
             </div>
@@ -48,30 +56,21 @@
             <div class="col-md-6 form-section">
                 <h4><strong>USER SECTION:</strong></h4>
                 <div class="form-group">
-                    <label for="user_name">Name:</label>
-                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Owner's name" required autocomplete="name" autofocus>
-                    @error('name')
+                    <label for="U_name">Name:</label>
+                    <input id="U_name" type="text" class="form-control @error('U_name') is-invalid @enderror" name="U_name" value="{{ old('U_name') }}" placeholder="User's name" required autocomplete="U_name" autofocus>
+                    @error('U_name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="user_email">Email:</label>
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email address" required autocomplete="email">
-                    @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                    <label for="U_contact">Phone:</label>
+                    <input type="text" class="form-control" id="U_contact" name="U_contact" value="{{ old('U_contact') }}" placeholder="09283774" required>
                 </div>
                 <div class="form-group">
-                    <label for="user_phone">Phone:</label>
-                    <input type="text" class="form-control" id="phone" name="phone" placeholder="09283774" required>
-                </div>
-                <div class="form-group">
-                    <label for="system_name">System Name:</label>
-                    <input type="text" class="form-control" id="system_name" name="system_name" placeholder="System Name" required>
+                    <label for="sys_name">System Name:</label>
+                    <input type="text" class="form-control" id="sys_name" name="sys_name" value="{{ old('sys_name') }}" placeholder="System Name" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
@@ -87,8 +86,13 @@
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm password" required autocomplete="new-password">
                 </div>
                 <div class="form-group">
-                    <label for="system_role">System Role:</label>
-                    <input type="text" class="form-control" id="system_role" name="system_role" placeholder="ADMIN" required>
+                    <label for="R_id">System Role:</label>
+                    <select class="form-control" id="R_id" name="R_id" required>
+                        <option value="" disabled selected>Select a role</option>
+                        @foreach ($invRole as $role)
+                            <option value="{{ $role->R_id }}">{{ $role->R_type }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="submit-button pt-4">
                     <button type="submit" class="btn btn-primary">SUBMIT</button>

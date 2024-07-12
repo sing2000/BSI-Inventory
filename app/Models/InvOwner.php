@@ -9,13 +9,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class InvOwner extends Model
 {
     use HasFactory;
+
     protected $table = 'inv_owner';
+    public $timestamps = false;
+    protected $primaryKey = 'O_id';
+    public $incrementing = true;
+    protected $keyType = 'int'; 
     protected $fillable = [
-        'o_name',
-        'o_email',
-        'o_contact',
-        'o_address',
-        'status',
+        'O_name',
+        'O_contact',
+        'O_email',
+        'O_address',
+        'status'
     ];
     public function invShop()
     {

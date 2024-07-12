@@ -2,30 +2,45 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Models\Invshop;
-use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'inv_user';
+
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'U_id'; // Specify your primary key column name
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+    public $timestamps = false;
     protected $fillable = [
-        'name',
-        'email',
+        'U_name',
+        'U_id',
+        'U_photo',
         'password',
-        'phone',
-        'system_role',
-        'system_name',
-        's_id'
+        'U_contact',
+        'sys_name',
+        'S_id',
+        'status',
+        'R_id',
     ];
 
     /**
@@ -46,8 +61,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function Invshop()
+
+    /**
+     * Get the invshop that owns the user.
+     */
+    public function invshop()
     {
-        return $this->belongsTo(Invshop::class);  
+        return $this->belongsTo(Invshop::class, 'S_id', 'S_id');
     }
 }

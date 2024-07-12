@@ -10,12 +10,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Invshop extends Model
 {
     use HasFactory;
+
     protected $table = 'inv_shop';
+    public $timestamps = false;
+    protected $primaryKey = 'S_id';
+    public $incrementing = true;
+    protected $keyType = 'int'; 
     protected $fillable = [
-        's_name',
-        's_address',
-        's_logo',
-        'o_id',
+        'S_name',
+        'S_logo',
+        'O_id',
         'status',
     ];
     public function InvOwner()

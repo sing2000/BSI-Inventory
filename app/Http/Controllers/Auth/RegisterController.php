@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\InvRole;
 use App\Models\Invshop;
 use App\Models\InvOwner;
+use App\Models\InvLocation;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
@@ -51,23 +53,27 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // dd($data);
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+
+            'U_name' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'system_name' => ['required', 'string', 'max:255'],
-            'system_role' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
-
-            //inventory shop
-            's_name' => ['required', 'string', 'max:255'],
-            's_address' => ['required', 'string', 'max:255'],
-            's_logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
+            'sys_name' => ['required', 'string', 'max:255'],
+            'U_contact' => ['required', 'string', 'max:255'],
+            'R_id' => ['required', 'string', 'max:255'],
+            
+            //inventory shop``
+            'S_name' => ['required', 'string', 'max:255'],
+            'S_logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
             //owner 
-            'o_name' => ['required', 'string', 'max:255'],
-            'o_email' => ['required', 'string', 'email', 'max:255'],            'o_contact' => ['required', 'string', 'max:255'],
-            'o_address' => ['required', 'string', 'max:255'],
-
+            'O_name' => ['required', 'string', 'max:255'],
+            'O_email' => ['required', 'string', 'email', 'max:255'],            
+            'O_contact' => ['required', 'string', 'max:255'],
+            'O_address' => ['required', 'string', 'max:255'],
+            //Location
+            'L_name' => ['required', 'string', 'max:255'],
+            'L_address' => ['required', 'string', 'max:255'],
+            'L_contact' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -80,32 +86,45 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $logoPath = null;
-        if (isset($data['s_logo']) && $data['s_logo']->isValid()) {
-            $logo = $data['s_logo'];
-            $logoPath = $logo->store('public/logos');
+        if (isset($data['S_logo']) && $data['S_logo']->isValid()) {
+            $logo = $data['S_logo'];
+            $logoPath = $logo->store('logos', 'public'); // Store under 'public/storage/logos'
         }
-    
+        
         $owner = InvOwner::create([
-            'o_name' => $data['s_name'],
-            'o_email' => $data['o_email'],
-            'o_contact' => $data['o_contact'],
-            'o_address' => $data['o_address'],
+            'O_name' => $data['O_name'],
+            'O_email' => $data['O_email'],
+            'O_contact' => $data['O_contact'],
+            'O_address' => $data['O_address'],
         ]);
+
         $invshop = Invshop::create([
-            's_name' => $data['s_name'],
-            's_address' => $data['s_address'],
-            'o_id' => $owner->id, 
-            's_logo' => $logoPath,
+            'S_name' => $data['S_name'],
+            'O_id' => $owner->O_id, 
+            'S_logo' => $logoPath,
+        ]);
+        $InvLocation = InvLocation::create([
+            'S_id' => $invshop->S_id,
+            'L_name' => $data['L_name'],
+            'L_address' => $data['L_address'],
+            'L_contact' => $data['L_contact'],
+            'status' => '',
         ]);
         $user = User::create([
-            'name' => $data['name'],
-            'system_name' => $data['system_name'],
-            'system_role' => $data['system_role'],
-            'phone' => $data['phone'],
-            'email' => $data['email'],
+            'U_name' => $data['U_name'],
+            'R_id' => $data['R_id'],
+            'U_contact' => $data['U_contact'],
+            'sys_name' => $data['sys_name'],
             'password' => Hash::make($data['password']),
-            's_id' => $invshop->id, 
+            'S_id' => $invshop->S_id, 
+            'U_photo' => '',
+            'status' => '',
         ]);
         return $user;
+    }
+    public function showRegistrationForm()
+    {
+        $invRole = InvRole::all(); 
+        return view('auth.register', compact('invRole')); 
     }
 }

@@ -16,6 +16,7 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\SuppliersController;
 use App\Http\Controllers\AccountingController;
 use App\Http\Controllers\Vending_maController;
+use App\Http\Controllers\Auth\RegisterController;
 
 
 /*
@@ -32,7 +33,6 @@ use App\Http\Controllers\Vending_maController;
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
 //home page
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -60,3 +60,5 @@ Route::get('/setting', [SettingController::class, 'index'])->name('setting');
 Route::get('/products', [ProductsController::class, 'index'])->name('products');
 //add-ons page
 Route::get('/add-ons', [AddonsController::class, 'index'])->name('add-ons');
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);

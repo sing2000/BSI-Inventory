@@ -1,293 +1,18 @@
-{{-- @extends('layouts.app-nav')
 
-@section('content')
-    <div class="content">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-3 mt-5">
-                    <a href="{{ route('dashboard') }}" class="card-link">
-                    <div class="card">
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="icon-big text-center">
-                                        <img src="images/dashboard.svg" class="imag-svg" alt="logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <div class="content">
-                        <div class="row">
-                            <div class=" text-center">
-                                <p class="text-muted"><strong>Dashboard</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-3 mt-5">
-                    <a href="{{ route('dashboard') }}" class="card-link">
-                    <div class="card">
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="icon-big text-center">
-                                        <img src="images/stock.svg" class="imag-svg" alt="logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <div class="content">
-                        <div class="row">
-                            <div class=" text-center">
-                                <p class="text-muted"><strong>Inventory</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-3 mt-5">
-                    <a href="{{ route('suppliers') }}" class="card-link">
-                    <div class="card">
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="icon-big text-center">
-                                        <img src="images/supplier-icon.svg" class="imag-svg" alt="logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <div class="content">
-                        <div class="row">
-                            <div class=" text-center">
-                                <p class="text-muted"><strong>Suppliers</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-3 mt-5">
-                    <a href="{{ route('suppliers') }}" class="card-link">
-                    <div class="card">
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="icon-big text-center">
-                                        <img src="images/box-1.svg" class="imag-svg" alt="logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <div class="content">
-                        <div class="row">
-                            <div class=" text-center">
-                                <p class="text-muted"><strong>Items</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-3 mt-5">
-                    <a href="{{ route('sales') }}" class="card-link">
-                    <div class="card">
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="icon-big text-center">
-                                        <img src="images/investment-analysis-icon.svg" class="imag-svg" alt="logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <div class="content">
-                        <div class="row">
-                            <div class=" text-center">
-                                <p class="text-muted"><strong>Sales</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-3 mt-5">
-                    <a href="{{ route('orders') }}" class="card-link">
-                    <div class="card">
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="icon-big text-center">
-                                       <img src="images/orders-icon.svg" class="imag-svg" alt="logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a> 
-                    <div class="content">
-                        <div class="row">
-                            <div class=" text-center">
-                                <p class="text-muted"><strong>Orders</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-3 mt-5">
-                    <a href="{{ route('pos') }}" class="card-link">
-                    <div class="card">
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="icon-big text-center">
-                                        <img src="images/cashier-icon.svg" class="imag-svg" alt="logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <div class="content">
-                        <div class="row">
-                            <div class=" text-center">
-                                <p class="text-muted"><strong>POS</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-3 mt-5">
-                    <a href="{{ route('reports') }}" class="card-link">
-                    <div class="card">
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="icon-big text-center">
-                                        <img src="images/online-ads-report-icon.svg" class="imag-svg" alt="logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <div class="content">
-                        <div class="row">
-                            <div class=" text-center">
-                                <p class="text-muted"><strong>Reports</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-3 mt-5">
-                    <a href="{{ route('products') }}" class="card-link">
-                    <div class="card">
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="icon-big text-center">
-                                        <img src="images/goods-contents-icon.svg" class="imag-svg" alt="logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <div class="content">
-                        <div class="row">
-                            <div class=" text-center">
-                                <p class="text-muted"><strong>Products</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-3 mt-5">
-                    <a href="{{ route('add-ons') }}" class="card-link">
-                    <div class="card">
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="icon-big text-center">
-                                        <img src="images/puzzle-icon.svg" class="imag-svg" alt="logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <div class="content">
-                        <div class="row">
-                            <div class=" text-center">
-                                <p class="text-muted"><strong>Add-ons</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-3 mt-5">
-                    <a href="{{ route('accounting') }}" class="card-link">
-                    <div class="card">
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="icon-big text-center">
-                                        <img src="images/ledger-icon.svg" class="imag-svg" alt="logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <div class="content">
-                        <div class="row">
-                            <div class=" text-center">
-                                <p class="text-muted"><strong>Accounting</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-3 mt-5">
-                    <div class="card">
-                        <a href="{{ route('setting') }}" class="card-link">
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="icon-big text-center">
-                                        <img src="images/setting-icon.svg" class="imag-svg" alt="logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-                    <div class="content">
-                        <div class="row">
-                            <div class=" text-center">
-                                <p class="text-muted"><strong>Setting</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="{{ asset('assets/vendor/chartsjs/Chart.min.js') }}"></script>
-    <script src="{{ asset('assets/js/dashboard-charts.js') }}"></script>
-@endsection --}}
 @vite('resources/css/app.css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <div class="min-h-screen bg-background text-foreground flex flex-col">
     <header class="flex flex-row items-center space-x-4 mt-2">
         <div class="ml-5">
-            <img src="images/official_logo.png" alt="BSI Logo" class="h-10 w-12 rounded">
+            @if(Auth::check() && Auth::user()->invshop && Auth::user()->invshop->S_logo)
+            <img src="{{ asset('storage/' . Auth::user()->invshop->S_logo) }}" alt="Shop Logo" class="h-10 w-12 rounded">
+        @else
+            <img src="{{ asset('images/official_logo.png') }}" alt="Default Logo" class="h-10 w-12 rounded">
+        @endif
         </div>
         <div class="bg-primary p-3 shadow-md flex items-end justify-end flex-1">
             <div class="space-x-2 items-end justify-end">
-                <h1 class="text-sm font-bold text-primary-foreground">BSI ADMIN</h1>
+                <h1 class="text-sm font-bold text-primary-foreground">{{ Auth::user()->U_name }}</h1>
             </div>
         </div>
         <div class="relative">
@@ -300,7 +25,14 @@
                     <a href="setting" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Settings</a>
                     <a href="account" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Account</a>
                     <a href="#" class="block px-5 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 border-2 border-green-500">Contact Admin</a>
-                    <a href="logout" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Log Out</a>
+                    <a class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                     {{ __('Logout') }}
+                 </a>
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                     @csrf
+                 </form>
                 </div>
             </div>
         </div>

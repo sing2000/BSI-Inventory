@@ -1,15 +1,15 @@
 @extends('layouts.app-nav')
 @section('content')
 
-<div class="flex justify-center items-center mt-8">
-  <div class="p-4 grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:w-4/5 mb-16 mt-1">
+<div class="flex justify-center items-center mt-4">
+    <div id="dashboard" class="p-2 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8 w-full mb-14 mt-1 lg:w-4/5">
       <div class="w-full md:w-auto">
-          <div class="border-2 border-yellow-500 rounded-lg p-12 text-center shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform">
+          <div class="border-2 border-yellow-500 rounded-lg p-12 text-center shadow-lg">
               <h2 class="text-xl font-bold text-yellow-700 mb-2">DAILY SALE</h2>
               <div class="border-t-2 border-yellow-500 my-6 mt-1"></div>
               <p class="text-xl font-bold text-yellow-900">123</p>
           </div>
-          <div class="border-2 border-yellow-500 rounded-lg p-10 text-center mt-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform">
+          <div class="border-2 border-yellow-500 rounded-lg p-10 text-center mt-4 shadow-lg">
               <h2 class="text-xl font-bold text-yellow-700">TOP PRODUCT</h2>
               <div class="border-t-2 border-yellow-500 my-6 mt-1"></div>
               <p class="text-xl font-bold text-yellow-900">1. Iced Green Tea</p>
@@ -52,7 +52,7 @@
               </div>
           </div>
       </div>
-      <div class="border-2 border-yellow-500 rounded-lg p-3 bg-white shadow-lg w-full md:w-auto hover:shadow-xl transform hover:scale-105 transition-transform">
+      <div class="border-2 border-yellow-500 rounded-lg p-3 bg-white shadow-lg w-full md:w-auto">
           <h2 class="text-2xl font-bold text-center mb-4">PRODUCT LIST</h2>
           <div class="border-t-2 border-yellow-500 my-4"></div>
           <table class="w-full border-collapse">

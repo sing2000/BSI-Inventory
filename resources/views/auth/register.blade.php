@@ -1,10 +1,12 @@
 @extends('layouts.header')
-
+@vite('resources/css/app.css')
 @section('content')
-<div class="container container-register">
-    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
-        @csrf
-        <div class="row">
+<div class="min-h-screen flex flex-col">
+    <div class="flex-grow">
+      <div class="container container-register">
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+          @csrf
+          <div class="row">
             <!-- Shop Information Section -->
             <div class="col-md-6 form-section" >
                 <h4><strong>SHOP INFORMATION SECTION:</strong></h4>
@@ -33,7 +35,7 @@
                 </div>
                   <!-- owner Information Section -->
                   <div class="pt-4">
-                    <h4><strong> INFORMATION SECTION:</strong></h4>
+                    <h4><strong>OWNER INFORMATION SECTION:</strong></h4>
                     <div class="form-group">
                         <label for="O_name">Name:</label>
                         <input type="text" class="form-control" id="O_name" name="O_name"  value="{{ old('O_name') }}" placeholder="Owner's name" required>
@@ -49,8 +51,9 @@
                     <div class="form-group">
                         <label for="O_address">Address:</label>
                         <input type="text" class="form-control" id="O_address" name="O_address" value="{{ old('O_address') }}" placeholder="Owner's address" required>
-                    </div>
+                    </div>   
                 </div>
+              </div>
             </div>
             <!-- User Section -->
             <div class="col-md-6 form-section">
@@ -100,6 +103,7 @@
             </div>
         </div>
     </form>
+    @include('layouts.footer')
 </div>
 @endsection
 <style>

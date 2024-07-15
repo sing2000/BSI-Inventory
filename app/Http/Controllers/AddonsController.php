@@ -15,7 +15,8 @@ class AddonsController extends Controller
      */
     public function index()
     {
-        return view('add-ons');
+        $Addons = Addons::with('uom')->paginate(8); 
+        return view('add-ons', compact('Addons')); 
     }
 
     /**

@@ -20,11 +20,14 @@
         <table class="min-w-full bg-white border-collapse">
           <thead>
             <tr class="bg-primary text-primary-foreground text-lg">
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
+              <th class="py-4 px-6 border border-white">Order ID</th>
+              <th class="py-4 px-6 border border-white">Item </th>
+              <th class="py-4 px-6 border border-white">Sup ID</th>
+              <th class="py-4 px-6 border border-white">Qty</th>
+              <th class="py-4 px-6 border border-white">UOM ID</th>
+              {{-- <th class="py-4 px-6 border border-white">Order Date</th>
+              <th class="py-4 px-6 border border-white">Price</th>
+              <th class="py-4 px-6 border border-white">Inc VAT</th> --}}
             </tr>
           </thead>
           <tbody>
@@ -57,6 +60,13 @@
               <td class="py-4 px-6 border border-white">Text</td>
             </tr>
             <tr class="bg-zinc-200 text-base">
+              <td class="py-4 px-6 border border-white">Text</td>
+              <td class="py-4 px-6 border border-white">Text</td>
+              <td class="py-4 px-6 border border-white">Text</td>
+              <td class="py-4 px-6 border border-white">Text</td>
+              <td class="py-4 px-6 border border-white">Text</td>
+            </tr>
+            <tr class="bg-zinc-300 text-base">
               <td class="py-4 px-6 border border-white">Text</td>
               <td class="py-4 px-6 border border-white">Text</td>
               <td class="py-4 px-6 border border-white">Text</td>

@@ -20,58 +20,32 @@
         <table class="min-w-full bg-white border-collapse">
           <thead>
             <tr class="bg-primary text-primary-foreground text-lg">
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
+              <th class="py-4 px-6 border border-white">Item ID</th>
+              <th class="py-4 px-6 border border-white">Item Khname</th>
+              <th class="py-4 px-6 border border-white">Item Engname</th>
+              <th class="py-4 px-6 border border-white">Iteam Category</th>
+              <th class="py-4 px-6 border border-white">Expiry Date</th>
+              <th class="py-4 px-6 border border-white">Image</th>
+              <th class="py-4 px-6 border border-white">Status</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="bg-zinc-200 text-base border-t-4 border-white">
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
+            @foreach ($items as $data)
+            <tr class="bg-zinc-300 text-base ">
+              <td class="text-center py-4 px-6 border border-white ">{{ $data->Item_id ?? 'null' }}</td>
+              <td class="text-center py-4 px-6 border border-white">{{ $data->Item_Khname ?? 'null' }}</td>
+              <td class="text-center py-4 px-6 border border-white">{{ $data->Item_Engname ?? 'null' }}</td>
+              <td class="text-center py-4 px-6 border border-white">{{ $data->iteamCategory->Item_Cate_Khname ?? 'null' }}</td>
+              <td class="text-center py-4 px-6 border border-white">{{ $data->Expiry_date ?? 'null' }}</td>
+              <td class="text-center py-4 px-6 border border-white">{{ $data->image ?? 'null' }}</td>
+              <td class="text-center py-4 px-6 border border-white">{{'Active' }}</td>
             </tr>
-            <tr class="bg-zinc-300 text-base">
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-            </tr>
-            <tr class="bg-zinc-200 text-base">
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-            </tr>
-            <tr class="bg-zinc-300 text-base">
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-            </tr>
-            <tr class="bg-zinc-200 text-base">
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-            </tr>
-            <tr class="bg-zinc-300 text-base">
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-            </tr>
+          @endforeach
           </tbody>
         </table>
+        <div class="mt-4">
+          {{ $items->links() }} <!-- This will render the pagination links -->
+        </div>
       </div>
     </div>
   </div>

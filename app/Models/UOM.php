@@ -2,27 +2,25 @@
 
 namespace App\Models;
 
-use App\Models\UOM;
+use App\Models\Addons;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Addons extends Model
+class UOM extends Model
 {
     use HasFactory;
-    protected $table = 'inv_addons';
+    protected $table = 'inv_uom';
     public $timestamps = false;
-    protected $primaryKey = 'inv_addons';
+    protected $primaryKey = 'UOM_id';
     public $incrementing = true;
     protected $keyType = 'int'; 
     protected $fillable = [
-        'Addons_name',
-        'Percentage',
-        'Qty',
-        'UOM_id',
+        'UOM_name',
+        'UOM_abb',
         'status'
     ];
-    public function uom()
+    public function addons()
     {
-        return $this->belongsTo(UOM::class, 'UOM_id', 'UOM_id');
+        return $this->hasMany(Addons::class, 'UOM_id', 'UOM_id');
     }
 }

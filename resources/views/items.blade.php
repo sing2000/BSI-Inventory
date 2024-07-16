@@ -31,7 +31,7 @@
           </thead>
           <tbody>
             @foreach ($items as $data)
-            <tr class="bg-zinc-300 text-base ">
+            <tr class="{{ $loop->index % 2 === 0 ? 'bg-zinc-200' : 'bg-zinc-300' }} text-base {{ $loop->first ? 'border-t-4' : '' }} border-white">
               <td class="text-center py-4 px-6 border border-white ">{{ $data->Item_id ?? 'null' }}</td>
               <td class="text-center py-4 px-6 border border-white">{{ $data->Item_Khname ?? 'null' }}</td>
               <td class="text-center py-4 px-6 border border-white">{{ $data->Item_Engname ?? 'null' }}</td>
@@ -43,7 +43,7 @@
           @endforeach
           </tbody>
         </table>
-        <div class="mt-4">
+        <div class="mt-2">
           {{ $items->links() }} <!-- This will render the pagination links -->
         </div>
       </div>

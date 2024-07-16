@@ -30,7 +30,7 @@
           </thead>
           <tbody>
             @foreach ($Addons as $data)
-            <tr class="bg-zinc-200 text-base border-t-4 border-white">
+            <tr class="{{ $loop->index % 2 === 0 ? 'bg-zinc-200' : 'bg-zinc-300' }} text-base {{ $loop->first ? 'border-t-4' : '' }} border-white">
               <td class="text-center py-4 px-6 border border-white">{{ $data->Addons_id ?? 'null' }}</td>
               <td class="text-center py-4 px-6 border border-white">{{ $data->Addons_name ?? 'null' }}</td>
               <td class="text-center py-4 px-6 border border-white">{{ $data->Percentage ?? 'null' }}</td>

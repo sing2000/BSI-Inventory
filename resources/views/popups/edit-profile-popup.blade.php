@@ -13,11 +13,14 @@
                 <input type="text" id="userName" name="userName" class="form-control w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ old('userName') }}" required>
             </div>
             <div class="form-group">
-                <label for="S_logo">Profile Image:</label>
+                <label for="S_logo">Change Profile Image:</label>
                 <div>
                     <button class="select-logo">Browse</button>
                     <input type='file' style="display:none">
                 </div>
+            </div>
+            <div class="mt-4">
+                <img src="images/user.jpg" class="w-32 h-32 object-cover rounded-lg" alt="Image Preview">
             </div>
             <div class="flex justify-end space-x-4">
                 <button type="button" class="bg-gray-500 text-white rounded-md px-4 py-2 hover:bg-gray-600" id="closeModal">Cancel</button>

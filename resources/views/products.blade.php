@@ -30,16 +30,16 @@
           </thead>
           <tbody>
             @foreach ($products as $data)
-            <tr class="bg-zinc-200 text-base border-t-4 border-white">
-              <td class="text-center py-4 px-6 border border-white">{{ $data->Pro_id ?? 'null' }}</td>
-              <td class="text-center py-4 px-6 border border-white">{{ $data->Pro_name_eng ?? 'null' }}</td>
-              <td class="text-center py-4 px-6 border border-white">{{ $data->Pro_name_kh ?? 'null' }}</td>
-              <td class="text-center py-4 px-6 border border-white">{{ $data->productCategory->Cate_Khname ?? 'null' }}</td>
-              <td class="text-center py-4 px-6 border border-white">{{ $data->image ?? 'null' }}</td>
-              <td class="text-center py-4 px-6 border border-white">{{'Active' }}</td>
-            </tr>
+                <tr class="{{ $loop->index % 2 === 0 ? 'bg-zinc-200' : 'bg-zinc-300' }} text-base {{ $loop->first ? 'border-t-4' : '' }} border-white">
+                    <td class="text-center py-4 px-6 border border-white">{{ $data->Pro_id ?? 'null' }}</td>
+                    <td class="text-center py-4 px-6 border border-white">{{ $data->Pro_name_eng ?? 'null' }}</td>
+                    <td class="text-center py-4 px-6 border border-white">{{ $data->Pro_name_kh ?? 'null' }}</td>
+                    <td class="text-center py-4 px-6 border border-white">{{ $data->productCategory->Cate_Khname ?? 'null' }}</td>
+                    <td class="text-center py-4 px-6 border border-white">{{ $data->image ?? 'null' }}</td>
+                    <td class="text-center py-4 px-6 border border-white">{{ 'Active' }}</td>
+                </tr>
             @endforeach
-          </tbody>
+          </tbody>              
         </table>
         <div class="mt-4">
           {{ $products->links() }}

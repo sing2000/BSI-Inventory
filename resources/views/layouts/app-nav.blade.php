@@ -1,5 +1,17 @@
 
+@php
+$navItems = [
+    ['route' => 'inventory', 'label' => 'INVENTORY', 'roles' => [1, 3]],
+    ['route' => 'suppliers', 'label' => 'SUPPLIER', 'roles' => [1, 3]],
+    ['route' => 'items', 'label' => 'ITEM', 'roles' => [1, 3]],
+    ['route' => 'orders', 'label' => 'ORDER', 'roles' => [1, 3]],
+    ['route' => 'pos', 'label' => 'POS', 'roles' => [1, 2 ,4]],
+    ['route' => 'products', 'label' => 'PRODUCT', 'roles' => [1, 2,4]],
+    ['route' => 'add-ons', 'label' => 'ADD-ONS', 'roles' => [1, 2 ,4]],
+    ['route' => 'reports', 'label' => 'REPORTS', 'roles' => [1, 3,4]],
 
+];
+@endphp
 @vite('resources/css/app.css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <div class="min-h-screen flex flex-col bg-background text-foreground">
@@ -47,35 +59,20 @@
             <i id="menuToggleIcon" class="fas fa-bars text-1xl bg-yellow-400 py-1 px-2"></i>
         </button> 
         <div class="w-full flex flex-col items-center">
-            @if(request()->is('home'))
-            @else
-            <div id="navMenu" class="flex flex-wrap justify-center space-x-2 hidden md:flex">
-                <a href="inventory" class="{{ request()->is('inventory') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
-                    INVENTORY
-                </a>
-                <a href="suppliers" class="{{ request()->is('suppliers') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
-                    SUPPLIER
-                </a>
-                <a href="items" class="{{ request()->is('items') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
-                    ITEM
-                </a>
-                <a href="orders" class="{{ request()->is('orders') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
-                    ORDER
-                </a>
-                <a href="pos" class="{{ request()->is('pos') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
-                    POS
-                </a>
-                <a href="products" class="{{ request()->is('products') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
-                    PRODUCT
-                </a>
-                <a href="add-ons" class="{{ request()->is('add-ons') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
-                    ADD-ONS
-                </a>
-                <a href="reports" class="{{ request()->is('reports') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
-                    REPORTS
-                </a>
-            </div>
-            <div id="menuLine" class="h-1 bg-gray-500 rounded-sm"></div>
+            @if(!request()->is('home'))
+                @php
+                $userRole = Auth::user()->InvRole->R_id;
+                @endphp
+                <div id="navMenu" class="flex flex-wrap justify-center space-x-2 hidden md:flex">
+                    @foreach($navItems as $item)
+                        @if(in_array($userRole, $item['roles']))
+                            <a href="{{ $item['route'] }}" class="{{ request()->is($item['route']) ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
+                                {{ $item['label'] }}
+                            </a>
+                        @endif
+                    @endforeach
+                </div>
+                <div id="menuLine" class="h-1 bg-gray-500 rounded-sm"></div>
             @endif
         </div>
     </div>

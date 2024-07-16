@@ -28,48 +28,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="bg-zinc-200 text-base border-t-4 border-white">
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
+            @foreach ($suppliers as $data)
+            <tr class="text-center bg-zinc-200 text-base border-t-4 border-white">
+              <td class=" py-4 px-6 border border-white">{{ $data->Sup_id ?? 'null' }}</td>
+              <td class="py-4 px-6 border border-white">{{ $data->Sup_name ?? 'null' }}</td>
+              <td class="py-4 px-6 border border-white">{{ $data->Sup_contact ?? 'null' }}</td>
+              <td class="py-4 px-6 border border-white">{{ $data->Sup_address ?? 'null' }}</td>
+              <td class="py-4 px-6 border border-white">{{'Active' }}</td>
             </tr>
-            <tr class="bg-zinc-300 text-base">
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-            </tr>
-            <tr class="bg-zinc-200 text-base">
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-            </tr>
-            <tr class="bg-zinc-300 text-base">
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-            </tr>
-            <tr class="bg-zinc-200 text-base">
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-            </tr>
-            <tr class="bg-zinc-300 text-base">
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-            </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

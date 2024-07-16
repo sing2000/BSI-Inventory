@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inventory;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\IteamCategory;
+use App\Http\Controllers\Controller;
 
 class InventoryController extends Controller
 {
@@ -15,8 +16,10 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        return view('inventory');
+         $categories = IteamCategory::all();
+        return view('inventory', compact('categories')); 
     }
+    
 
     /**
      * Show the form for creating a new resource.

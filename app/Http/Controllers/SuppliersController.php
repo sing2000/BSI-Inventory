@@ -15,7 +15,8 @@ class SuppliersController extends Controller
      */
     public function index()
     {
-        return view('suppliers');
+        $suppliers = Suppliers::paginate(8); 
+        return view('suppliers', compact('suppliers'));
     
     }
 
@@ -37,7 +38,19 @@ class SuppliersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'Sup_name' => 'required|string|max:255',
+            'Sup_contact' => 'required|string|max:255',
+            'Sup_address' => 'required|string',
+        ]);
+
+        $supplier = new Suppliers();
+        $supplier->Sup_name = $validatedData['Sup_name'];
+        $supplier->Sup_contact = $validatedData['Sup_contact'];
+        $supplier->Sup_address = $validatedData['Sup_address'];
+        $supplier->save();
+
+        return redirect()->back()->with('success', 'Supplier added successfully!');
     }
 
     /**

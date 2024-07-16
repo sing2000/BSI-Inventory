@@ -14,6 +14,11 @@ $menuItems = [
     ['route' => '/setting', 'icon' => 'fas fa-cog', 'label' => 'Settings', 'roles' => [1,2]],
 ];
 @endphp
+@php
+    $userRoleItems = array_filter($menuItems, function($item) {
+        return in_array(Auth::user()->InvRole->R_id, $item['roles']);
+    });
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,23 +62,21 @@ $menuItems = [
     </header>
     <!-- Main content section -->
     <main class="flex-grow flex items-center justify-center">
-      <div class="p-6 w-4/5 mx-auto">
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
-              @foreach($menuItems as $item)
-                  @if(in_array(Auth::user()->InvRole->R_id, $item['roles']))
-                      <div class="flex flex-col mb-4 items-center">
-                          <a href="{{ $item['route'] }}" class="flex flex-col items-center">
-                              <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                                  <i class="{{ $item['icon'] }} text-6xl text-gray-700"></i>
-                              </div>
-                              <span class="mt-0 text-lg text-muted-foreground text-center">{{ $item['label'] }}</span>
-                          </a>
-                      </div>
-                  @endif
-              @endforeach
-          </div>
-      </div>
-  </main>
+        <div class="p-6 w-4/5 mx-auto">
+            <div class="{{ count($userRoleItems) === 5 ? 'custom-grid' : 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8' }}">
+                @foreach($userRoleItems as $item)
+                    <div class="flex flex-col mb-4 items-center">
+                        <a href="{{ $item['route'] }}" class="flex flex-col items-center">
+                            <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
+                                <i class="{{ $item['icon'] }} text-6xl text-gray-700"></i>
+                            </div>
+                            <span class="mt-0 text-lg text-muted-foreground text-center">{{ $item['label'] }}</span>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </main>
     @include('layouts.footer')
 </div>
 <script>
@@ -94,3 +97,24 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 </body>
 </html>
+<style>
+    .custom-grid {
+        margin-left: 8%;
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .custom-grid > div:nth-child(4) {
+        grid-column: 2 / 3;
+        margin-left: -110%;
+    }
+
+    .custom-grid > div:nth-child(5) {
+        grid-column: 3 / 4;
+        margin-left: -110%;
+    }
+</style>

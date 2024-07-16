@@ -49,6 +49,7 @@ $navItems = [
                 </div>
             </div>
         </div>
+      @include('popups.edit-profile-popup')
     </header>
 
     <div class="flex flex-col items-center py-6 -mb-4 -mt-10 flex-grow">
@@ -69,7 +70,7 @@ $navItems = [
                         @endif
                     @endforeach
                 </div>
-                <div class="h-1 bg-gray-500 rounded-sm"></div>
+                <div id="menuLine" class="h-1 bg-gray-500 rounded-sm"></div>
             @endif
         </div>
     </div>
@@ -135,3 +136,8 @@ $navItems = [
         });
     });
 </script>
+<style>
+    #logout-form{
+   margin-top: -12px;
+ }
+</style>

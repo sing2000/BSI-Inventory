@@ -20,23 +20,23 @@
         <table class="min-w-full bg-white border-collapse">
           <thead>
             <tr class="bg-primary text-primary-foreground text-lg">
-              <th class="py-4 px-6 border border-white">Pro ID</th>
-              <th class="py-4 px-6 border border-white">Pro Name Eng</th>
-              <th class="py-4 px-6 border border-white">Pro Name Kh</th>
-              <th class="py-4 px-6 border border-white">Pro Category</th>
-              <th class="py-4 px-6 border border-white">Image</th>
-              <th class="py-4 px-6 border border-white">Status</th>
+              <th class="py-4 px-4 border border-white">Pro ID</th>
+              <th class="py-4 px-4 border border-white">Pro Name Eng</th>
+              <th class="py-4 px-4 border border-white">Pro Name Kh</th>
+              <th class="py-4 px-4 border border-white">Pro Category</th>
+              <th class="py-4 px-4 border border-white">Image</th>
+              <th class="py-4 px-4 border border-white">Status</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($products as $data)
                 <tr class="{{ $loop->index % 2 === 0 ? 'bg-zinc-200' : 'bg-zinc-300' }} text-base {{ $loop->first ? 'border-t-4' : '' }} border-white">
-                    <td class="text-center py-4 px-6 border border-white">{{ $data->Pro_id ?? 'null' }}</td>
-                    <td class="text-center py-4 px-6 border border-white">{{ $data->Pro_name_eng ?? 'null' }}</td>
-                    <td class="text-center py-4 px-6 border border-white">{{ $data->Pro_name_kh ?? 'null' }}</td>
-                    <td class="text-center py-4 px-6 border border-white">{{ $data->productCategory->Cate_Khname ?? 'null' }}</td>
-                    <td class="text-center py-4 px-6 border border-white">{{ $data->image ?? 'null' }}</td>
-                    <td class="text-center py-4 px-6 border border-white">{{ 'Active' }}</td>
+                    <td class="text-center py-3 px-4 border border-white">{{ $data->Pro_id ?? 'null' }}</td>
+                    <td class="text-center py-3 px-4 border border-white">{{ $data->Pro_name_eng ?? 'null' }}</td>
+                    <td class="text-center py-3 px-4 border border-white">{{ $data->Pro_name_kh ?? 'null' }}</td>
+                    <td class="text-center py-3 px-4 border border-white">{{ $data->productCategory->Cate_Khname ?? 'null' }}</td>
+                    <td class="text-center py-3 px-4 border border-white">{{ $data->image ?? 'null' }}</td>
+                    <td class="text-center py-3 px-4 border border-white">{{ 'Active' }}</td>
                 </tr>
             @endforeach
           </tbody>              

@@ -79,12 +79,12 @@
                         </select>
                     </div>
                     <div class="w-full sm:w-1/5 px-2 mb-8">
-                        <label for="inputSelectOUM${i+1}" class="block text-lg sm:text-sm font-medium text-gray-700 mb-1">Select OUM</label>
-                        <select id="inputSelectOUM${i+1}" name="inputSelectOUM${i+1}" class="text-lg sm:text-sm font-medium border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="">Select OUM</option>
-                            <option>OUM 1</option>
-                            <option>OUM 2</option>
-                            <option>OUM 3</option>
+                        <label for="inputSelectUOM${i+1}" class="block text-lg sm:text-sm font-medium text-gray-700 mb-1">Select UOM</label>
+                        <select id="inputSelectUOM${i+1}" name="inputSelectUOM${i+1}" class="text-lg sm:text-sm font-medium border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">Select UOM</option>
+                            <option>UOM 1</option>
+                            <option>UOM 2</option>
+                            <option>UOM 3</option>
                         </select>
                     </div>
                     <div class="w-full sm:w-1/5 px-2 mb-8">

@@ -20,25 +20,25 @@
         <table class="min-w-full bg-white border-collapse">
           <thead>
             <tr class="bg-primary text-primary-foreground text-lg">
-              <th class="py-4 px-6 border border-white">Item ID</th>
-              <th class="py-4 px-6 border border-white">Item Khname</th>
-              <th class="py-4 px-6 border border-white">Item Engname</th>
-              <th class="py-4 px-6 border border-white">Iteam Category</th>
-              <th class="py-4 px-6 border border-white">Expiry Date</th>
-              <th class="py-4 px-6 border border-white">Image</th>
-              <th class="py-4 px-6 border border-white">Status</th>
+              <th class="py-4 px-4 border border-white">Item ID</th>
+              <th class="py-4 px-4 border border-white">Item Khname</th>
+              <th class="py-4 px-4 border border-white">Item Engname</th>
+              <th class="py-4 px-4 border border-white">Iteam Category</th>
+              <th class="py-4 px-4 border border-white">Expiry Date</th>
+              <th class="py-4 px-4 border border-white">Image</th>
+              <th class="py-4 px-4 border border-white">Status</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($items as $data)
             <tr class="{{ $loop->index % 2 === 0 ? 'bg-zinc-200' : 'bg-zinc-300' }} text-base {{ $loop->first ? 'border-t-4' : '' }} border-white">
-              <td class="text-center py-4 px-6 border border-white ">{{ $data->Item_id ?? 'null' }}</td>
-              <td class="text-center py-4 px-6 border border-white">{{ $data->Item_Khname ?? 'null' }}</td>
-              <td class="text-center py-4 px-6 border border-white">{{ $data->Item_Engname ?? 'null' }}</td>
-              <td class="text-center py-4 px-6 border border-white">{{ $data->iteamCategory->Item_Cate_Khname ?? 'null' }}</td>
-              <td class="text-center py-4 px-6 border border-white">{{ $data->Expiry_date ?? 'null' }}</td>
-              <td class="text-center py-4 px-6 border border-white">{{ $data->image ?? 'null' }}</td>
-              <td class="text-center py-4 px-6 border border-white">{{'Active' }}</td>
+              <td class="text-center py-3 px-4 border border-white ">{{ $data->Item_id ?? 'null' }}</td>
+              <td class="text-center py-3 px-4 border border-white">{{ $data->Item_Khname ?? 'null' }}</td>
+              <td class="text-center py-3 px-4 border border-white">{{ $data->Item_Engname ?? 'null' }}</td>
+              <td class="text-center py-3 px-4 border border-white">{{ $data->iteamCategory->Item_Cate_Khname ?? 'null' }}</td>
+              <td class="text-center py-3 px-4 border border-white">{{ $data->Expiry_date ?? 'null' }}</td>
+              <td class="text-center py-3 px-4 border border-white">{{ $data->image ?? 'null' }}</td>
+              <td class="text-center py-3 px-4 border border-white">{{'Active' }}</td>
             </tr>
           @endforeach
           </tbody>

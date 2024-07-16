@@ -68,7 +68,7 @@ $menuItems = [
                     <div class="flex flex-col mb-4 items-center">
                         <a href="{{ $item['route'] }}" class="flex flex-col items-center">
                             <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                                <i class="{{ $item['icon'] }} text-6xl text-gray-700"></i>
+                                <i class="{{ $item['icon'] }} text-4xl sm:text-6xl text-gray-800"></i>
                             </div>
                             <span class="mt-0 text-lg text-muted-foreground text-center">{{ $item['label'] }}</span>
                         </a>

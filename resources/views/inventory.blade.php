@@ -10,9 +10,9 @@
           <i class="fas fa-caret-down ml-2"></i>
         </button>
         <div id="dropdownMenu" class="absolute left-1 mt-2 w-60 bg-gray-300 rounded-md shadow-lg border-2 border-yellow-400 hidden z-10">
-          <a href="#" id="createSupplier" class="block px-6 py-2 text-blue-700 text-lg hover:bg-yellow-400 hover:text-blue-800 transition duration-150 ease-in-out border-b-2 border-yellow-400">Supplier</a>
-          <a href="#" id="createItem" class="block px-6 py-2 text-blue-700 text-lg hover:bg-yellow-400 hover:text-blue-800 transition duration-150 ease-in-out border-b-2 border-yellow-400">Item</a>
-          <a href="#" id="createOrder" class="block px-6 py-2 text-blue-700 text-lg hover:bg-yellow-400 hover:text-blue-800 transition duration-150 ease-in-out">Order</a>
+          <a href="#" id="createSupplier" class="block px-4 py-2 text-blue-700 text-lg hover:bg-yellow-400 hover:text-blue-800 transition duration-150 ease-in-out border-b-2 border-yellow-400">Supplier</a>
+          <a href="#" id="createItem" class="block px-4 py-2 text-blue-700 text-lg hover:bg-yellow-400 hover:text-blue-800 transition duration-150 ease-in-out border-b-2 border-yellow-400">Item</a>
+          <a href="#" id="createOrder" class="block px-4 py-2 text-blue-700 text-lg hover:bg-yellow-400 hover:text-blue-800 transition duration-150 ease-in-out">Order</a>
         </div>
       </div>
       <div class="relative flex w-full md:w-auto">
@@ -30,55 +30,55 @@
         <table class="min-w-full bg-white border-collapse">
           <thead>
             <tr class="bg-primary text-primary-foreground text-lg">
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
-              <th class="py-4 px-6 border border-white">INVENTORY</th>
+              <th class="py-4 px-4 border border-white">INVENTORY</th>
+              <th class="py-4 px-4 border border-white">INVENTORY</th>
+              <th class="py-4 px-4 border border-white">INVENTORY</th>
+              <th class="py-4 px-4 border border-white">INVENTORY</th>
+              <th class="py-4 px-4 border border-white">INVENTORY</th>
             </tr>
           </thead>
           <tbody>
             <tr class="bg-zinc-200 text-base border-t-4 border-white">
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
             </tr>
             <tr class="bg-zinc-300 text-base">
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
             </tr>
             <tr class="bg-zinc-200 text-base">
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
             </tr>
             <tr class="bg-zinc-300 text-base">
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
             </tr>
             <tr class="bg-zinc-200 text-base">
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
             </tr>
             <tr class="bg-zinc-300 text-base">
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
-              <td class="py-4 px-6 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">Text</td>
             </tr>
           </tbody>
         </table>
@@ -100,7 +100,7 @@
     const createSupplier = document.getElementById('createSupplier');
     const createItem = document.getElementById('createItem');
     const createOrder = document.getElementById('createOrder');
-    
+
     const popupSupplier = document.getElementById('popupSupplier');
     const popupItem = document.getElementById('popupItem');
     const popupOrder = document.getElementById('popupOrder');

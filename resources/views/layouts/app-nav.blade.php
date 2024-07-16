@@ -50,28 +50,28 @@
             @if(request()->is('home'))
             @else
             <div id="navMenu" class="flex flex-wrap justify-center space-x-2 hidden md:flex">
-                <a href="inventory" class="{{ request()->is('inventory') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
+                <a href="inventory" class="{{ request()->is('inventory') ? 'bg-primary text-white' : 'bg-yellow-400 text-blue-600' }} rounded-lg px-4 py-2 text-sm mb-2 font-bold">
                     INVENTORY
                 </a>
-                <a href="suppliers" class="{{ request()->is('suppliers') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
+                <a href="suppliers" class="{{ request()->is('suppliers') ? 'bg-primary text-white' : 'bg-yellow-400 text-blue-600' }} rounded-lg px-4 py-2 font-bold text-sm mb-2">
                     SUPPLIER
                 </a>
-                <a href="items" class="{{ request()->is('items') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
+                <a href="items" class="{{ request()->is('items') ? 'bg-primary text-white' : 'bg-yellow-400 text-blue-600' }} rounded-lg px-4 py-2 font-bold text-sm mb-2">
                     ITEM
                 </a>
-                <a href="orders" class="{{ request()->is('orders') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
+                <a href="orders" class="{{ request()->is('orders') ? 'bg-primary text-white' : 'bg-yellow-400 text-blue-600' }} rounded-lg px-4 py-2 font-bold text-sm mb-2">
                     ORDER
                 </a>
-                <a href="pos" class="{{ request()->is('pos') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
+                <a href="pos" class="{{ request()->is('pos') ? 'bg-primary text-white' : 'bg-yellow-400 text-blue-600' }} rounded-lg px-4 py-2 font-bold text-sm mb-2">
                     POS
                 </a>
-                <a href="products" class="{{ request()->is('products') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
+                <a href="products" class="{{ request()->is('products') ? 'bg-primary text-white' : 'bg-yellow-400 text-blue-600' }} rounded-lg px-4 py-2 font-bold text-sm mb-2">
                     PRODUCT
                 </a>
-                <a href="add-ons" class="{{ request()->is('add-ons') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
+                <a href="add-ons" class="{{ request()->is('add-ons') ? 'bg-primary text-white' : 'bg-yellow-400 text-blue-600' }} rounded-lg px-4 py-2 font-bold text-sm mb-2">
                     ADD-ONS
                 </a>
-                <a href="reports" class="{{ request()->is('reports') ? 'bg-yellow-400 text-blue-800' : 'bg-gray-300 text-blue-600' }} border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm mb-2">
+                <a href="reports" class="{{ request()->is('reports') ? 'bg-primary text-white' : 'bg-yellow-400 text-blue-600' }} rounded-lg px-4 py-2 font-bold text-sm mb-2">
                     REPORTS
                 </a>
             </div>

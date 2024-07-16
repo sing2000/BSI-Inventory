@@ -40,7 +40,7 @@
 
   <div class="flex flex-col items-center py-6">
       <div class="flex space-x-2 -mt-10">
-          <a href="setting" class="bg-yellow-400 text-blue-600 border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm">
+          <a href="setting" class="bg-primary text-white rounded-lg px-4 py-2 text-sm font-bold">
               SETTING
           </a>
       </div>
@@ -137,3 +137,9 @@
         overlay.classList.add('hidden');
     });
 </script>
+
+<style>
+     #logout-form{
+    margin-top: -12px;
+  }
+</style>

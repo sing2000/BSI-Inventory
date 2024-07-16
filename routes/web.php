@@ -42,8 +42,10 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory');
 //Suppliers page
 Route::get('/suppliers', [SuppliersController::class, 'index'])->name('suppliers');
+Route::post('/suppliers', [SuppliersController::class, 'store'])->name('suppliers.store');
 //Items page
 Route::get('/items', [ItemsController::class, 'index'])->name('items');
+Route::post('/items', [ItemsController::class, 'store'])->name('items.store');
 //Sales page
 Route::get('/sales', [SalesController::class, 'index'])->name('sales');
 //Order page

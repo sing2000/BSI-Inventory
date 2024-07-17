@@ -9,7 +9,7 @@
         <form class="p-6">
             @csrf
             <div class="mb-4">
-                <label for="userName" class="block text-sm font-medium text-gray-700 mb-2">User Name:</label>
+                <label for="userName" class="block text-sm font-medium text-gray-900 mb-2">User Name:</label>
                 <input type="text" id="userName" name="userName" class="form-control w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ old('userName') }}" required>
             </div>
             <div class="form-group">

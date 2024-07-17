@@ -9,19 +9,19 @@
                 <h3 class="w-full text-lg font-bold text-gray-800 mb-2">Order Info</h3>
                 <div class="w-full h-0.5 bg-yellow-400 rounded-sm mb-4"></div>
                 <div class="w-full sm:w-1/2 md:w-1/5 px-2 mb-4">
-                    <label for="input1" class="block text-lg sm:text-sm font-medium text-gray-700 mb-1">Order Number</label>
+                    <label for="input1" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Order Number</label>
                     <input type="text" id="input1" name="input1" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 <div class="w-full sm:w-1/2 md:w-1/5 px-2 mb-4">
-                    <label for="input2" class="block text-lg sm:text-sm font-medium text-gray-700 mb-1">Receipt Image</label>
+                    <label for="input2" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Receipt Image</label>
                     <input type="file" id="input2" name="input2" class="text-sm border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 <div class="w-full sm:w-1/2 md:w-1/5 px-2 mb-4">
-                    <label for="input3" class="block text-lg sm:text-sm font-medium text-gray-700 mb-1">Total Price</label>
+                    <label for="input3" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Total Price</label>
                     <input type="number" id="input3" name="input3" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 <div class="w-full sm:w-1/2 md:w-1/5 px-2 mb-4">
-                    <label for="input4" class="block text-lg sm:text-sm font-medium text-gray-700 mb-1">Select Supplier</label>
+                    <label for="input4" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Select Supplier</label>
                     <select id="input4" name="input4" class="text-sm sm:text-sm font-medium border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                         <option>Select Supplier</option>
                         <option>Supplier 1</option>
@@ -30,11 +30,11 @@
                     </select>
                 </div>
                 <div class="w-full sm:w-1/2 md:w-1/5 px-2 mb-4">
-                    <label for="input5" class="block text-lg sm:text-sm font-medium text-gray-700 mb-1">Inc VAT</label>
+                    <label for="input5" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Inc VAT</label>
                     <input type="checkbox" id="input5" name="input5" class="h-6 w-6 ml-10 border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>                               
                 <div class="w-full sm:w-1/2 md:w-1/5 px-2 mb-4">
-                    <label for="selectnum" class="block text-lg sm:text-sm font-medium text-gray-700 mb-1">Select Order Number</label>
+                    <label for="selectnum" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Select Order Number</label>
                     <select id="selectnum" name="selectnum" class="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                         <option value="">Select number</option>
                         <option value="1">1</option>
@@ -52,8 +52,8 @@
                 <!-- Item rows will be appended here -->
             </div>
             <div class="flex justify-end">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 mr-2">Save</button>
                 <button type="button" onclick="togglePopup('popupOrder')" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-400">Cancel</button>
-                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ml-2">Save</button>
             </div>
         </form>
     </div>
@@ -70,7 +70,7 @@
             var itemRow = `
                 <div class="item-row w-full flex flex-wrap">
                     <div class="w-full sm:w-1/5 px-2 mb-8">
-                        <label for="inputSelectItem${i+1}" class="block text-lg sm:text-sm font-medium text-gray-700 mb-1">Select Item</label>
+                        <label for="inputSelectItem${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Select Item</label>
                         <select id="inputSelectItem${i+1}" name="inputSelectItem${i+1}" class="text-lg sm:text-sm font-medium border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="">Select Item</option>
                             <option>Item 1</option>
@@ -79,7 +79,7 @@
                         </select>
                     </div>
                     <div class="w-full sm:w-1/5 px-2 mb-8">
-                        <label for="inputSelectUOM${i+1}" class="block text-lg sm:text-sm font-medium text-gray-700 mb-1">Select UOM</label>
+                        <label for="inputSelectUOM${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Select UOM</label>
                         <select id="inputSelectUOM${i+1}" name="inputSelectUOM${i+1}" class="text-lg sm:text-sm font-medium border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="">Select UOM</option>
                             <option>UOM 1</option>
@@ -88,15 +88,15 @@
                         </select>
                     </div>
                     <div class="w-full sm:w-1/5 px-2 mb-8">
-                        <label for="inputQty${i+1}" class="block text-lg sm:text-sm font-medium text-gray-700 mb-1">Qty</label>
+                        <label for="inputQty${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Qty</label>
                         <input type="text" id="inputQty${i+1}" name="inputQty${i+1}" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div class="w-full sm:w-1/5 px-2 mb-8">
-                        <label for="inputOrderDate${i+1}" class="block text-lg sm:text-sm font-medium text-gray-700 mb-1">Order Date</label>
+                        <label for="inputOrderDate${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Order Date</label>
                         <input type="date" id="inputOrderDate${i+1}" name="inputOrderDate${i+1}" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div class="w-full sm:w-1/5 px-2 mb-8">
-                        <label for="inputPrice${i+1}" class="block text-lg sm:text-sm font-medium text-gray-700 mb-1">Price</label>
+                        <label for="inputPrice${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Price</label>
                         <input type="number" id="inputPrice${i+1}" name="inputPrice${i+1}" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                 </div>

@@ -5,7 +5,7 @@
   <div class="bg-background flex flex-col items-center flex-grow px-4 md:px-0 mt-2">
     <div class="flex flex-col md:flex-row justify-between items-center w-full md:w-4/5">
       <div class="relative">
-        <button id="createButton" class="bg-primary text-primary-foreground py-1 px-8 rounded-lg md:mb-0 focus:outline-none">
+        <button id="createButton" class="bg-primary text-primary-foreground py-1 px-8 rounded-lg md:mb-3 focus:outline-none">
           CREATE
           <i class="fas fa-caret-down ml-2"></i>
         </button>

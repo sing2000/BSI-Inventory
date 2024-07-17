@@ -7,15 +7,15 @@
       <form id="itemForm" action="{{ route('items.store') }}" method="POST" enctype="multipart/form-data" class="p-6">
           @csrf
           <div class="mb-4">
-              <label for="Item_Khname" class="block text-lg font-medium text-gray-700 mb-1">Item Name Khmer</label>
+              <label for="Item_Khname" class="block text-sm font-medium text-gray-900 mb-1">Item Khmer Name</label>
               <input type="text" id="Item_Khname" name="Item_Khname" class="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
           </div>
           <div class="mb-4">
-              <label for="Item_Engname" class="block text-lg font-medium text-gray-700 mb-1">Item Name English</label>
+              <label for="Item_Engname" class="block text-sm font-medium text-gray-900 mb-1">Item English Name</label>
               <input type="text" id="Item_Engname" name="Item_Engname" class="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
           </div>
           <div class="mb-4">
-              <label for="Item_Cate_id" class="block text-lg font-medium text-gray-700 mb-1">Select Item Category</label>
+              <label for="Item_Cate_id" class="block text-sm font-medium text-gray-900 mb-1">Select Item Category</label>
               <select id="Item_Cate_id" name="Item_Cate_id" class="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                   <option value="">Select a category</option>
                   @foreach ($categories as $data)
@@ -26,19 +26,19 @@
               </select>
           </div>
           <div class="mb-6">
-              <label for="Expiry_date" class="block text-lg font-medium text-gray-700 mb-1">Expiry Date</label>
+              <label for="Expiry_date" class="block text-sm font-medium text-gray-900 mb-1">Expiry Date</label>
               <input type="date" id="Expiry_date" name="Expiry_date" class="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
           </div>
           <div class="mb-6">
-            <label for="image" class="block text-lg font-medium text-gray-700 mb-1">Item Image</label>
+            <label for="image" class="block text-sm font-medium text-gray-900 mb-1">Item Image</label>
             <div>
                 <button type="button" class="select-logo" onclick="document.getElementById('image').click()">Browse</button>
                 <input type="file" id="image" name="image" style="display:none">
             </div>
         </div>
-          <div class="text-center">
+          <div class="text-end">
               <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">Save</button>
-              <button type="button" id="closeItemPopup" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded-md ml-2 focus:outline-none">Cancel</button>
+              <button type="button" id="closeItemPopup" class="bg-gray-300 hover:bg-gray-400 text-gray-900 px-4 py-2 rounded-md ml-2 focus:outline-none">Cancel</button>
           </div>
       </form>
   </div>

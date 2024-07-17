@@ -25,16 +25,21 @@
               <th class="py-4 px-4 border border-white">Sup Contact</th>
               <th class="py-4 px-4 border border-white">Sup Address</th>
               <th class="py-4 px-4 border border-white">Status</th>
+              <th class="py-4 px-4 border border-white">Action</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($suppliers as $data)
-            <tr class="text-center bg-zinc-200 text-base border-t-4 border-white">
-              <td class=" py-4 px-6 border border-white">{{ $data->Sup_id ?? 'null' }}</td>
-              <td class="py-4 px-6 border border-white">{{ $data->Sup_name ?? 'null' }}</td>
-              <td class="py-4 px-6 border border-white">{{ $data->Sup_contact ?? 'null' }}</td>
-              <td class="py-4 px-6 border border-white">{{ $data->Sup_address ?? 'null' }}</td>
-              <td class="py-4 px-6 border border-white">{{'Active' }}</td>
+            <tr class="{{ $loop->index % 2 === 0 ? 'bg-zinc-200' : 'bg-zinc-300' }} text-base {{ $loop->first ? 'border-t-4' : '' }} text-center border-white">
+              <td class="py-3 px-4 border border-white">{{ $data->Sup_id ?? 'null' }}</td>
+              <td class="py-3 px-4 border border-white">{{ $data->Sup_name ?? 'null' }}</td>
+              <td class="py-3 px-4 border border-white">{{ $data->Sup_contact ?? 'null' }}</td>
+              <td class="py-3 px-4 border border-white">{{ $data->Sup_address ?? 'null' }}</td>
+              <td class="py-3 px-4 border border-white">{{'Active' }}</td>
+              <td class="py-3 border border-white">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded-md focus:outline-none">Edit</button>
+                <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md focus:outline-none">Delete</button>
+              </td>
             </tr>
             @endforeach
           </tbody>

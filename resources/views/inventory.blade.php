@@ -27,7 +27,7 @@
     <div class="w-full md:w-4/5 border-2 border-yellow-400 p-2 font-times">
       <div class="overflow-x-auto">
         <h4 class="text-center font-bold pb-4 text-lg">DETAIL INVENTORY INFORMATION</h4>
-        <table class="min-w-full bg-white border-collapse">
+        <table class="min-w-full bg-white border-collapse text-center">
           <thead>
             <tr class="bg-primary text-primary-foreground text-lg">
               <th class="py-4 px-4 border border-white">INVENTORY</th>
@@ -35,6 +35,7 @@
               <th class="py-4 px-4 border border-white">INVENTORY</th>
               <th class="py-4 px-4 border border-white">INVENTORY</th>
               <th class="py-4 px-4 border border-white">INVENTORY</th>
+              <th class="py-4 px-4 border border-white">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -44,41 +45,10 @@
               <td class="py-3 px-4 border border-white">Text</td>
               <td class="py-3 px-4 border border-white">Text</td>
               <td class="py-3 px-4 border border-white">Text</td>
-            </tr>
-            <tr class="bg-zinc-300 text-base">
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-            </tr>
-            <tr class="bg-zinc-200 text-base">
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-            </tr>
-            <tr class="bg-zinc-300 text-base">
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-            </tr>
-            <tr class="bg-zinc-200 text-base">
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-            </tr>
-            <tr class="bg-zinc-300 text-base">
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 border border-white">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded-md focus:outline-none">Edit</button>
+                <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md focus:outline-none">Delete</button>
+              </td>
             </tr>
           </tbody>
         </table>

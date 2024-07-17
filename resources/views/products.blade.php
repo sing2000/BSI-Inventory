@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex flex-col">
   <div class="bg-background flex flex-col items-center flex-grow px-4 md:px-0 mt-2">
-    <div class="flex flex-col md:flex-row justify-between items-center w-full md:w-4/5 mb-4">
+    <div class="flex flex-col md:flex-row justify-between items-center w-full md:w-4/5">
       <a href="#" id="createButton" class="bg-primary text-primary-foreground py-1 px-8 rounded-lg md:mb-0 sm:mb-2">CREATE</a>
       <div class="relative flex w-full md:w-auto">
         <form id="searchForm" method="GET" class="w-full md:w-auto flex items-center">
@@ -26,17 +26,22 @@
               <th class="py-4 px-4 border border-white">Pro Category</th>
               <th class="py-4 px-4 border border-white">Image</th>
               <th class="py-4 px-4 border border-white">Status</th>
+              <th class="py-4 px-4 border border-white">Action</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($products as $data)
-                <tr class="{{ $loop->index % 2 === 0 ? 'bg-zinc-200' : 'bg-zinc-300' }} text-base {{ $loop->first ? 'border-t-4' : '' }} border-white">
+                <tr class="{{ $loop->index % 2 === 0 ? 'bg-zinc-200' : 'bg-zinc-300' }} text-base {{ $loop->first ? 'border-t-4' : '' }} text-center border-white">
                     <td class="text-center py-3 px-4 border border-white">{{ $data->Pro_id ?? 'null' }}</td>
                     <td class="text-center py-3 px-4 border border-white">{{ $data->Pro_name_eng ?? 'null' }}</td>
                     <td class="text-center py-3 px-4 border border-white">{{ $data->Pro_name_kh ?? 'null' }}</td>
                     <td class="text-center py-3 px-4 border border-white">{{ $data->productCategory->Cate_Khname ?? 'null' }}</td>
                     <td class="text-center py-3 px-4 border border-white">{{ $data->image ?? 'null' }}</td>
                     <td class="text-center py-3 px-4 border border-white">{{ 'Active' }}</td>
+                    <td class="py-3 border border-white">
+                      <button class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded-md focus:outline-none">Edit</button>
+                      <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md focus:outline-none">Delete</button>
+                    </td>
                 </tr>
             @endforeach
           </tbody>              

@@ -26,17 +26,22 @@
               <th class="py-4 px-4 border border-white">Qty</th>
               <th class="py-4 px-4 border border-white">UOM</th>
               <th class="py-4 px-4 border border-white">Status</th>
+              <th class="py-4 px-4 border border-white">Action</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($Addons as $data)
-            <tr class="{{ $loop->index % 2 === 0 ? 'bg-zinc-200' : 'bg-zinc-300' }} text-base {{ $loop->first ? 'border-t-4' : '' }} border-white">
+            <tr class="{{ $loop->index % 2 === 0 ? 'bg-zinc-200' : 'bg-zinc-300' }} text-base {{ $loop->first ? 'border-t-4' : '' }} text-center border-white">
               <td class="text-center py-3 px-4 border border-white">{{ $data->Addons_id ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->Addons_name ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->Percentage ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->Qty ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->uom->UOM_name ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{'Active' }}</td>
+              <td class="py-3 border border-white">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded-md focus:outline-none">Edit</button>
+                <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md focus:outline-none">Delete</button>
+              </td>
             </tr>
             @endforeach
           </tbody>

@@ -47,5 +47,23 @@
       </div>
     </div>
   </div>
+  @include('popups.create-product-popup')
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const createButton = document.getElementById('createButton');
+    const popupForm = document.getElementById('popupProduct');
+    const closePopup = document.getElementById('closeProductPopup');
+
+    createButton.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default link behavior
+      popupForm.classList.remove('hidden');
+    });
+
+    closePopup.addEventListener('click', function() {
+      popupForm.classList.add('hidden');
+    });
+  });
+</script>
 @endsection

@@ -24,7 +24,6 @@
               <th class="py-4 px-4 border border-white">Sup Name</th>
               <th class="py-4 px-4 border border-white">Sup Contact</th>
               <th class="py-4 px-4 border border-white">Sup Address</th>
-              <th class="py-4 px-4 border border-white">Status</th>
               <th class="py-4 px-4 border border-white">Action</th>
             </tr>
           </thead>
@@ -35,11 +34,20 @@
               <td class="py-3 px-4 border border-white">{{ $data->Sup_name ?? 'null' }}</td>
               <td class="py-3 px-4 border border-white">{{ $data->Sup_contact ?? 'null' }}</td>
               <td class="py-3 px-4 border border-white">{{ $data->Sup_address ?? 'null' }}</td>
-              <td class="py-3 px-4 border border-white">{{'Active' }}</td>
               <td class="py-3 border border-white">
-                <button class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded-md focus:outline-none" onclick="openEditPopup()">Edit</button>
-                <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md focus:outline-none">Delete</button>
-              </td>
+                <button class="relative bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group" onclick="openEditPopup()">
+                    <i class="fas fa-edit fa-xs"></i>
+                    <span class="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">Edit</span>
+                </button>
+                <button class="relative bg-red-500 hover:bg-red-600 active:bg-red-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group">
+                    <i class="fas fa-trash-alt fa-xs"></i>
+                    <span class="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">Delete</span>
+                </button>
+                <button class="relative bg-green-500 hover:bg-green-600 active:bg-green-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group">
+                    <i class="fas fa-toggle-on fa-xs"></i>
+                    <span class="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">Active</span>
+                </button>
+              </td>                      
             </tr>
             @endforeach
           </tbody>

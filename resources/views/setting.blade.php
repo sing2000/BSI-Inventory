@@ -17,23 +17,8 @@
           </div>
       </div>
       <div class="relative">
-        <img src="images/user.jpg" alt="Admin Profile" class="h-10 w-10 rounded-full mr-5 cursor-pointer" id="profileDropdownToggle">
-        <div id="profileDropdown" class="hidden absolute right-1 mt-2 w-52 bg-white rounded-md shadow-lg border-2 border-yellow-400 z-10">
-            <div class="py-0">
-                <a href="dashboard" class="block px-4 py-2 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Dashboard</a>
-                <a href="setting" class="block px-4 py-2 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Settings</a>
-                <a href="account" class="block px-4 py-2 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Account</a>
-                <a href="#" class="block px-5 py-3 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 border-b-2 border-yellow-400" id="editProfile">Profile</a>
-                <a class="block px-4 py-2 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                   {{ __('Logout') }}
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </div>
-        </div>
+    @include('profile.profile')
+        
       </div>
     @include('popups.edit-profile-popup')
   </header>
@@ -88,11 +73,56 @@
 
     {{-- content here --}}
       <main class="flex-1 p-6">
-          <h1 class="text-2xl font-bold">Hello, I am content right here</h1>
-          <h4 class="font-bold">What is Lorem Ipsum?</h4>
-          <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-          </p>
+        <div class="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6 bg-gray-100 rounded-lg">
+                        <img src="images/shop.jpg" alt="Shop Image" class="rounded-lg mb-4 h-64 w-full object-cover">
+                        <h1 class="text-2xl font-semibold mb-2 text-center text-primary">Welcome, HOMETOWN COFFEE</h1>
+                        <div class="flex">
+                            <div class="flex flex-col items-start p-4 bg-gray-200 rounded-lg m-2 w-full">
+                                <div class="flex items-center mb-4">
+                                    <h2 class="text-lg font-medium">Address:</h2>
+                                </div>
+                                <p class="text-gray-600 mb-4">រាជធានី, Street 1972, Phnom Penh 120801</p>
+                                <a href="#" class="text-blue-500">Manage your location</a>
+                            </div>
+                            {{-- <div class="flex flex-col items-start p-4 bg-gray-200 rounded-lg m-2 w-full">
+                                <div class="flex items-center mb-4">
+                                    <h2 class="text-lg font-medium">Address:</h2>
+                                </div>
+                                <p class="text-gray-600 mb-4">រាជធានី, Street 1972, Phnom Penh 120801</p>
+                                <a href="#" class="text-blue-500">Manage your location</a>
+                            </div> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6 bg-gray-100 rounded-lg">
+                        <img src="images/shop.jpg" alt="Shop Image" class="rounded-lg mb-4 h-64 w-full object-cover">
+                        <h1 class="text-2xl font-semibold mb-2 text-center text-primary">Welcome, HOMETOWN COFFEE</h1>
+                        <div class="flex">
+                            <div class="flex flex-col items-start p-4 bg-gray-200 rounded-lg m-2 w-full">
+                                <div class="flex items-center mb-4">
+                                    <h2 class="text-lg font-medium">Address:</h2>
+                                </div>
+                                <p class="text-gray-600 mb-4">រាជធានី, Street 1972, Phnom Penh 120801</p>
+                                <a href="#" class="text-blue-500">Manage your location</a>
+                            </div>
+                            {{-- <div class="flex flex-col items-start p-4 bg-gray-200 rounded-lg m-2 w-full">
+                                <div class="flex items-center mb-4">
+                                    <h2 class="text-lg font-medium">Address:</h2>
+                                </div>
+                                <p class="text-gray-600 mb-4">រាជធានី, Street 1972, Phnom Penh 120801</p>
+                                <a href="#" class="text-blue-500">Manage your location</a>
+                            </div> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>                             
       </main>
   </div>
 
@@ -100,22 +130,6 @@
 
 </div>
 
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const profileDropdownToggle = document.getElementById('profileDropdownToggle');
-        const profileDropdown = document.getElementById('profileDropdown');
-  
-        profileDropdownToggle.addEventListener('click', function () {
-            profileDropdown.classList.toggle('hidden');
-        });
-        document.addEventListener('click', function (event) {
-            if (!profileDropdownToggle.contains(event.target)) {
-                profileDropdown.classList.add('hidden');
-            }
-        });
-    });
-  </script>
 
 <script>
     document.getElementById('menu-toggle').addEventListener('click', function() {
@@ -137,9 +151,3 @@
         overlay.classList.add('hidden');
     });
 </script>
-
-<style>
-     #logout-form{
-    margin-top: -12px;
-  }
-</style>

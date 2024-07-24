@@ -82,10 +82,35 @@ class SuppliersController extends Controller
      * @param  \App\Models\Suppliers  $suppliers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Suppliers $suppliers)
+    public function update(Request $request, $Sup_id)
     {
-        //
+
+        // Validate the request data
+        $validatedData = $request->validate([
+            'Sup_name' => 'required|string|max:255',
+            'Sup_contact' => 'required|string|max:255',
+            'Sup_address' => 'required|string',
+        ], [
+            'Sup_name.required' => 'Please input Supplier Name',
+            'Sup_contact.required' => 'Please input Supplier Contact',
+            'Sup_address.required' => 'Please input Supplier Address',
+        ]);
+    
+        // Find the supplier by ID
+        $supplier = Suppliers::find($Sup_id);
+ 
+    
+        // Update the supplier data
+        $supplier->Sup_name = $validatedData['Sup_name'];
+        $supplier->Sup_contact = $validatedData['Sup_contact'];
+        $supplier->Sup_address = $validatedData['Sup_address'];
+    
+        // Save the changes
+        $supplier->save();
+    
+        return redirect('/suppliers')->with('flash_message', 'Supplier Updated Successfully');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -93,8 +118,10 @@ class SuppliersController extends Controller
      * @param  \App\Models\Suppliers  $suppliers
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Suppliers $suppliers)
+    public function destroy($Sup_id)
     {
-        //
+
+        Suppliers::destroy($Sup_id);
+        return redirect('suppliers')->with('flash_message', 'suppliers deleted!');
     }
 }

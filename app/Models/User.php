@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\InvRole;
+use App\Models\InvLocation;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -42,6 +43,7 @@ class User extends Authenticatable
         'S_id',
         'status',
         'R_id',
+        'L_id',
     ];
 
     /**
@@ -73,5 +75,9 @@ class User extends Authenticatable
     public function InvRole()
     {
         return $this->belongsTo(InvRole::class, 'R_id', 'R_id');
+    }
+    public function InvLocat()
+    {
+        return $this->belongsTo(InvLocation::class, 'L_id', 'L_id');
     }
 }

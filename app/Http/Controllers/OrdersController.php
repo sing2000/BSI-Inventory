@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UOM;
+use App\Models\Items;
 use App\Models\Orders;
-use App\Http\Controllers\Controller;
+use App\Models\Suppliers;
+use App\Models\OrderInfor;
 use Illuminate\Http\Request;
+use App\Models\IteamCategory;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class OrdersController extends Controller
 {
@@ -15,7 +21,16 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        return view('orders');
+        // dd(Auth::user()->InvLocat->L_id);
+
+        $Supplier = Suppliers::all();
+        $items = Items::all();
+        $uom = UOM::all();
+        // $order_inf = OrderInfor::withCount('Orders')->get();
+        $order_inf = OrderInfor::all();
+        $categories = IteamCategory::all();
+        return view('orders', compact('Supplier','items','uom','order_inf','categories')); 
+   
     }
 
     /**
@@ -36,8 +51,51 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the request data
+        $request->validate([
+            'Order_number' => 'required|string|max:255',
+            'Reciept_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'Total_Price' => 'required|numeric',
+            'Sup_id' => 'required|integer',
+            'selectnum' => 'required|integer|min:1',
+        ]);
+    
+        // Handle the receipt image upload
+        if ($request->hasFile('Reciept_image')) {
+            $imagePath = $request->file('Reciept_image')->store('receipt_images', 'public');
+            $validatedData['Reciept_image'] = $imagePath;
+        }
+    
+        // Create the OrderInfo
+        $order = OrderInfor::create([
+            'Order_number' => $request->Order_number,
+            'Reciept_image' => $imagePath,
+            'Total_Price' => $request->Total_Price,
+            // 'inc_VAT' => $request->inc_VAT ? 1 : 0,
+        ]);
+    
+        // Create the individual Orders
+        $numberOfItems = $request->selectnum;
+
+        for ($i = 0; $i < $numberOfItems; $i++) {
+            Orders::create([
+                'Order_Info_id' => $order->Order_Info_id,
+                'Item_id' => $request->input("inputSelectItem".($i+1)),
+                'Sup_id' => $request->Sup_id,
+                'Qty' => $request->input("Qty".($i+1)),
+                'UOM_id' => $request->input("inputSelectUOM".($i+1)),
+                'order_date' => $request->input("order_date".($i+1)),
+                'price' => $request->input("price".($i+1)),
+                'inc_VAT' =>  $request->inc_VAT ? 1 : 0,
+                'S_id' => Auth::user()->invshop->S_id,
+                'L_id' => Auth::user()->InvLocat->L_id,
+            ]);
+   
+        }
+    
+        return redirect()->back()->with('success', 'Order created successfully!');
     }
+    
 
     /**
      * Display the specified resource.
@@ -79,8 +137,9 @@ class OrdersController extends Controller
      * @param  \App\Models\Orders  $orders
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Orders $orders)
+    public function destroy( $Order_Info_id)
     {
-        //
+        OrderInfor::destroy($Order_Info_id);
+        return redirect('orders')->with('flash_message', 'orders deleted!');
     }
 }

@@ -116,7 +116,8 @@ class RegisterController extends Controller
             'U_contact' => $data['U_contact'],
             'sys_name' => $data['sys_name'],
             'password' => Hash::make($data['password']),
-            'S_id' => $invshop->S_id, 
+            'S_id' => $invshop->S_id,
+            'L_id'=> $InvLocation->L_id,
             'U_photo' => '',
             'status' => '',
         ]);

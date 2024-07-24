@@ -11,7 +11,7 @@ class Addons extends Model
     use HasFactory;
     protected $table = 'inv_addons';
     public $timestamps = false;
-    protected $primaryKey = 'inv_addons';
+    protected $primaryKey = 'Addons_id';
     public $incrementing = true;
     protected $keyType = 'int'; 
     protected $fillable = [

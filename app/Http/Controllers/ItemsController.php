@@ -99,8 +99,9 @@ class ItemsController extends Controller
      * @param  \App\Models\Items  $items
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Items $items)
+    public function destroy($Item_id)
     {
-        //
+        Items::destroy($Item_id);
+        return redirect('items')->with('flash_message', 'items deleted!');
     }
 }

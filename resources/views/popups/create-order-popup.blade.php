@@ -4,34 +4,37 @@
         <div class="bg-gradient-to-b from-blue-500 to-blue-400 rounded-t-lg px-6 py-4">
             <h2 class="text-2xl font-bold text-white mb-2 sm:text-2xl">Add New Order</h2>
         </div>
-        <form class="p-6 sm:p-6">
+        <form class="p-6 sm:p-6" method="POST" action="{{ route('orders.store') }}" enctype="multipart/form-data">
+            @csrf
             <div class="flex flex-wrap -mx-2 mb-4">
                 <h3 class="w-full text-lg font-bold text-gray-800 mb-2">Order Info</h3>
                 <div class="w-full h-0.5 bg-yellow-400 rounded-sm mb-4"></div>
                 <div class="w-full sm:w-1/2 md:w-1/5 px-2 mb-4">
-                    <label for="input1" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Order Number</label>
-                    <input type="text" id="input1" name="input1" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <label for="Order_number" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Order Number</label>
+                    <input type="text" id="Order_number" name="Order_number" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 <div class="w-full sm:w-1/2 md:w-1/5 px-2 mb-4">
-                    <label for="input2" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Receipt Image</label>
-                    <input type="file" id="input2" name="input2" class="text-sm border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <label for="Reciept_image" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Receipt Image</label>
+                    <input type="file" id="Reciept_image" name="Reciept_image" class="text-sm border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 <div class="w-full sm:w-1/2 md:w-1/5 px-2 mb-4">
-                    <label for="input3" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Total Price</label>
-                    <input type="number" id="input3" name="input3" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <label for="Total_Price" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Total Price</label>
+                    <input type="number" id="Total_Price" name="Total_Price" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 <div class="w-full sm:w-1/2 md:w-1/5 px-2 mb-4">
-                    <label for="input4" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Select Supplier</label>
-                    <select id="input4" name="input4" class="text-sm sm:text-sm font-medium border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        <option>Select Supplier</option>
-                        <option>Supplier 1</option>
-                        <option>Supplier 2</option>
-                        <option>Supplier 3</option>
+                    <label for="Sup_id" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Select Supplier</label>
+                    <select id="Sup_id" name="Sup_id" class="text-sm sm:text-sm font-medium border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <option>Select a Supplier</option>
+                        @foreach ($Supplier as $data)
+                        <option value="{{ $data->Sup_id }}">
+                            {{ $data->Sup_name }}
+                        </option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="w-full sm:w-1/2 md:w-1/5 px-2 mb-4">
-                    <label for="input5" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Inc VAT</label>
-                    <input type="checkbox" id="input5" name="input5" class="h-6 w-6 ml-10 border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <label for="inc_VAT" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Inc VAT</label>
+                    <input type="checkbox" id="inc_VAT" name="inc_VAT" class="h-6 w-6 ml-10 border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>                               
                 <div class="w-full sm:w-1/2 md:w-1/5 px-2 mb-4">
                     <label for="selectnum" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Select Order Number</label>
@@ -59,7 +62,7 @@
     </div>
 </div>
 
-<!-- JavaScript to handle showing/hiding rows based on selection -->
+<!-- JavaScript to handle showing/hiding rows based on selection and calculating total price -->
 <script>
     document.getElementById('selectnum').addEventListener('change', function() {
         var itemsContainer = document.getElementById('itemsContainer');
@@ -73,37 +76,60 @@
                         <label for="inputSelectItem${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Select Item</label>
                         <select id="inputSelectItem${i+1}" name="inputSelectItem${i+1}" class="text-lg sm:text-sm font-medium border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="">Select Item</option>
-                            <option>Item 1</option>
-                            <option>Item 2</option>
-                            <option>Item 3</option>
+                                 @foreach ($items as $data)
+                                <option value="{{ $data->Item_id }}">
+                                    {{ $data->Item_Khname }}
+                                </option>
+                                @endforeach
                         </select>
                     </div>
                     <div class="w-full sm:w-1/5 px-2 mb-8">
                         <label for="inputSelectUOM${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Select UOM</label>
                         <select id="inputSelectUOM${i+1}" name="inputSelectUOM${i+1}" class="text-lg sm:text-sm font-medium border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="">Select UOM</option>
-                            <option>UOM 1</option>
-                            <option>UOM 2</option>
-                            <option>UOM 3</option>
+                                 @foreach ($uom as $data)
+                                <option value="{{ $data->UOM_id }}">
+                                    {{ $data->UOM_name }}
+                                </option>
+                                @endforeach
                         </select>
                     </div>
                     <div class="w-full sm:w-1/5 px-2 mb-8">
-                        <label for="inputQty${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Qty</label>
-                        <input type="text" id="inputQty${i+1}" name="inputQty${i+1}" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <label for="Qty${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Qty</label>
+                        <input type="number" id="Qty${i+1}" name="Qty${i+1}" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" oninput="updateTotalPrice()">
                     </div>
                     <div class="w-full sm:w-1/5 px-2 mb-8">
-                        <label for="inputOrderDate${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Order Date</label>
-                        <input type="date" id="inputOrderDate${i+1}" name="inputOrderDate${i+1}" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <label for="order_date${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Order Date</label>
+                        <input type="date" id="order_date${i+1}" name="order_date${i+1}" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div class="w-full sm:w-1/5 px-2 mb-8">
-                        <label for="inputPrice${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Price</label>
-                        <input type="number" id="inputPrice${i+1}" name="inputPrice${i+1}" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <label for="price${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Price</label>
+                        <input type="number" id="price${i+1}" name="price${i+1}" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" oninput="updateTotalPrice()">
                     </div>
                 </div>
             `;
             itemsContainer.insertAdjacentHTML('beforeend', itemRow);
         }
     });
+
+    function updateTotalPrice() {
+        var totalPriceField = document.getElementById('Total_Price');
+        var itemsContainer = document.getElementById('itemsContainer');
+        var priceInputs = itemsContainer.querySelectorAll('input[id^="price"]');
+        var qtyInputs = itemsContainer.querySelectorAll('input[id^="Qty"]');
+        var totalPrice = 0;
+
+        priceInputs.forEach(function(input, index) {
+            var price = parseFloat(input.value);
+            var qty = parseFloat(qtyInputs[index].value);
+            if (!isNaN(price) && !isNaN(qty)) {
+                totalPrice += price * qty;
+            }
+        });
+
+        // Update the Total_Price field
+        totalPriceField.value = totalPrice;
+    }
 
     function togglePopup(popupId) {
         var popup = document.getElementById(popupId);

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UOM;
 use App\Models\Addons;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AddonsController extends Controller
 {
@@ -15,8 +16,9 @@ class AddonsController extends Controller
      */
     public function index()
     {
+        $uom =UOM::all();
         $Addons = Addons::with('uom')->paginate(8); 
-        return view('add-ons', compact('Addons')); 
+        return view('add-ons', compact('Addons','uom')); 
     }
 
     /**
@@ -37,7 +39,20 @@ class AddonsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'Addons_name' => 'required|string|max:255',
+            'Percentage' => 'nullable|string|max:255',
+            'Qty' => 'required|integer',
+            'Percentage' => 'required|numeric',
+            'UOM_id' => 'required|integer',
+
+        ]);
+
+
+        Addons::create($validatedData);
+
+        // Redirect or return response
+        return redirect()->back()->with('success', 'Product added successfully!');
     }
 
     /**
@@ -80,8 +95,9 @@ class AddonsController extends Controller
      * @param  \App\Models\Addons  $addons
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Addons $addons)
+    public function destroy($Addons_id)
     {
-        //
+        Addons::destroy($Addons_id);
+        return redirect('add-ons')->with('flash_message', 'Addons deleted!');
     }
 }

@@ -42,7 +42,10 @@
               <td class="text-center py-3 px-4 border border-white">{{'Active' }}</td>
               <td class="py-3 border px-4 border-white">
                 <button class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded-md focus:outline-none" onclick="openEditPopup()">Edit</button>
-                <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md focus:outline-none">Delete</button>
+                <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md focus:outline-none"
+                onclick="if(confirm('{{ __('Are you sure you want to delete?') }}')) { window.location.href='items/destroy/{{$data->Item_id}}'; }">
+                Delete
+              </button>
               </td>
             </tr>
             @endforeach

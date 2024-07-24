@@ -6,6 +6,7 @@ use App\Models\Inventory;
 use Illuminate\Http\Request;
 use App\Models\IteamCategory;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class InventoryController extends Controller
 {
@@ -16,8 +17,12 @@ class InventoryController extends Controller
      */
     public function index()
     {
-         $categories = IteamCategory::all();
-        return view('inventory', compact('categories')); 
+        $categories = IteamCategory::all();
+        $inventory = Inventory::with(['invShop', 'location'])
+        ->where('S_id', Auth::user()->invshop->S_id)
+        ->where('L_id', Auth::user()->invLocation->L_id)
+        ->get();
+        return view('inventory', compact('categories','inventory')); 
     }
     
 

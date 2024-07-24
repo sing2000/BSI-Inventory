@@ -1,6 +1,8 @@
+
 @extends('layouts.app-nav')
 
 @section('content')
+
 <div class="flex flex-col">
   <div class="bg-background flex flex-col items-center flex-grow px-4 md:px-0 mt-2">
     <div class="flex flex-col md:flex-row justify-between items-center w-full md:w-4/5">
@@ -30,21 +32,28 @@
         <table class="min-w-full bg-white border-collapse text-center">
           <thead>
             <tr class="bg-primary text-primary-foreground text-lg">
-              <th class="py-4 px-4 border border-white">INVENTORY</th>
-              <th class="py-4 px-4 border border-white">INVENTORY</th>
-              <th class="py-4 px-4 border border-white">INVENTORY</th>
-              <th class="py-4 px-4 border border-white">INVENTORY</th>
-              <th class="py-4 px-4 border border-white">INVENTORY</th>
+              <th class="py-4 px-4 border border-white">Shop Name</th>
+              <th class="py-4 px-4 border border-white">Location </th>
+              <th class="py-4 px-4 border border-white">Iteam Name</th>
+              <th class="py-4 px-4 border border-white">Category</th>
+              <th class="py-4 px-4 border border-white">Total StockIn</th>
+              <th class="py-4 px-4 border border-white">Total In Hand</th>
+              <th class="py-4 px-4 border border-white">UOM</th>
+              <th class="py-4 px-4 border border-white">Expired Date</th>
               <th class="py-4 px-4 border border-white">Action</th>
             </tr>
           </thead>
           <tbody>
+            @foreach($inventory as $data)
             <tr class="bg-zinc-200 text-base border-t-4 border-white">
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
-              <td class="py-3 px-4 border border-white">Text</td>
+              <td class="py-3 px-4 border border-white">{{$data->InvShop->S_name}}</td>
+              <td class="py-3 px-4 border border-white">{{$data->Location->L_name}}</td>
+              <td class="py-3 px-4 border border-white">{{$data->Item_Name}}</td>
+              <td class="py-3 px-4 border border-white">{{$data->Category}}</td>
+              <td class="py-3 px-4 border border-white">{{$data->Total_StockIn}}</td>
+              <td class="py-3 px-4 border border-white">{{$data->Total_In_Hand}}</td>
+              <td class="py-3 px-4 border border-white">{{$data->UOM}}</td>
+              <td class="py-3 px-4 border border-white">{{$data->Expired_Date}}</td>
               <td class="py-3 border border-white">
                 <button class="relative bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group">
                   <i class="fas fa-edit fa-xs"></i>
@@ -60,6 +69,7 @@
                 </button>
               </td>
             </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

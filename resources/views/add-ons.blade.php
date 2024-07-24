@@ -25,7 +25,6 @@
               <th class="py-4 px-4 border border-white">Percentage</th>
               <th class="py-4 px-4 border border-white">Qty</th>
               <th class="py-4 px-4 border border-white">UOM</th>
-              <th class="py-4 px-4 border border-white">Status</th>
               <th class="py-4 px-4 border border-white">Action</th>
             </tr>
           </thead>
@@ -37,7 +36,6 @@
               <td class="text-center py-3 px-4 border border-white">{{ $data->Percentage ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->Qty ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->uom->UOM_name ?? 'null' }}</td>
-              <td class="text-center py-3 px-4 border border-white">{{ 'Active' }}</td>
               <td class="py-3 border border-white">
                 <button class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded-md focus:outline-none edit-addon" data-addon-id="{{ $data->Addons_id }}">Edit</button>
                 <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md focus:outline-none"

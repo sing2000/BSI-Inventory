@@ -24,7 +24,6 @@
               <th class="py-4 px-4 border border-white">Sup Name</th>
               <th class="py-4 px-4 border border-white">Sup Contact</th>
               <th class="py-4 px-4 border border-white">Sup Address</th>
-              <th class="py-4 px-4 border border-white">Status</th>
               <th class="py-4 px-4 border border-white">Action</th>
             </tr>
           </thead>
@@ -35,7 +34,6 @@
               <td class="py-3 px-4 border border-white">{{ $data->Sup_name ?? 'null' }}</td>
               <td class="py-3 px-4 border border-white">{{ $data->Sup_contact ?? 'null' }}</td>
               <td class="py-3 px-4 border border-white">{{ $data->Sup_address ?? 'null' }}</td>
-              <td class="py-3 px-4 border border-white">{{'Active' }}</td>
               <td class="py-3 border border-white">
                 <button class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded-md focus:outline-none"
                 onclick="openEditPopup({{ $data->Sup_id }}, '{{ $data->Sup_name }}', '{{ $data->Sup_contact }}', '{{ $data->Sup_address }}')"> Edit </button>

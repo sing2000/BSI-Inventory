@@ -23,10 +23,9 @@
               <th class="py-4 px-4 border border-white">Item ID</th>
               <th class="py-4 px-4 border border-white">Item Khname</th>
               <th class="py-4 px-4 border border-white">Item Engname</th>
-              <th class="py-4 px-4 border border-white">Iteam Category</th>
+              <th class="py-4 px-4 border border-white">Item Category</th>
               <th class="py-4 px-4 border border-white">Expiry Date</th>
               <th class="py-4 px-4 border border-white">Image</th>
-              <th class="py-4 px-4 border border-white">Status</th>
               <th class="py-4 px-4 border border-white">Action</th>
             </tr>
           </thead>
@@ -39,7 +38,6 @@
               <td class="text-center py-3 px-4 border border-white">{{ $data->iteamCategory->Item_Cate_Khname ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->Expiry_date ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->image ?? 'null' }}</td>
-              <td class="text-center py-3 px-4 border border-white">{{'Active' }}</td>
               <td class="py-3 border px-4 border-white">
                 <button class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded-md focus:outline-none" onclick="openEditPopup()">Edit</button>
                 <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md focus:outline-none"

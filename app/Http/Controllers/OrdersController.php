@@ -21,8 +21,6 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        // dd(Auth::user()->InvLocat->L_id);
-
         $Supplier = Suppliers::all();
         $items = Items::all();
         $uom = UOM::all();
@@ -88,7 +86,7 @@ class OrdersController extends Controller
                 'price' => $request->input("price".($i+1)),
                 'inc_VAT' =>  $request->inc_VAT ? 1 : 0,
                 'S_id' => Auth::user()->invshop->S_id,
-                'L_id' => Auth::user()->InvLocat->L_id,
+                'L_id' => Auth::user()->invLocation->L_id,
             ]);
    
         }

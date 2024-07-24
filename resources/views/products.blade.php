@@ -14,7 +14,7 @@
         </form>
       </div>
     </div>
-    <div class="w-full md:w-4/5 border-2 border-yellow-400 p-4 font-times">
+    <div class="w-full md:w-4/5 border-2 border-yellow-400 p-2 font-times">
       <div class="overflow-x-auto">
         <h4 class="text-center font-bold pb-4 text-lg">PRODUCTS INFORMATION</h4>
         <table class="min-w-full bg-white border-collapse">
@@ -25,7 +25,6 @@
               <th class="py-4 px-4 border border-white">Pro Name Kh</th>
               <th class="py-4 px-4 border border-white">Pro Category</th>
               <th class="py-4 px-4 border border-white">Image</th>
-              <th class="py-4 px-4 border border-white">Status</th>
               <th class="py-4 px-4 border border-white">Action</th>
             </tr>
           </thead>
@@ -37,13 +36,13 @@
               <td class="text-center py-3 px-4 border border-white">{{ $data->Pro_name_kh ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->productCategory->Cate_Khname ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->image ?? 'null' }}</td>
-              <td class="text-center py-3 px-4 border border-white">{{ 'Active' }}</td>
               <td class="py-3 border border-white">
                 <button class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded-md focus:outline-none edit-product" data-product-id="{{ $data->Pro_id }}">Edit</button>
                 <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md focus:outline-none"
                 onclick="if(confirm('{{ __('Are you sure you want to delete?') }}')) { window.location.href='products/destroy/{{$data->Pro_id}}'; }">
                 Delete
               </button>
+
               </td>
             </tr>
             @endforeach

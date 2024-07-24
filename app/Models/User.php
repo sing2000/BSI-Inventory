@@ -76,7 +76,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(InvRole::class, 'R_id', 'R_id');
     }
-    public function InvLocat()
+    public function invLocation()
     {
         return $this->belongsTo(InvLocation::class, 'L_id', 'L_id');
     }

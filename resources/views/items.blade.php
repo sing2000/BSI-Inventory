@@ -23,7 +23,7 @@
               <th class="py-4 px-4 border border-white">Item ID</th>
               <th class="py-4 px-4 border border-white">Item Khname</th>
               <th class="py-4 px-4 border border-white">Item Engname</th>
-              <th class="py-4 px-4 border border-white">Iteam Category</th>
+              <th class="py-4 px-4 border border-white">Item Category</th>
               <th class="py-4 px-4 border border-white">Expiry Date</th>
               <th class="py-4 px-4 border border-white">Image</th>
               <th class="py-4 px-4 border border-white">Action</th>

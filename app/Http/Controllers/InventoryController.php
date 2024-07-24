@@ -28,7 +28,7 @@ class InventoryController extends Controller
         ->where('S_id', Auth::user()->invshop->S_id)
         ->where('L_id', Auth::user()->invLocation->L_id)
         ->get();
-        return view('inventory', compact('categories','inventory')); 
+        return view('inventory', compact('categories','inventory','Supplier','items','uom')); 
     }
     
 

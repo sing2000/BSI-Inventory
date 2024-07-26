@@ -7,18 +7,19 @@
         </div>
     </div>
     <div id="shop-container" class="grid gap-6">
+        @foreach ($shop as $data )
         <div class="shop-card relative bg-white rounded-lg shadow-lg overflow-hidden col-span-full sm:col-span-1">
             <div class="p-6 bg-gray-100 rounded-lg">
                 <div class="relative flex justify-center items-center">
-                    <img src="images/shop.jpg" alt="Shop Image" class="rounded-full h-52 w-52 object-cover mx-auto shadow-lg mb-4">
+                    <img src="{{ asset('storage/' . $data->S_logo) }}" alt="Shop Image" class="rounded-full h-52 w-52 object-cover mx-auto shadow-lg mb-4">
                     <div class="edit-button-shop absolute bottom-2 right-2 bg-gray-900 bg-opacity-50 p-2 rounded-full cursor-pointer hover:bg-opacity-75 transition duration-300">
                         <i class="fas fa-edit text-white"></i>
                     </div>
                 </div>
-                <h1 class="text-2xl font-semibold mb-2 text-center text-primary">Welcome, HOMETOWN COFFEE</h1>
+                <h1 class="text-2xl font-semibold mb-2 text-center text-primary">WELCOME, {{strtoupper($data->S_name)}}</h1>
                 <div class="flex">
                     <div class="flex flex-col items-start p-4 bg-gray-200 rounded-lg m-2 w-full">
-                        <h2 class="text-lg font-medium mb-4">Address:</h2>
+                        <h2 class="text-lg font-medium mb-4">Address:</h2>                                                                                                                                                                             
                         <p class="text-gray-600 mb-4">រាជធានី, Street 1972, Phnom Penh 120801</p>
                         <a href="#" class="text-blue-500">Manage your location</a>
                     </div>
@@ -30,30 +31,11 @@
                 </div>
             </div>
         </div>
-        <div class="shop-card relative bg-white rounded-lg shadow-lg overflow-hidden col-span-full sm:col-span-1">
-            <div class="p-6 bg-gray-100 rounded-lg">
-                <div class="relative flex justify-center items-center">
-                    <img src="images/shop.jpg" alt="Shop Image" class="rounded-full h-52 w-52 object-cover mx-auto shadow-lg mb-4">
-                    <div class="edit-button-shop absolute bottom-2 right-2 bg-gray-900 bg-opacity-50 p-2 rounded-full cursor-pointer hover:bg-opacity-75 transition duration-300">
-                        <i class="fas fa-edit text-white"></i>
-                    </div>
-                </div>
-                <h1 class="text-2xl font-semibold mb-2 text-center text-primary">Welcome, HOMETOWN COFFEE</h1>
-                <div class="flex">
-                    <div class="flex flex-col items-start p-4 bg-gray-200 rounded-lg m-2 w-full">
-                        <h2 class="text-lg font-medium mb-4">Address:</h2>
-                        <p class="text-gray-600 mb-4">រាជធានី, Street 1972, Phnom Penh 120801</p>
-                        <a href="#" class="text-blue-500">Manage your location</a>
-                    </div>
-                    <div class="flex flex-col items-start p-4 bg-gray-200 rounded-lg m-2 w-full">
-                        <h2 class="text-lg font-medium mb-4">Address:</h2>
-                        <p class="text-gray-600 mb-4">រាជធានី, Street 1972, Phnom Penh 120801</p>
-                        <a href="#" class="text-blue-500">Manage your location</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
         <!-- Add more shop cards here as needed -->
+    </div>
+    <div class="mt-4">
+        {{ $shop->links() }}
     </div>
     @include('popups.edit-shop-popup')
     @include('popups.create-shop-popup')

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Invshop;
 use App\Models\Setting;
 use App\Models\Products;
 use Illuminate\Http\Request;
@@ -22,8 +23,9 @@ class SettingController extends Controller
         $itemCate = IteamCategory::all();
         $productCate = invProductCate::all();
         $user = User::all();
-        $invProduct = Products::paginate(12);;
-        return view('setting', compact('itemCate','productCate','user','invProduct')); 
+        $invProduct = Products::paginate(12);
+        $shop = Invshop::paginate(2);
+        return view('setting', compact('itemCate','productCate','user','invProduct','shop')); 
     }
 
     /**

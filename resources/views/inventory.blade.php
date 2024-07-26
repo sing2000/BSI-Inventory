@@ -32,8 +32,6 @@
         <table class="min-w-full bg-white border-collapse text-center">
           <thead>
             <tr class="bg-primary text-primary-foreground text-lg">
-              <th class="py-4 px-4 border border-white">Shop Name</th>
-              <th class="py-4 px-4 border border-white">Location </th>
               <th class="py-4 px-4 border border-white">Iteam Name</th>
               <th class="py-4 px-4 border border-white">Category</th>
               <th class="py-4 px-4 border border-white">Total StockIn</th>
@@ -46,8 +44,6 @@
           <tbody>
             @foreach($inventory as $data)
             <tr class="bg-zinc-200 text-base border-t-4 border-white">
-              <td class="py-3 px-4 border border-white">{{$data->InvShop->S_name}}</td>
-              <td class="py-3 px-4 border border-white">{{$data->Location->L_name}}</td>
               <td class="py-3 px-4 border border-white">{{$data->Item_Name}}</td>
               <td class="py-3 px-4 border border-white">{{$data->Category}}</td>
               <td class="py-3 px-4 border border-white">{{$data->Total_StockIn}}</td>

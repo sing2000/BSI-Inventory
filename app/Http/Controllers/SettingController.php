@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Setting;
-use App\Http\Controllers\Controller;
+use App\Models\Products;
 use Illuminate\Http\Request;
+use App\Models\IteamCategory;
+use App\Models\invProductCate;
+use App\Http\Controllers\Controller;
 
 class SettingController extends Controller
 {
@@ -15,7 +19,11 @@ class SettingController extends Controller
      */
     public function index()
     {
-        return view('setting');
+        $itemCate = IteamCategory::all();
+        $productCate = invProductCate::all();
+        $user = User::all();
+        $invProduct = Products::paginate(12);;
+        return view('setting', compact('itemCate','productCate','user','invProduct')); 
     }
 
     /**

@@ -17,6 +17,7 @@ use App\Http\Controllers\SuppliersController;
 use App\Http\Controllers\AccountingController;
 use App\Http\Controllers\Vending_maController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\IteamCategoryController;
 
 
 /*
@@ -79,3 +80,6 @@ Route::get('add-ons/destroy/{Addons_id}', [AddonsController::class, 'destroy']);
 //register
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
+
+//settings
+// Route::get('/items-category', [IteamCategoryController::class, 'index'])->name('items-category');

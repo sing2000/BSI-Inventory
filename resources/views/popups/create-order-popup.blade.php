@@ -35,7 +35,11 @@
                 <div class="w-full sm:w-1/2 md:w-1/5 px-2 mb-4">
                     <label for="inc_VAT" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Inc VAT</label>
                     <input type="checkbox" id="inc_VAT" name="inc_VAT" class="h-6 w-6 ml-10 border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>                               
+                </div>
+                <div class="w-full sm:w-1/5 px-2 mb-8">
+                    <label for="order_date" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Order Date</label>
+                    <input type="date" id="order_date" name="order_date" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>                           
                 <div class="w-full sm:w-1/2 md:w-1/5 px-2 mb-4">
                     <label for="selectnum" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Select Order Number</label>
                     <select id="selectnum" name="selectnum" class="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
@@ -97,10 +101,6 @@
                     <div class="w-full sm:w-1/5 px-2 mb-8">
                         <label for="Qty${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Qty</label>
                         <input type="number" id="Qty${i+1}" name="Qty${i+1}" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" oninput="updateTotalPrice()">
-                    </div>
-                    <div class="w-full sm:w-1/5 px-2 mb-8">
-                        <label for="order_date${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Order Date</label>
-                        <input type="date" id="order_date${i+1}" name="order_date${i+1}" class="border border-gray-300 rounded-md px-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div class="w-full sm:w-1/5 px-2 mb-8">
                         <label for="price${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Price</label>

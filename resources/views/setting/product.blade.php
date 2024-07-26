@@ -11,11 +11,12 @@
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mt-2">
             <!-- Example Product Card -->
+            @foreach ( $invProduct as $data)
             <div class="bg-white p-2 rounded-lg shadow-md">
                 <img src="images/shop.jpg" alt="Hot Vanilla Latte" class="w-full h-20 object-cover rounded-t-lg">
                 <div class="p-2">
-                    <h2 class="text-sm text-gray-800 mb-1">វ៉ាន់នីឡាឡាតេក្តៅ</h2>
-                    <h3 class="text-sm text-gray-700 mb-2">Hot Vanilla Latte</h3>
+                    <h2 class="text-sm text-gray-800 mb-1">{{$data->Pro_name_eng}}</h2>
+                    <h3 class="text-sm text-gray-700 mb-2">{{$data->Pro_name_kh}}</h3>
                     <div class="flex justify-between">
                         <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
                         <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
@@ -23,139 +24,11 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-2 rounded-lg shadow-md">
-                <img src="images/shop.jpg" alt="Hot Vanilla Latte" class="w-full h-20 object-cover rounded-t-lg">
-                <div class="p-2">
-                    <h2 class="text-sm text-gray-800 mb-1">វ៉ាន់នីឡាឡាតេក្តៅ</h2>
-                    <h3 class="text-sm text-gray-700 mb-2">Hot Vanilla Latte</h3>
-                    <div class="flex justify-between">
-                        <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                        <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                        <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-2 rounded-lg shadow-md">
-                <img src="images/shop.jpg" alt="Hot Vanilla Latte" class="w-full h-20 object-cover rounded-t-lg">
-                <div class="p-2">
-                    <h2 class="text-sm text-gray-800 mb-1">វ៉ាន់នីឡាឡាតេក្តៅ</h2>
-                    <h3 class="text-sm text-gray-700 mb-2">Hot Vanilla Latte</h3>
-                    <div class="flex justify-between">
-                        <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                        <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                        <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-2 rounded-lg shadow-md">
-                <img src="images/shop.jpg" alt="Hot Vanilla Latte" class="w-full h-20 object-cover rounded-t-lg">
-                <div class="p-2">
-                    <h2 class="text-sm text-gray-800 mb-1">វ៉ាន់នីឡាឡាតេក្តៅ</h2>
-                    <h3 class="text-sm text-gray-700 mb-2">Hot Vanilla Latte</h3>
-                    <div class="flex justify-between">
-                        <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                        <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                        <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-2 rounded-lg shadow-md">
-                <img src="images/shop.jpg" alt="Hot Vanilla Latte" class="w-full h-20 object-cover rounded-t-lg">
-                <div class="p-2">
-                    <h2 class="text-sm text-gray-800 mb-1">វ៉ាន់នីឡាឡាតេក្តៅ</h2>
-                    <h3 class="text-sm text-gray-700 mb-2">Hot Vanilla Latte</h3>
-                    <div class="flex justify-between">
-                        <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                        <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                        <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-2 rounded-lg shadow-md">
-                <img src="images/shop.jpg" alt="Hot Vanilla Latte" class="w-full h-20 object-cover rounded-t-lg">
-                <div class="p-2">
-                    <h2 class="text-sm text-gray-800 mb-1">វ៉ាន់នីឡាឡាតេក្តៅ</h2>
-                    <h3 class="text-sm text-gray-700 mb-2">Hot Vanilla Latte</h3>
-                    <div class="flex justify-between">
-                        <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                        <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                        <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-2 rounded-lg shadow-md">
-                <img src="images/shop.jpg" alt="Hot Vanilla Latte" class="w-full h-20 object-cover rounded-t-lg">
-                <div class="p-2">
-                    <h2 class="text-sm text-gray-800 mb-1">វ៉ាន់នីឡាឡាតេក្តៅ</h2>
-                    <h3 class="text-sm text-gray-700 mb-2">Hot Vanilla Latte</h3>
-                    <div class="flex justify-between">
-                        <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                        <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                        <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-2 rounded-lg shadow-md">
-                <img src="images/shop.jpg" alt="Hot Vanilla Latte" class="w-full h-20 object-cover rounded-t-lg">
-                <div class="p-2">
-                    <h2 class="text-sm text-gray-800 mb-1">វ៉ាន់នីឡាឡាតេក្តៅ</h2>
-                    <h3 class="text-sm text-gray-700 mb-2">Hot Vanilla Latte</h3>
-                    <div class="flex justify-between">
-                        <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                        <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                        <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-2 rounded-lg shadow-md">
-                <img src="images/shop.jpg" alt="Hot Vanilla Latte" class="w-full h-20 object-cover rounded-t-lg">
-                <div class="p-2">
-                    <h2 class="text-sm text-gray-800 mb-1">វ៉ាន់នីឡាឡាតេក្តៅ</h2>
-                    <h3 class="text-sm text-gray-700 mb-2">Hot Vanilla Latte</h3>
-                    <div class="flex justify-between">
-                        <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                        <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                        <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-2 rounded-lg shadow-md">
-                <img src="images/shop.jpg" alt="Hot Vanilla Latte" class="w-full h-20 object-cover rounded-t-lg">
-                <div class="p-2">
-                    <h2 class="text-sm text-gray-800 mb-1">វ៉ាន់នីឡាឡាតេក្តៅ</h2>
-                    <h3 class="text-sm text-gray-700 mb-2">Hot Vanilla Latte</h3>
-                    <div class="flex justify-between">
-                        <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                        <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                        <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-2 rounded-lg shadow-md">
-                <img src="images/shop.jpg" alt="Hot Vanilla Latte" class="w-full h-20 object-cover rounded-t-lg">
-                <div class="p-2">
-                    <h2 class="text-sm text-gray-800 mb-1">វ៉ាន់នីឡាឡាតេក្តៅ</h2>
-                    <h3 class="text-sm text-gray-700 mb-2">Hot Vanilla Latte</h3>
-                    <div class="flex justify-between">
-                        <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                        <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                        <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-2 rounded-lg shadow-md">
-                <img src="images/shop.jpg" alt="Hot Vanilla Latte" class="w-full h-20 object-cover rounded-t-lg">
-                <div class="p-2">
-                    <h2 class="text-sm text-gray-800 mb-1">វ៉ាន់នីឡាឡាតេក្តៅ</h2>
-                    <h3 class="text-sm text-gray-700 mb-2">Hot Vanilla Latte</h3>
-                    <div class="flex justify-between">
-                        <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                        <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                        <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                    </div>
-                </div>
-            </div>
+            @endforeach
             <!-- Repeat Product Card for each product -->
+        </div>
+        <div class="mt-4">
+            {{ $invProduct->links() }}
         </div>
     </div>
 </div>

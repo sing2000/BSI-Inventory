@@ -19,6 +19,12 @@ class OrderInfor extends Model
         'Reciept_image',
         'Total_Price',
         'inc_VAT',
+        'S_id',
+        'L_id',
+        'Sup_id',
+        'inc_VAT',
+        'order_date',
+
     ];
         // Define the one-to-many relationship
         public function Orders()

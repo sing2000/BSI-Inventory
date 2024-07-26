@@ -21,7 +21,6 @@
     </div>
     @include('popups.edit-profile-popup')
   </header>
-
   <div class="flex flex-col items-center py-6">
     <div class="flex space-x-2 -mt-10">
       <a href="setting" class="bg-primary text-white rounded-lg px-4 py-2 text-sm font-bold">
@@ -73,18 +72,17 @@
         @include('setting.shop')
       </div>
       <div id="section3" class="content-section max-w-screen-lg mx-auto grid-cols-1 md:grid-cols-2 gap-8 flex flex-row" style="display: none;">
-        @include('setting.user')
+        @include('setting.user',['user'=> $user])
       </div>
       <div id="section4" class="content-section max-w-screen-lg mx-auto grid-cols-1 md:grid-cols-2 gap-8 flex flex-row" style="display: none;">
-        @include('setting.category')
-      </div>
+        @include('setting.category', ['itemCate' => $itemCate, 'productCate' => $productCate])
+    </div>
       <div id="section6" class="content-section max-w-screen-lg mx-auto grid-cols-1 md:grid-cols-2 gap-8 flex flex-row" style="display: none;">
         @include('setting.module')
       </div>
       <div id="section7" class="content-section max-w-screen-lg mx-auto grid-cols-1 md:grid-cols-2 gap-8 flex flex-row" style="display: none;">
-        @include('setting.product')
+        @include('setting.product',['invProduct'=>$invProduct])
       </div>
-      <div id="section9" class="content-section max-w-screen-lg mx-auto grid-cols-1 md:grid-cols-2 gap-8 flex flex-row" style="display: none;">
         @include('setting.uom-size')
       </div>
     </main>

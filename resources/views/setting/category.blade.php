@@ -10,21 +10,23 @@
             <div class="relative inline-block">
                 <button id="createButton" class="bg-primary text-primary-foreground py-1 px-4 rounded-lg mb-2 text-sm">CREATE</button>
                 <div id="createDropdown" class="absolute right-0 mt-2 w-48 bg-white border-2 border-gray-400 rounded-lg shadow-lg hidden">
-                    <a href="#" class="block px-4 py-2 text-gray-500 border-b-2 border-gray-400 hover:bg-gray-200 hover:rounded-t-lg">Items Category</a>
-                    <a href="#" class="block px-4 py-2 text-gray-500 border-b-2 border-gray-400 hover:bg-gray-200">Products Category</a>
-                    <a href="#" class="block px-4 py-2 text-gray-500 hover:bg-gray-200 hover:rounded-b-lg">Expense Category</a>
+                    <a href="/" class="block px-4 py-2 text-gray-500 border-b-2 border-gray-400 hover:bg-gray-200 hover:rounded-t-lg">Items Category</a>
+                    <a href="/" class="block px-4 py-2 text-gray-500 border-b-2 border-gray-400 hover:bg-gray-200">Products Category</a>
+                    <a href="/" class="block px-4 py-2 text-gray-500 hover:bg-gray-200 hover:rounded-b-lg">Expense Category</a>
                 </div>
             </div>
         </div>            
         <section class="mb-8">
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mt-6">
+          
                 <!-- Items Category -->
-                <div class="category-items bg-white p-2 rounded-lg shadow-md">
+                @foreach ($itemCate as $data )
+                <div class="category-items bg-white p-2 rounded-lg shadow-md">  
                     <div class="w-full h-20 flex items-center justify-center bg-gray-200 rounded-lg">
                         <i class="fas fa-tag text-gray-600 text-6xl"></i>
                     </div>
                     <div class="p-2">
-                        <h2 class="text-lg text-gray-800 mb-3">ទឹកដោះគោ</h2>
+                        <h2 class="text-lg text-gray-800 mb-3">{{$data->Item_Cate_Khname}}</h2>
                         <div class="flex justify-between">
                             <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
                             <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
@@ -32,111 +34,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="category-items bg-white p-2 rounded-lg shadow-md">
-                    <div class="w-full h-20 flex items-center justify-center bg-gray-200 rounded-lg">
-                        <i class="fas fa-tag text-gray-600 text-6xl"></i>
-                    </div>
-                    <div class="p-2">
-                        <h2 class="text-lg text-gray-800 mb-3">ម្សៅ</h2>
-                        <div class="flex justify-between">
-                            <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                            <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                            <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="category-items bg-white p-2 rounded-lg shadow-md">
-                    <div class="w-full h-20 flex items-center justify-center bg-gray-200 rounded-lg">
-                        <i class="fas fa-tag text-gray-600 text-6xl"></i>
-                    </div>
-                    <div class="p-2">
-                        <h2 class="text-lg text-gray-800 mb-3">ទឹកសេរ៉ូ</h2>
-                        <div class="flex justify-between">
-                            <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                            <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                            <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="category-items bg-white p-2 rounded-lg shadow-md">
-                    <div class="w-full h-20 flex items-center justify-center bg-gray-200 rounded-lg">
-                        <i class="fas fa-tag text-gray-600 text-6xl"></i>
-                    </div>
-                    <div class="p-2">
-                        <h2 class="text-lg text-gray-800 mb-3">ទឹករសជាតិ</h2>
-                        <div class="flex justify-between">
-                            <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                            <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                            <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="category-items bg-white p-2 rounded-lg shadow-md">
-                    <div class="w-full h-20 flex items-center justify-center bg-gray-200 rounded-lg">
-                        <i class="fas fa-tag text-gray-600 text-6xl"></i>
-                    </div>
-                    <div class="p-2">
-                        <h2 class="text-lg text-gray-800 mb-3">តែ</h2>
-                        <div class="flex justify-between">
-                            <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                            <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                            <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
                 <!-- Products Category -->
+                @foreach ($productCate as $data)
                 <div class="category-products hidden bg-white p-2 rounded-lg shadow-md">
                     <div class="w-full h-20 flex items-center justify-center bg-gray-200 rounded-lg">
                         <i class="fas fa-box text-gray-600 text-6xl"></i>
                     </div>
                     <div class="p-2">
-                        <h2 class="text-lg text-gray-800 mb-3">ភេសជ្ជក្តៅ</h2>
+                        <h2 class="text-lg text-gray-800 mb-3">{{$data->Cate_Khname}}</h2>
                         <div class="flex justify-between">
                             <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
                             <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
                             <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                        </div>
-                    </div>
+                        </div>  
+                    </div>    
                 </div>
-                <div class="category-products hidden bg-white p-2 rounded-lg shadow-md">
-                    <div class="w-full h-20 flex items-center justify-center bg-gray-200 rounded-lg">
-                        <i class="fas fa-box text-gray-600 text-6xl"></i>
-                    </div>
-                    <div class="p-2">
-                        <h2 class="text-lg text-gray-800 mb-3">ភេសជ្ជត្រជាក់</h2>
-                        <div class="flex justify-between">
-                            <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                            <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                            <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="category-products hidden bg-white p-2 rounded-lg shadow-md">
-                    <div class="w-full h-20 flex items-center justify-center bg-gray-200 rounded-lg">
-                        <i class="fas fa-box text-gray-600 text-6xl"></i>
-                    </div>
-                    <div class="p-2">
-                        <h2 class="text-lg text-gray-800 mb-3">ភេសជ្ជក្រឡុក</h2>
-                        <div class="flex justify-between">
-                            <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                            <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                            <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="category-products hidden bg-white p-2 rounded-lg shadow-md">
-                    <div class="w-full h-20 flex items-center justify-center bg-gray-200 rounded-lg">
-                        <i class="fas fa-box text-gray-600 text-6xl"></i>
-                    </div>
-                    <div class="p-2">
-                        <h2 class="text-lg text-gray-800 mb-3">ភេសជ្ជផ្សេងៗ</h2>
-                        <div class="flex justify-between">
-                            <button class="bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600"><i class="fas fa-edit"></i></button>
-                            <button class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"><i class="fas fa-trash-alt"></i></button>
-                            <button class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600"><i class="fas fa-toggle-on"></i></button>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
                 <!-- Expenses Category -->
                 <div class="category-expenses hidden bg-white p-2 rounded-lg shadow-md">
                     <div class="w-full h-20 flex items-center justify-center bg-gray-200 rounded-lg">

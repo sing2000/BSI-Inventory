@@ -24,10 +24,13 @@ class OrdersController extends Controller
         $Supplier = Suppliers::all();
         $items = Items::all();
         $uom = UOM::all();
-        // $order_inf = OrderInfor::withCount('Orders')->get();
+        $order = Orders::all();
         $order_inf = OrderInfor::all();
         $categories = IteamCategory::all();
-        return view('orders', compact('Supplier','items','uom','order_inf','categories')); 
+        $order_inf_counts = $order->groupBy('Order_Info_id')->map(function ($group) {
+            return $group->count();
+        });
+        return view('orders', compact('Supplier','items','uom','order_inf','categories','order_inf_counts')); 
    
     }
 
@@ -49,6 +52,7 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         // Validate the request data
         $request->validate([
             'Order_number' => 'required|string|max:255',
@@ -69,7 +73,12 @@ class OrdersController extends Controller
             'Order_number' => $request->Order_number,
             'Reciept_image' => $imagePath,
             'Total_Price' => $request->Total_Price,
-            // 'inc_VAT' => $request->inc_VAT ? 1 : 0,
+            'Sup_id' => $request->Sup_id,
+            'S_id' => Auth::user()->invshop->S_id,
+            'L_id' => Auth::user()->invLocation->L_id,
+            'inc_VAT' =>  $request->inc_VAT ? 1 : 0,
+            'order_date' => $request->order_date,
+
         ]);
     
         // Create the individual Orders
@@ -79,18 +88,14 @@ class OrdersController extends Controller
             Orders::create([
                 'Order_Info_id' => $order->Order_Info_id,
                 'Item_id' => $request->input("inputSelectItem".($i+1)),
-                'Sup_id' => $request->Sup_id,
                 'Qty' => $request->input("Qty".($i+1)),
                 'UOM_id' => $request->input("inputSelectUOM".($i+1)),
-                'order_date' => $request->input("order_date".($i+1)),
                 'price' => $request->input("price".($i+1)),
-                'inc_VAT' =>  $request->inc_VAT ? 1 : 0,
-                'S_id' => Auth::user()->invshop->S_id,
-                'L_id' => Auth::user()->invLocation->L_id,
+              
             ]);
    
         }
-    
+
         return redirect()->back()->with('success', 'Order created successfully!');
     }
     

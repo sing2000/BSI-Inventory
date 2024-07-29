@@ -21,34 +21,35 @@
             <div class="flex px-4">
                 <div class="p-2 w-full">
                     <div class="mb-4">
-                        <label for="username" class="block mb-1">Username:</label>
-                        <input type="text" id="username" name="username" class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <label for="U_name" class="block mb-1">Username:</label>
+                        <input type="text" id="U_name" name="U_name" value="{{ $data->U_name }}" class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div class="mb-4">
-                        <label for="role" class="block mb-1">Role:</label>
-                        <select class="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                            <option value="" disabled selected>Select a role</option>
-                            <option value="">Admin</option>
-                            <option value="">Owner</option>
-                            <option value="">Inventory</option>
-                            <option value="">Seller</option>
+                        <label for="R_id" class="block mb-1">Role:</label>
+                        <select id="R_id" name="R_id" class="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <option value="" disabled>Select a role</option>
+                            @foreach ($role as $role)
+                            <option value="{{ $role->R_id }}" {{ $role->R_id == old('R_id', $data->R_id) ? 'selected' : '' }}>
+                                {{ $role->R_type }}
+                            </option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="p-2 w-full">
                     <div class="mb-4">
-                        <label for="Systemname" class="block mb-1">System Name:</label>
-                        <input type="text" id="Systemname" name="Systemname" class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <label for="sys_name" class="block mb-1">System Name:</label>
+                        <input type="text" id="sys_name" name="sys_name" value="{{ $data->sys_name }}" class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div class="mb-4">
-                        <label for="usercontact" class="block mb-1">User Contact:</label>
-                        <input type="text" id="usercontact" name="usercontact" class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <label for="U_contact" class="block mb-1">User Contact:</label>
+                        <input type="text" id="U_contact" name="U_contact" value="{{ $data->U_contact }}"  class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                 </div>
                 <div class="p-2 w-full">
                     <div class="mb-4">
-                        <label for="oldpassword" class="block mb-1">Old Password:</label>
-                        <input type="password" id="oldpassword" name="oldpassword" class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <label for="text" class="block mb-1">Old Password:</label>
+                        <input type="password" id="password" name="password"  value="{{ $data->password }}" class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div class="mb-4">
                         <label for="newpassword" class="block mb-1">New Password:</label>

@@ -72,7 +72,7 @@
         @include('setting.shop')
       </div>
       <div id="section3" class="content-section max-w-screen-lg mx-auto grid-cols-1 md:grid-cols-2 gap-8 flex flex-row" style="display: none;">
-        @include('setting.user',['user'=> $user])
+        @include('setting.user',['user'=> $user,'role'=>$role])
       </div>
       <div id="section4" class="content-section max-w-screen-lg mx-auto grid-cols-1 md:grid-cols-2 gap-8 flex flex-row" style="display: none;">
         @include('setting.category', ['itemCate' => $itemCate, 'productCate' => $productCate])

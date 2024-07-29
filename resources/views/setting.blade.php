@@ -21,6 +21,7 @@
     </div>
     @include('popups.edit-profile-popup')
   </header>
+  
   <div class="flex flex-col items-center py-6">
     <div class="flex space-x-2 -mt-10">
       <a href="setting" class="bg-primary text-white rounded-lg px-4 py-2 text-sm font-bold">
@@ -39,8 +40,7 @@
       <!-- Menu Overlay -->
       <div class="fixed inset-0 bg-black bg-opacity-50 hidden lg:hidden" id="menu-overlay"></div>
       <!-- Sidebar -->
-      <aside class="text-gray-500 w-64 h-full p-6 bg-gray-200 fixed top-0 left-0 transform -translate-x-full transition-transform lg:transform-none lg:static lg:w-64 lg:h-full lg:p-6 lg:bg-gray-200"
-        id="sidebar">
+      <aside class="text-gray-500 w-64 h-full p-6 bg-gray-200 fixed top-0 left-0 transform -translate-x-full transition-transform lg:transform-none lg:static lg:w-64 lg:h-full lg:p-6 lg:bg-gray-200" id="sidebar">
         <nav class="flex flex-col py-4">
           <!-- Navigation Links -->
           <a href="#shop" id="link-section1" onclick="showSection('section1');" class="nav-link flex items-center py-2 px-4 hover:bg-yellow-400 rounded-lg my-1">
@@ -76,19 +76,24 @@
       </div>
       <div id="section4" class="content-section max-w-screen-lg mx-auto grid-cols-1 md:grid-cols-2 gap-8 flex flex-row" style="display: none;">
         @include('setting.category', ['itemCate' => $itemCate, 'productCate' => $productCate])
-    </div>
+      </div>
       <div id="section6" class="content-section max-w-screen-lg mx-auto grid-cols-1 md:grid-cols-2 gap-8 flex flex-row" style="display: none;">
         @include('setting.module')
       </div>
       <div id="section7" class="content-section max-w-screen-lg mx-auto grid-cols-1 md:grid-cols-2 gap-8 flex flex-row" style="display: none;">
         @include('setting.product',['invProduct'=>$invProduct])
       </div>
+      <div id="section9" class="content-section max-w-screen-lg mx-auto grid-cols-1 md:grid-cols-2 gap-8 flex flex-row" style="display: none;">
         @include('setting.uom-size')
       </div>
     </main>
   </div>
-  @include('layouts.footer')
+  
+  <footer class="text-white">
+    @include('layouts.footer')
+  </footer>
 </div>
+
 
 <script>
   document.getElementById('menu-toggle').addEventListener('click', function() {

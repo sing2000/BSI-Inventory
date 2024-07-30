@@ -69,6 +69,13 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="S_logo">Logo:</label>
+                            <div>
+                                <button class="select-logo">Browse</button>
+                                <input type='file' style="display:none">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="U_contact">Phone:</label>
                             <input type="text" class="form-control" id="U_contact" name="U_contact" value="{{ old('U_contact') }}" placeholder="09283774" required>
                         </div>

@@ -31,7 +31,6 @@
                 </div>
             </div>
         </div>
-        @endforeach
         <!-- Add more shop cards here as needed -->
     </div>
     <div class="mt-4">

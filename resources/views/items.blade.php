@@ -39,11 +39,11 @@
               <td class="text-center py-3 px-4 border border-white">{{ $data->Expiry_date ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->image ?? 'null' }}</td>
               <td class="py-3 border border-white">
-                <button class="relative bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group">
+                <button class="relative bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group editButton">
                   <i class="fas fa-edit fa-xs"></i>
-                  <span class="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out" onclick="if(confirm('{{ __('Are you sure you want to delete?') }}')) { window.location.href='items/destroy/{{$data->Item_id}}'; }">Delete</span>
+                  <span class="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">Edit</span>
                 </button>
-                <button class="relative bg-red-500 hover:bg-red-600 active:bg-red-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group">
+                <button class="relative bg-red-500 hover:bg-red-600 active:bg-red-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group" onclick="if(confirm('{{ __('Are you sure you want to delete?') }}')) { window.location.href='items/destroy/{{$data->Item_id}}'; }">
                   <i class="fas fa-trash-alt fa-xs"></i>
                   <span class="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">Delete</span>
                 </button>
@@ -68,6 +68,7 @@
 
 </div>
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
   const createButton = document.getElementById('createButton');
   const popupForm = document.getElementById('popupItem');
   const closePopup = document.getElementById('closeItemPopup');
@@ -83,13 +84,19 @@
     popupForm.classList.add('hidden');
   });
 
-  function openEditPopup() {
-    editPopup.classList.remove('hidden');
-  }
+  // Ensure the popup opens when the edit button is clicked
+  document.querySelectorAll('.editButton').forEach(button => {
+    button.addEventListener('click', () => {
+      editPopup.classList.remove('hidden');
+    });
+  });
 
+  // Ensure the popup closes when the close button is clicked
   closeEditPopup.addEventListener('click', () => {
     editPopup.classList.add('hidden');
   });
+});
+
 
 </script>
 @endsection

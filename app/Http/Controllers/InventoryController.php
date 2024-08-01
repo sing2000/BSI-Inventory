@@ -97,4 +97,25 @@ class InventoryController extends Controller
     {
         //
     }
+    //search
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
+        $inventory = Inventory::where('Item_Name', 'LIKE', "%{$searchTerm}%")->get();
+
+        $output = '';
+        foreach ($inventory as $data) {
+            $output .= '
+            <tr class="bg-zinc-200 text-base border-t-4 border-white">
+              <td class="py-3 px-4 border border-white">'.$data->Item_Name.'</td>
+              <td class="py-3 px-4 border border-white">'.$data->Category.'</td>
+              <td class="py-3 px-4 border border-white">'.$data->Total_StockIn.'</td>
+              <td class="py-3 px-4 border border-white">'.$data->Total_In_Hand.'</td>
+              <td class="py-3 px-4 border border-white">'.$data->UOM.'</td>
+              <td class="py-3 px-4 border border-white">'.$data->Expired_Date.'</td>
+            </tr>';
+        }
+
+        return response()->json(['html' => $output]);
+    }
 }

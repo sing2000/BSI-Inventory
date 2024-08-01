@@ -1,4 +1,3 @@
-
 @extends('layouts.app-nav')
 
 @section('content')
@@ -19,7 +18,7 @@
       </div>
       <div class="relative flex w-full md:w-auto">
         <form id="searchForm" method="GET" class="w-full md:w-auto flex items-center">
-            <input id="searchInput" type="text" placeholder="Search..." class="border border-input rounded-full py-1 px-4 pl-10 w-full md:w-auto focus:outline-none focus:ring-2 focus:ring-primary" required />
+            <input id="searchInput" type="text" name="search" placeholder="Search..." class="border border-input rounded-full py-1 px-4 pl-10 w-full md:w-auto focus:outline-none focus:ring-2 focus:ring-primary"  />
             <button type="submit" class="bg-gray-200 rounded-full py-1 px-4 absolute right-0 top-0 mt-1 mr-2 flex items-center justify-center">
                 <i class="fas fa-search text-gray-500"></i>
             </button>
@@ -32,7 +31,7 @@
         <table class="min-w-full bg-white border-collapse text-center">
           <thead>
             <tr class="bg-primary text-primary-foreground text-lg">
-              <th class="py-4 px-4 border border-white">Iteam Name</th>
+              <th class="py-4 px-4 border border-white">Item Name</th>
               <th class="py-4 px-4 border border-white">Category</th>
               <th class="py-4 px-4 border border-white">Total StockIn</th>
               <th class="py-4 px-4 border border-white">Total In Hand</th>
@@ -40,7 +39,7 @@
               <th class="py-4 px-4 border border-white">Expired Date</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="inventoryTableBody">
             @foreach($inventory as $data)
             <tr class="bg-zinc-200 text-base border-t-4 border-white">
               <td class="py-3 px-4 border border-white">{{$data->Item_Name}}</td>
@@ -63,9 +62,23 @@
 @include('popups.create-item-popup')
 @include('popups.create-order-popup')
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  $(document).ready(function() {
+    $('#searchForm').on('submit', function(event) {
+      event.preventDefault();
+      let searchQuery = $('#searchInput').val();
+
+      $.ajax({
+        url: '{{ route("inventory.search") }}',
+        type: 'GET',
+        data: { search: searchQuery },
+        success: function(response) {
+          $('#inventoryTableBody').html(response.html);
+        }
+      });
+    });
+
     const createButton = document.getElementById('createButton');
     const dropdownMenu = document.getElementById('dropdownMenu');
     const createSupplier = document.getElementById('createSupplier');

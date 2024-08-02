@@ -19,19 +19,20 @@
                 <h1 class="text-2xl font-semibold mb-2 text-center text-primary">WELCOME, {{strtoupper($data->S_name)}}</h1>
                 <div class="flex">
                     <div class="flex flex-col items-start p-4 bg-gray-200 rounded-lg m-2 w-full">
-                        <h2 class="text-lg font-medium mb-4">Address:</h2>                                                                                                                                                                             
+                        <h2 class="text-lg font-medium mb-4">Address 1:</h2>
                         <p class="text-gray-600 mb-4">រាជធានី, Street 1972, Phnom Penh 120801</p>
                         <a href="#" class="text-blue-500">Manage your location</a>
                     </div>
                     <div class="flex flex-col items-start p-4 bg-gray-200 rounded-lg m-2 w-full">
-                        <h2 class="text-lg font-medium mb-4">Address:</h2>
+                        <h2 class="text-lg font-medium mb-4">Address 2:</h2>
                         <p class="text-gray-600 mb-4">រាជធានី, Street 1972, Phnom Penh 120801</p>
                         <a href="#" class="text-blue-500">Manage your location</a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Add more shop cards here as needed -->
+        @endforeach
+   <!-- Add more shop cards here as needed -->
     </div>
     <div class="mt-4">
         {{ $shop->links() }}
@@ -98,11 +99,16 @@
                 dropdownMenu.classList.add('hidden');
             }
         });
-    });
-</script>
-<script>
-    // JavaScript to adjust the grid layout based on the number of cards
-    window.addEventListener('load', () => {
+
+        // Event listener for the edit button to show the edit popup
+        document.querySelectorAll('.edit-button-shop').forEach(button => 
+            button.addEventListener('click', () => {
+                document.querySelector('.edit-popup-shop').classList.remove('hidden');
+                document.querySelector('.edit-popup-shop-overlay').classList.remove('hidden');
+            })
+        );
+
+        // JavaScript to adjust the grid layout based on the number of cards
         const shopContainer = document.getElementById('shop-container');
         const shopCards = shopContainer.children;
 

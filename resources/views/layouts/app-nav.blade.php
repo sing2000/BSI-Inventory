@@ -17,11 +17,15 @@ $navItems = [
         <div class="ml-5">
             <div class="ml-0">
                 @if(Auth::check() && Auth::user()->invshop && Auth::user()->invshop->S_logo)
-                    <img src="{{ asset('storage/' . Auth::user()->invshop->S_logo) }}" alt="Shop Logo" class="h-10 w-12 rounded">
+                    <a href="/home">
+                        <img src="{{ asset('storage/' . Auth::user()->invshop->S_logo) }}" alt="Shop Logo" class="h-10 w-12 rounded">
+                    </a>
                 @else
-                    <img src="{{ asset('images/official_logo.png') }}" alt="Default Logo" class="h-10 w-12 rounded">
+                    <a href="/home">
+                        <img src="{{ asset('images/official_logo.png') }}" alt="Default Logo" class="h-10 w-12 rounded">
+                    </a>
                 @endif
-            </div>
+            </div>            
         </div>
 
         <div class="bg-primary p-3 shadow-md flex items-end justify-end flex-1">

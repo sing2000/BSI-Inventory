@@ -11,7 +11,7 @@
             <div class="p-2 w-full text-start">
                 <div class="mb-4">
                     <label for="location-name" class="block mb-1">Address:</label>
-                    <input type="text" id="location-name" name="location-name" class="w-full border border-gray-300 rounded-md p-2">
+                    <textarea type="text" id="location-name" name="location-name" class="w-full border border-gray-300 rounded-md p-2"></textarea>
                 </div>
             </div>
             <div class="p-2 mb-6">

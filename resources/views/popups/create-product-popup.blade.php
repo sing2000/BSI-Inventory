@@ -3,7 +3,7 @@
         <div class="bg-gradient-to-b from-blue-500 to-blue-400 rounded-t-lg px-6 py-4">
             <h2 class="text-2xl font-bold text-white mb-2">Add Product</h2>
         </div>
-        <form id="productForm" action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data" class="p-6">
+        <form id="productForm" action="{{ url('products.store') }}" method="POST" enctype="multipart/form-data" class="p-6">
             @csrf
             <div class="mb-4">
                 <label for="Pro_name_eng" class="block text-sm font-medium text-gray-900 mb-1">Product Name Eng</label>

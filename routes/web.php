@@ -34,7 +34,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Auth::routes();
-
 //home page
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

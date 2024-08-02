@@ -77,35 +77,32 @@
   closePopup.addEventListener('click', () => {
     popupForm.classList.add('hidden');
   });
-  
-function openEditPopup(Sup_id, Sup_name, Sup_contact, Sup_address) {
-  document.getElementById('editSupId').value = Sup_id;
-  document.getElementById('editSupName').value = Sup_name;
-  document.getElementById('editSupContact').value = Sup_contact;
-  document.getElementById('editSupAddress').value = Sup_address;
-  document.getElementById('editSupplierPopup').classList.remove('hidden');
-}
 
-document.getElementById('closeEditPopup').addEventListener('click', () => {
+  function openEditPopup(Sup_id, Sup_name, Sup_contact, Sup_address) {
+    document.getElementById('editSupId').value = Sup_id;
+    document.getElementById('editSupName').value = Sup_name;
+    document.getElementById('editSupContact').value = Sup_contact;
+    document.getElementById('editSupAddress').value = Sup_address;
+    document.getElementById('editSupplierForm').action = `/suppliers_update/${Sup_id}`;
+    document.getElementById('editSupplierPopup').classList.remove('hidden');
+  }
+
+  document.getElementById('closeEditPopup').addEventListener('click', () => {
     document.getElementById('editSupplierPopup').classList.add('hidden');
-});
-
-
-  closeEditPopup.addEventListener('click', () => {
-    editPopup.classList.add('hidden');
   });
-  $('#searchForm').on('submit', function(event) {
-      event.preventDefault();
-      let searchQuery = $('#searchInput').val();
 
-      $.ajax({
-        url: '{{ route("suppliers.search") }}',
-        type: 'GET',
-        data: { search: searchQuery },
-        success: function(response) {
-          $('#inventoryTableBody').html(response.html);
-        }
-      });
+  $('#searchForm').on('submit', function(event) {
+    event.preventDefault();
+    let searchQuery = $('#searchInput').val();
+
+    $.ajax({
+      url: '{{ route("suppliers.search") }}',
+      type: 'GET',
+      data: { search: searchQuery },
+      success: function(response) {
+        $('#inventoryTableBody').html(response.html);
+      }
     });
+  });
 </script>
 @endsection

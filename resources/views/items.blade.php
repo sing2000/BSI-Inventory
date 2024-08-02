@@ -1,6 +1,7 @@
 @extends('layouts.app-nav')
 
 @section('content')
+
 <div class="flex flex-col">
   <div class="bg-background flex flex-col items-center flex-grow px-4 md:px-0 mt-2">
     <div class="flex flex-col md:flex-row justify-between items-center w-full md:w-4/5">
@@ -39,7 +40,7 @@
               <td class="text-center py-3 px-4 border border-white">{{ $data->Expiry_date ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->image ?? 'null' }}</td>
               <td class="py-3 border border-white">
-                <button class="relative bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group editButton">
+                <button class="relative bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group" onclick="openEditPopup({{ $data->Item_id }}, '{{ $data->Item_Khname }}','{{ $data->Item_Engname }}','{{ $data->iteamCategory->Item_Cate_Khname }}','{{ $data->Expiry_date}}','{{ $data->image }}')">
                   <i class="fas fa-edit fa-xs"></i>
                   <span class="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">Edit</span>
                 </button>
@@ -85,21 +86,15 @@
     popupForm.classList.add('hidden');
   });
 
-  // Ensure the popup opens when the edit button is clicked
-  document.querySelectorAll('.editButton').forEach(button => {
-    button.addEventListener('click', () => {
-      editPopup.classList.remove('hidden');
-    });
-  });
-
   // Ensure the popup closes when the close button is clicked
   closeEditPopup.addEventListener('click', () => {
     editPopup.classList.add('hidden');
   });
+
   $('#searchForm').on('submit', function(event) {
       event.preventDefault();
       let searchQuery = $('#searchInput').val();
-
+ 
       $.ajax({
         url: '{{ route("items.search") }}',
         type: 'GET',
@@ -110,5 +105,26 @@
       });
     });
 });
+function openEditPopup(Item_id, Item_Khname, Item_Engname, iteamCategory, Expiry_date, image) {
+    document.getElementById('editItem_id').value = Item_id;
+    document.getElementById('editItem_Khname').value = Item_Khname;
+    document.getElementById('editItem_Engname').value = Item_Engname;
+    // Set the category correctly
+    document.getElementById('editItem_Cate_Khname').value = iteamCategory.Item_Cate_id;
+    document.getElementById('editExpiry_date').value = Expiry_date;
+    if (image) {
+        const imagePreview = document.getElementById('imagePreview');
+        imagePreview.src = `/storage/receipt_images/${image}`;
+        imagePreview.classList.remove('hidden');
+    } else {
+        const imagePreview = document.getElementById('imagePreview');
+        imagePreview.src = '';
+        imagePreview.classList.add('hidden');
+    }
+
+    document.getElementById('editSupplierForm').action = `/items_update/${Item_id}`;
+    document.getElementById('editItemPopup').classList.remove('hidden');
+}
+
 </script>
 @endsection

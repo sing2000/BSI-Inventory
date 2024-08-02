@@ -30,15 +30,17 @@ use App\Http\Controllers\IteamCategoryController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
 Auth::routes();
+
 //home page
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 //Dashboard page
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 //inventory page
 Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory');
 Route::get('/inventory/search', [InventoryController::class, 'search'])->name('inventory.search');
@@ -55,20 +57,25 @@ Route::get('/items', [ItemsController::class, 'index'])->name('items');
 Route::post('/items', [ItemsController::class, 'store'])->name('items.store');
 Route::get('items/destroy/{Item_id}', [ItemsController::class, 'destroy']);
 Route::get('/items/search', [ItemsController::class, 'search'])->name('items.search');
-
+Route::patch('/items_update/{Item_id}', [ItemsController::class, 'update'])->name('items.update');
 //Sales page
 Route::get('/sales', [SalesController::class, 'index'])->name('sales');
+
 //Order page
 Route::get('/orders', [OrdersController::class, 'index'])->name('orders');
 Route::post('/orders', [OrdersController::class, 'store'])->name('orders.store');
 Route::get('orders/destroy/{Order_Info_id}', [OrdersController::class, 'destroy']);
 Route::get('/orders/search', [OrdersController::class, 'search'])->name('orders.search');
+
 //orders page
 Route::get('/pos', [POSController::class, 'index'])->name('pos');
+
 //Report page
 Route::get('/reports', [ReportsController::class, 'index'])->name('reports');
+
 //accounts page
 Route::get('/accounting', [AccountingController::class, 'index'])->name('accounting');
+
 //settings page
 Route::get('/setting', [SettingController::class, 'index'])->name('setting');
 
@@ -82,9 +89,8 @@ Route::get('/products/search', [ProductsController::class, 'search'])->name('pro
 Route::get('/add-ons', [AddonsController::class, 'index'])->name('add-ons');
 Route::post('/add-ons', [AddonsController::class, 'store'])->name('add-ons.store');
 Route::get('add-ons/destroy/{Addons_id}', [AddonsController::class, 'destroy']);
+Route::get('/add-ons/search', [AddonsController::class, 'search'])->name('add-ons.search');
+
 //register
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
-
-//settings
-// Route::get('/items-category', [IteamCategoryController::class, 'index'])->name('items-category');

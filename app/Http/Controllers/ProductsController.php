@@ -106,7 +106,7 @@ class ProductsController extends Controller
     public function search(Request $request)
     {
         $searchTerm = $request->input('search');
-        $suppliers = Products::where('Pro_name_eng', 'LIKE', "%{$searchTerm}%")->get();
+        $suppliers = Products::where('Pro_name_eng', 'LIKE', "%{$searchTerm}%")->paginate(8); 
 
         $output = '';
         foreach ($suppliers as $index => $data) {
@@ -137,7 +137,6 @@ class ProductsController extends Controller
               </td>
             </tr>';
         }
-        
         return response()->json(['html' => $output]);
     }
 }

@@ -1,1 +1,1 @@
-<div>UOM-Size Content</div>
+{{-- <div>UOM-Size Content</div> --}}

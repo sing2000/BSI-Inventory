@@ -7,7 +7,7 @@
       <a href="#" id="createButton" class="bg-primary text-primary-foreground py-1 px-8 rounded-lg md:mb-3 sm:mb-2">CREATE</a>
       <div class="relative flex w-full md:w-auto">
         <form id="searchForm" method="GET" class="w-full md:w-auto flex items-center">
-          <input id="searchInput" type="text" placeholder="Search..." class="border border-input rounded-full py-1 px-4 pl-10 w-full md:w-auto focus:outline-none focus:ring-2 focus:ring-primary" required />
+          <input id="searchInput" type="text" placeholder="Search..." class="border border-input rounded-full py-1 px-4 pl-10 w-full md:w-auto focus:outline-none focus:ring-2 focus:ring-primary"  />
           <button type="submit" class="bg-gray-200 rounded-full py-1 px-4 absolute right-0 top-0 mt-1 mr-2 flex items-center justify-center">
             <i class="fas fa-search text-gray-500"></i>
           </button>
@@ -28,7 +28,7 @@
               <th class="py-4 px-4 border border-white">Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="inventoryTableBody">
             @foreach ($Addons as $data)
             <tr class="{{ $loop->index % 2 === 0 ? 'bg-zinc-200' : 'bg-zinc-300' }} text-base {{ $loop->first ? 'border-t-4' : '' }} text-center border-white">
               <td class="text-center py-3 px-4 border border-white">{{ $data->Addons_id ?? 'null' }}</td>
@@ -63,7 +63,7 @@
   @include('popups.create-addon-popup')
   @include('popups.edit-addon-popup')
 </div>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const createButton = document.getElementById('createButton');
@@ -96,5 +96,18 @@
     });
 
   });
+  $('#searchForm').on('submit', function(event) {
+      event.preventDefault();
+      let searchQuery = $('#searchInput').val();
+
+      $.ajax({
+        url: '{{ route("add-ons.search") }}',
+        type: 'GET',
+        data: { search: searchQuery },
+        success: function(response) {
+          $('#inventoryTableBody').html(response.html);
+        }
+      });
+    });
 </script>
 @endsection

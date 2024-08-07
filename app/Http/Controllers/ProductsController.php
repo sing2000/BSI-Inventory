@@ -6,6 +6,7 @@ use App\Models\Products;
 use Illuminate\Http\Request;
 use App\Models\invProductCate;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
@@ -87,9 +88,46 @@ class ProductsController extends Controller
      * @param  \App\Models\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Products $products)
+    public function update(Request $request,$Pro_id)
     {
-        //
+        $validatedData = $request->validate([
+            'Pro_name_eng' => 'required|string|max:255',
+            'Pro_name_kh' => 'required|string|max:255',
+            'Pro_Cate_id' => 'required|integer',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ], [
+            'Item_Khname.required' => 'Please input Supplier Name',
+            'Item_Engname.required' => 'Please input Supplier Contact',
+            'Pro_Cate_id.required' => 'Please input Supplier Address',
+        ]);
+    
+        // Find the supplier by ID
+        $products = Products::find($Pro_id);
+ 
+    
+        // Update the supplier data
+        $products->Pro_name_eng = $validatedData['Pro_name_eng'];
+        $products->Pro_name_kh = $validatedData['Pro_name_kh'];
+        $products->Pro_Cate_id = $validatedData['Pro_Cate_id'];
+    // Handle the image upload
+    if ($request->hasFile('image')) {
+        // Delete the old image if it exists
+        if ($products->image) {
+            Storage::disk('public')->delete($products->image);
+        }
+
+        $image = $request->file('image');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $imagePath = $image->storeAs('items', $imageName, 'public');
+        $products->image = $imagePath;
+    }
+        
+
+    
+        // Save the changes
+        $products->save();
+    
+        return redirect('/products')->with('flash_message', 'Supplier Updated Successfully');
     }
 
     /**

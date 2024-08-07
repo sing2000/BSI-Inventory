@@ -83,12 +83,14 @@ Route::get('/products', [ProductsController::class, 'index'])->name('products');
 Route::post('/products', [ProductsController::class, 'store'])->name('products.store');
 Route::get('products/destroy/{Pro_id}', [ProductsController::class, 'destroy']);
 Route::get('/products/search', [ProductsController::class, 'search'])->name('products.search');
+Route::patch('/products/{Pro_id}', [ProductsController::class, 'update'])->name('products.update');
 
 //add-ons page
 Route::get('/add-ons', [AddonsController::class, 'index'])->name('add-ons');
 Route::post('/add-ons', [AddonsController::class, 'store'])->name('add-ons.store');
 Route::get('add-ons/destroy/{Addons_id}', [AddonsController::class, 'destroy']);
 Route::get('/add-ons/search', [AddonsController::class, 'search'])->name('add-ons.search');
+Route::patch('/add-ons/{Addons_id}', [AddonsController::class, 'update'])->name('add-ons.update');
 
 //register
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');

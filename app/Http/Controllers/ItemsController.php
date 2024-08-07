@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use App\Models\Items;
 use Illuminate\Http\Request;
 use App\Models\IteamCategory;
@@ -88,10 +89,50 @@ class ItemsController extends Controller
      * @param  \App\Models\Items  $items
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Items $items)
-    {
-        //
+/**
+ * Update the specified resource in storage.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @param  \App\Models\Items  $items
+ * @return \Illuminate\Http\Response
+ */
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'Item_Khname' => 'required|string|max:255',
+        'Item_Engname' => 'required|string|max:255',
+        'Item_Cate_id' => 'required|integer',
+        'Expiry_date' => 'nullable|date',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    $item = Items::findOrFail($id);
+    $item->Item_Khname = $request->input('Item_Khname');
+    $item->Item_Engname = $request->input('Item_Engname');
+    $item->Item_Cate_id = $request->input('Item_Cate_id');
+    $item->Expiry_date = $request->input('Expiry_date');
+
+    // Handle the image upload
+    if ($request->hasFile('image')) {
+        // Delete the old image if it exists
+        if ($item->image) {
+            Storage::disk('public')->delete($item->image);
+        }
+
+        $image = $request->file('image');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $imagePath = $image->storeAs('items', $imageName, 'public');
+        $item->image = $imagePath;
     }
+
+    $item->save();
+
+    return redirect()->route('items')->with('success', 'Item updated successfully.');
+}
+
+    
+    
+    
 
     /**
      * Remove the specified resource from storage.

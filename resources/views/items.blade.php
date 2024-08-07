@@ -38,8 +38,14 @@
               <td class="text-center py-3 px-4 border border-white">{{ $data->Item_Engname ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->iteamCategory->Item_Cate_Khname ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->Expiry_date ?? 'null' }}</td>
-              <td class="text-center py-3 px-4 border border-white">{{ $data->image ?? 'null' }}</td>
-              <td class="py-3 border border-white">
+              <td class="py-3 px-4 border border-white">
+                @if($data->image)
+                    <img src="{{ asset('storage/' . $data->image) }}" alt="Item Image" class="h-10 w-12 rounded">
+                @else
+                    <span class="text-gray-500"></span>
+                @endif
+              </td>
+                       <td class="py-3 border border-white">
                 <button class="relative bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group" onclick="openEditPopup({{ $data->Item_id }}, '{{ $data->Item_Khname }}','{{ $data->Item_Engname }}','{{ $data->iteamCategory->Item_Cate_Khname }}','{{ $data->Expiry_date}}','{{ $data->image }}')">
                   <i class="fas fa-edit fa-xs"></i>
                   <span class="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">Edit</span>
@@ -58,7 +64,7 @@
           </tbody>
         </table>
         <div class="mt-2">
-          {{ $items->links() }} <!-- This will render the pagination links -->
+          {{ $items->links() }} 
         </div>
       </div>
     </div>
@@ -69,28 +75,8 @@
 
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('assets/js/closePop.js') }}"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-  const createButton = document.getElementById('createButton');
-  const popupForm = document.getElementById('popupItem');
-  const closePopup = document.getElementById('closeItemPopup');
-
-  const editPopup = document.getElementById('editItemPopup');
-  const closeEditPopup = document.getElementById('closeEditPopup');
-
-  createButton.addEventListener('click', () => {
-    popupForm.classList.remove('hidden');
-  });
-
-  closePopup.addEventListener('click', () => {
-    popupForm.classList.add('hidden');
-  });
-
-  // Ensure the popup closes when the close button is clicked
-  closeEditPopup.addEventListener('click', () => {
-    editPopup.classList.add('hidden');
-  });
-
   $('#searchForm').on('submit', function(event) {
       event.preventDefault();
       let searchQuery = $('#searchInput').val();
@@ -104,27 +90,26 @@
         }
       });
     });
-});
-function openEditPopup(Item_id, Item_Khname, Item_Engname, iteamCategory, Expiry_date, image) {
+    function openEditPopup(Item_id, Item_Khname, Item_Engname, iteamCategory, Expiry_date, image) {
     document.getElementById('editItem_id').value = Item_id;
     document.getElementById('editItem_Khname').value = Item_Khname;
     document.getElementById('editItem_Engname').value = Item_Engname;
-    // Set the category correctly
-    document.getElementById('editItem_Cate_Khname').value = iteamCategory.Item_Cate_id;
+    document.getElementById('editItem_Cate_Khname').value = iteamCategory; // Ensure it's the correct ID or value
     document.getElementById('editExpiry_date').value = Expiry_date;
+
+    const imagePreview = document.getElementById('imagePreview');
     if (image) {
-        const imagePreview = document.getElementById('imagePreview');
-        imagePreview.src = `/storage/receipt_images/${image}`;
+        imagePreview.src = `/storage/${image}`;
         imagePreview.classList.remove('hidden');
     } else {
-        const imagePreview = document.getElementById('imagePreview');
         imagePreview.src = '';
         imagePreview.classList.add('hidden');
     }
 
     document.getElementById('editSupplierForm').action = `/items_update/${Item_id}`;
-    document.getElementById('editItemPopup').classList.remove('hidden');
+    document.getElementById('editPopup').classList.remove('hidden');
 }
+
 
 </script>
 @endsection

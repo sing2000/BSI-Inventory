@@ -37,7 +37,7 @@
               <td class="text-center py-3 px-4 border border-white">{{ $data->Qty ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->uom->UOM_name ?? 'null' }}</td>
               <td class="py-3 border border-white">
-                <button class="relative bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group edit-addon">
+                <button class="relative bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group "  onclick="openEditPopup({{ $data->Addons_id }}, '{{ $data->Addons_name ?? 'null' }}','{{ $data->Percentage ?? 'null'}}','{{ $data->Qty ?? 'null'}}','{{ $data->uom->UOM_name ?? 'null'}}')">
                   <i class="fas fa-edit fa-xs"></i>
                   <span class="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">Edit</span>
                 </button>
@@ -64,38 +64,8 @@
   @include('popups.edit-addon-popup')
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('assets/js/closePop.js') }}"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const createButton = document.getElementById('createButton');
-    const createPopup = document.getElementById('popupAddon');
-    const closeCreatePopup = document.getElementById('closeAddonPopup');
-    
-    const editButtons = document.querySelectorAll('.edit-addon');
-    const editPopup = document.getElementById('editAddonPopup');
-    const closeEditPopup = document.getElementById('closeEditAddonPopup');
-
-    createButton.addEventListener('click', function(event) {
-      event.preventDefault(); // Prevent default link behavior
-      createPopup.classList.remove('hidden');
-    });
-
-    closeCreatePopup.addEventListener('click', function() {
-      createPopup.classList.add('hidden');
-    });
-
-    editButtons.forEach(button => {
-      button.addEventListener('click', function(event) {
-        event.preventDefault();
-        // Show edit popup
-        editPopup.classList.remove('hidden');
-      });
-    });
-
-    closeEditPopup.addEventListener('click', function() {
-      editPopup.classList.add('hidden');
-    });
-
-  });
   $('#searchForm').on('submit', function(event) {
       event.preventDefault();
       let searchQuery = $('#searchInput').val();
@@ -109,5 +79,16 @@
         }
       });
     });
+    function openEditPopup(Addons_id, Addons_name, Percentage, Qty, uom) {
+    document.getElementById('editAddons_id').value = Addons_id;
+    document.getElementById('editAddons_name').value = Addons_name;
+    document.getElementById('editPercentage').value = Percentage;
+    document.getElementById('editQty').value = Qty;
+    document.getElementById('edituom').value = uom.UOM_name;
+    // Set the category correctly
+
+    document.getElementById('editProductPopup').action = `/add-ons/${Addons_id}`;
+    document.getElementById('editPopup').classList.remove('hidden');
+}
 </script>
 @endsection

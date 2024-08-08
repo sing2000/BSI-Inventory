@@ -69,7 +69,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="S_logo">Logo:</label>
+                            <label for="S_logo">User Picture:</label>
                             <div>
                                 <button class="select-logo">Browse</button>
                                 <input type='file' style="display:none">

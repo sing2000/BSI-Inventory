@@ -79,6 +79,7 @@
                         <label for="inputSelectItem${i+1}" class="block text-lg sm:text-sm font-medium text-gray-900 mb-1">Select Item</label>
                         <select id="inputSelectItem${i+1}" name="inputSelectItem${i+1}" class="text-lg sm:text-sm font-medium border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="">Select Item</option>
+                                <option id="createButton">Create Item</option>
                                  @foreach ($items as $data)
                                 <option value="{{ $data->Item_id }}">
                                     {{ $data->Item_Khname }}

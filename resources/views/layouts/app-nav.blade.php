@@ -40,7 +40,7 @@ $navItems = [
       @include('popups.edit-profile-popup')
     </header>
 
-    <div class="flex flex-col items-center py-6 -mb-4 -mt-10 flex-grow">
+    <div class="flex flex-col items-center py-6 -mt-4 flex-grow">
         <!-- Hamburger Icon for Small Screens -->
         <button id="menuToggleButton" class="block md:hidden mb-1" onclick="toggleMenu()">
             <i id="menuToggleIcon" class="fas fa-bars text-1xl bg-yellow-400 py-1 px-2"></i>
@@ -52,7 +52,7 @@ $navItems = [
                 <div id="navMenu" class="flex flex-wrap justify-center space-x-2 hidden md:flex">
                     @foreach($navItems as $item)
                         @if(in_array(Auth::user()->InvRole->R_id, $item['roles']))
-                            <a href="{{ $item['route'] }}" class="{{ request()->is($item['route']) ? 'bg-primary text-white text-' : 'bg-yellow-400 text-primary' }} rounded-lg px-4 py-2 text-sm mb-2 font-bold">
+                            <a href="{{ $item['route'] }}" class="{{ request()->is($item['route']) ? 'bg-primary text-white text-' : 'bg-bsicolor text-primary' }} rounded-lg px-4 py-2 text-sm mb-2 font-bold">
                                 {{ $item['label'] }}
                             </a>
                         @endif

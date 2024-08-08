@@ -43,12 +43,12 @@ $menuItems = [
         </div>
         <div class="relative">
             <img src="images/user.jpg" alt="Admin Profile" class="h-10 w-10 rounded-full mr-5 cursor-pointer" id="profileDropdownToggle">
-            <div id="profileDropdown" class="hidden absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg border-2 border-yellow-400 z-10">
+            <div id="profileDropdown" class="hidden absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg border-2 border-bsicolor z-10">
                 <div class="py-1">
                     <a href="dashboard" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Dashboard</a>
                     <a href="setting" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Settings</a>
                     <a href="account" class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Account</a>
-                    <a href="#" class="block px-5 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 border-b-2 border-yellow-400" id="editProfile">Profile</a>
+                    <a href="#" class="block px-5 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 border-b-2 border-bsicolor" id="editProfile">Profile</a>
                     <a class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
@@ -67,8 +67,8 @@ $menuItems = [
                 @foreach($userRoleItems as $item)
                     <div class="flex flex-col mb-4 items-center">
                         <a href="{{ $item['route'] }}" class="flex flex-col items-center">
-                            <div class="h-20 w-20 sm:h-24 sm:w-24 border-2 border-yellow-400 rounded-md flex items-center justify-center">
-                                <i class="{{ $item['icon'] }} text-4xl sm:text-6xl text-gray-800"></i>
+                            <div class="h-20 w-20 sm:h-24 sm:w-24 border-4 border-bsicolor rounded-md flex items-center justify-center">
+                                <i class="{{ $item['icon'] }} text-4xl sm:text-6xl text-primary"></i>
                             </div>
                             <span class="mt-0 text-lg text-muted-foreground text-center">{{ $item['label'] }}</span>
                         </a>

@@ -65,7 +65,6 @@
         </form>
     </div>
 </div>
-
 <!-- JavaScript to handle showing/hiding rows based on selection and calculating total price -->
 <script>
     document.getElementById('selectnum').addEventListener('change', function() {
@@ -123,8 +122,8 @@
         priceInputs.forEach(function(input, index) {
             var price = parseFloat(input.value);
             var qty = parseFloat(qtyInputs[index].value);
-            if (!isNaN(price) && !isNaN(qty)) {
-                totalPrice += price * qty;
+            if (!isNaN(price) ) {
+                totalPrice += price ;
             }
         });
 

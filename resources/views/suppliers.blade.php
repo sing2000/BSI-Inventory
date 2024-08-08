@@ -62,35 +62,8 @@
 
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('assets/js/closePop.js') }}"></script>
 <script>
-  const createButton = document.getElementById('createButton');
-  const popupForm = document.getElementById('popupSupplier');
-  const closePopup = document.getElementById('closeSupplierPopup');
-
-  const editPopup = document.getElementById('editSupplierPopup');
-  const closeEditPopup = document.getElementById('closeEditPopup');
-
-  createButton.addEventListener('click', () => {
-    popupForm.classList.remove('hidden');
-  });
-
-  closePopup.addEventListener('click', () => {
-    popupForm.classList.add('hidden');
-  });
-
-  function openEditPopup(Sup_id, Sup_name, Sup_contact, Sup_address) {
-    document.getElementById('editSupId').value = Sup_id;
-    document.getElementById('editSupName').value = Sup_name;
-    document.getElementById('editSupContact').value = Sup_contact;
-    document.getElementById('editSupAddress').value = Sup_address;
-    document.getElementById('editSupplierForm').action = `/suppliers_update/${Sup_id}`;
-    document.getElementById('editSupplierPopup').classList.remove('hidden');
-  }
-
-  document.getElementById('closeEditPopup').addEventListener('click', () => {
-    document.getElementById('editSupplierPopup').classList.add('hidden');
-  });
-
   $('#searchForm').on('submit', function(event) {
     event.preventDefault();
     let searchQuery = $('#searchInput').val();
@@ -104,5 +77,13 @@
       }
     });
   });
+  function openEditPopup(Sup_id, Sup_name, Sup_contact, Sup_address) {
+    document.getElementById('editSupId').value = Sup_id;
+    document.getElementById('editSupName').value = Sup_name;
+    document.getElementById('editSupContact').value = Sup_contact;
+    document.getElementById('editSupAddress').value = Sup_address;
+    document.getElementById('editSupplierForm').action = `/suppliers_update/${Sup_id}`;
+    document.getElementById('editPopup').classList.remove('hidden');
+  }
 </script>
 @endsection

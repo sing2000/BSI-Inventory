@@ -35,9 +35,15 @@
               <td class="text-center py-3 px-4 border border-white">{{ $data->Pro_name_eng ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->Pro_name_kh ?? 'null' }}</td>
               <td class="text-center py-3 px-4 border border-white">{{ $data->productCategory->Cate_Khname ?? 'null' }}</td>
-              <td class="text-center py-3 px-4 border border-white">{{ $data->image ?? 'null' }}</td>
+              <td class="py-3 px-4 border border-white">
+                @if($data->image)
+                    <img src="{{ asset('storage/' . $data->image) }}" alt="Item Image" class="h-10 w-12 rounded">
+                @else
+                    <span class="text-gray-500"></span>
+                @endif
+              </td>
               <td class="py-3 border border-white">
-                <button class="relative bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group edit-product">
+                <button class="relative bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white py-2 px-4 rounded-md focus:outline-none transition duration-150 ease-in-out group"  onclick="openEditPopup({{ $data->Pro_id }}, '{{ $data->Pro_name_eng ?? 'null' }}','{{ $data->Pro_name_kh ?? 'null'}}','{{ $data->productCategory->Cate_Khname ?? 'null'}}','{{ $data->image ?? 'null'}}')">
                   <i class="fas fa-edit fa-xs"></i>
                   <span class="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">Edit</span>
                 </button>
@@ -64,33 +70,8 @@
   @include('popups.edit-product-popup')
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('assets/js/closePop.js') }}"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const createButton = document.getElementById('createButton');
-    const popupForm = document.getElementById('popupProduct');
-    const closePopup = document.getElementById('closeProductPopup');
-    const editButtons = document.querySelectorAll('.edit-product');
-
-    createButton.addEventListener('click', function(event) {
-      event.preventDefault(); // Prevent default link behavior
-      popupForm.classList.remove('hidden');
-    });
-
-    closePopup.addEventListener('click', function() {
-      popupForm.classList.add('hidden');
-    });
-
-    // Event listener for edit buttons
-    editButtons.forEach(button => {
-      button.addEventListener('click', function(event) {
-        event.preventDefault();
-        const productId = this.getAttribute('data-product-id');
-        // Here you can fetch product data using AJAX if needed and display the edit popup
-        const editPopup = document.getElementById('editProductPopup');
-        editPopup.classList.remove('hidden');
-      });
-    });
-  });
   $('#searchForm').on('submit', function(event) {
       event.preventDefault();
       let searchQuery = $('#searchInput').val();
@@ -104,5 +85,24 @@
         }
       });
     });
+    function openEditPopup(Pro_id, Pro_name_eng, Pro_name_kh, productCategory, image) {
+    document.getElementById('editPro_id').value = Pro_id;
+    document.getElementById('editPro_name_eng').value = Pro_name_eng;
+    document.getElementById('editPro_name_kh').value = Pro_name_kh;
+    // Set the category correctly
+    document.getElementById('editCate_Khname').value = productCategory.Cate_Khname;
+    const imagePreview = document.getElementById('imagePreview');
+    if (image) {
+        imagePreview.src = `/storage/${image}`;
+        imagePreview.classList.remove('hidden');
+    } else {
+        imagePreview.src = '';
+        imagePreview.classList.add('hidden');
+    }
+
+    document.getElementById('editProductPopup').action = `/products/${Pro_id}`;
+    document.getElementById('editPopup').classList.remove('hidden');
+}
+
 </script>
 @endsection

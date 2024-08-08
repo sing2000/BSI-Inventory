@@ -43,7 +43,6 @@ class AddonsController extends Controller
             'Addons_name' => 'required|string|max:255',
             'Percentage' => 'nullable|string|max:255',
             'Qty' => 'required|integer',
-            'Percentage' => 'required|numeric',
             'UOM_id' => 'required|integer',
 
         ]);
@@ -84,9 +83,34 @@ class AddonsController extends Controller
      * @param  \App\Models\Addons  $addons
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Addons $addons)
+    public function update(Request $request,$Addons_id)
     {
-        //
+           // Validate the request data
+           $validatedData = $request->validate([
+            'Addons_name' => 'required|string|max:255',
+            'Percentage' => 'required|string|max:255',
+            'Qty' => 'required|integer',
+            'UOM_id' => 'required|integer',
+        ], [
+            'Addons_name.required' => 'Please input Supplier Name',
+            'Percentage.required' => 'Please input Supplier Contact',
+            'Qty.required' => 'Please input Supplier Address',
+            'UOM_id.required' => 'Please input Supplier Address',
+        ]);
+    
+        // Find the supplier by ID
+        $addons = Addons::find($Addons_id);
+ 
+        // Update the supplier data
+        $addons->Addons_name = $validatedData['Addons_name'];
+        $addons->Percentage = $validatedData['Percentage'];
+        $addons->Qty = $validatedData['Qty'];
+        $addons->UOM_id = $validatedData['UOM_id'];
+    
+        // Save the changes
+        $addons->save();
+    
+        return redirect('/add-ons')->with('flash_message', 'Supplier Updated Successfully');
     }
 
     /**

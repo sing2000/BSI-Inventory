@@ -75,7 +75,6 @@
 
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="{{ asset('assets/js/closePop.js') }}"></script>
 <script>
   $('#searchForm').on('submit', function(event) {
       event.preventDefault();
@@ -110,6 +109,16 @@
     document.getElementById('editPopup').classList.remove('hidden');
 }
 
-
+    document.getElementById('closeItemPopup').addEventListener('click', function() {
+        document.getElementById('popupItem').classList.add('hidden');
+    });
+    document.getElementById('cancelEdit').addEventListener('click', function() {
+        document.getElementById('editPopup').classList.add('hidden');
+    });
+    const createButton = document.getElementById('createButton');
+    const popupForm = document.getElementById('popupItem');
+    createButton.addEventListener('click', () => {
+      popupForm.classList.remove('hidden');
+    });
 </script>
 @endsection

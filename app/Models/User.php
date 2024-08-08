@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\InvRole;
+use App\Models\InvLocation;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
@@ -41,6 +43,7 @@ class User extends Authenticatable
         'S_id',
         'status',
         'R_id',
+        'L_id',
     ];
 
     /**
@@ -68,5 +71,13 @@ class User extends Authenticatable
     public function invshop()
     {
         return $this->belongsTo(Invshop::class, 'S_id', 'S_id');
+    }
+    public function InvRole()
+    {
+        return $this->belongsTo(InvRole::class, 'R_id', 'R_id');
+    }
+    public function invLocation()
+    {
+        return $this->belongsTo(InvLocation::class, 'L_id', 'L_id');
     }
 }

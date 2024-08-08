@@ -15,7 +15,7 @@ class IteamCategoryController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**

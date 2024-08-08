@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UOM;
+use App\Models\Items;
 use App\Models\Inventory;
-use App\Http\Controllers\Controller;
+use App\Models\Suppliers;
 use Illuminate\Http\Request;
+use App\Models\IteamCategory;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class InventoryController extends Controller
 {
@@ -15,8 +20,17 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        return view('inventory');
+        $categories = IteamCategory::all();
+        $Supplier = Suppliers::all();
+        $items = Items::all();
+        $uom = UOM::all();
+        $inventory = Inventory::with(['invShop', 'location'])
+        ->where('S_id', Auth::user()->invshop->S_id)
+        ->where('L_id', Auth::user()->invLocation->L_id)
+        ->get();
+        return view('inventory', compact('categories','inventory','Supplier','items','uom')); 
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -82,5 +96,26 @@ class InventoryController extends Controller
     public function destroy(Inventory $inventory)
     {
         //
+    }
+    //search
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
+        $inventory = Inventory::where('Item_Name', 'LIKE', "%{$searchTerm}%")->get();
+
+        $output = '';
+        foreach ($inventory as $data) {
+            $output .= '
+            <tr class="bg-zinc-200 text-base border-t-4 border-white">
+              <td class="py-3 px-4 border border-white">'.$data->Item_Name.'</td>
+              <td class="py-3 px-4 border border-white">'.$data->Category.'</td>
+              <td class="py-3 px-4 border border-white">'.$data->Total_StockIn.'</td>
+              <td class="py-3 px-4 border border-white">'.$data->Total_In_Hand.'</td>
+              <td class="py-3 px-4 border border-white">'.$data->UOM.'</td>
+              <td class="py-3 px-4 border border-white">'.$data->Expired_Date.'</td>
+            </tr>';
+        }
+
+        return response()->json(['html' => $output]);
     }
 }

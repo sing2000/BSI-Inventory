@@ -5,11 +5,15 @@
     <div class="ml-5">
       <div class="ml-0">
         @if(Auth::check() && Auth::user()->invshop && Auth::user()->invshop->S_logo)
-            <img src="{{ asset('storage/' . Auth::user()->invshop->S_logo) }}" alt="Shop Logo" class="h-10 w-12 rounded">
+            <a href="/home">
+                <img src="{{ asset('storage/' . Auth::user()->invshop->S_logo) }}" alt="Shop Logo" class="h-10 w-12 rounded">
+            </a>
         @else
-            <img src="{{ asset('images/official_logo.png') }}" alt="Default Logo" class="h-10 w-12 rounded">
+            <a href="/home">
+                <img src="{{ asset('images/official_logo.png') }}" alt="Default Logo" class="h-10 w-12 rounded">
+            </a>
         @endif
-      </div>
+      </div>    
     </div>
     <div class="bg-primary p-3 shadow-md flex items-end justify-end flex-1">
         <div class="space-x-2 items-end justify-end">
@@ -17,23 +21,7 @@
         </div>
     </div>
     <div class="relative">
-      <img src="images/user.jpg" alt="Admin Profile" class="h-10 w-10 rounded-full mr-5 cursor-pointer" id="profileDropdownToggle">
-      <div id="profileDropdown" class="hidden absolute right-1 mt-2 w-52 bg-white rounded-md shadow-lg border-2 border-yellow-400 z-10">
-          <div class="py-0">
-              <a href="dashboard" class="block px-4 py-2 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Dashboard</a>
-              <a href="setting" class="block px-4 py-2 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Settings</a>
-              <a href="account" class="block px-4 py-2 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900">Account</a>
-              <a href="#" class="block px-5 py-3 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 border-b-2 border-yellow-400" id="editProfile">Profile</a>
-              <a class="block px-4 py-2 text-sm md:text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900" href="{{ route('logout') }}"
-                 onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
-                 {{ __('Logout') }}
-              </a>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                  @csrf
-              </form>
-          </div>
-      </div>
+      @include('profile.profile')
   </div>
     @include('popups.edit-profile-popup')
   </header>
@@ -41,7 +29,7 @@
   <div class="flex-grow">
     <div class="flex flex-col items-center py-6">
       <div class="flex space-x-2 -mt-10">
-        <a href="accounting" class="bg-yellow-400 text-blue-600 border-2 border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-blue-800 px-4 py-1 text-sm">
+        <a href="accounting" class="bg-primary text-white rounded-lg px-4 py-2 text-sm">
           ACCOUNTING
         </a>
       </div>
@@ -113,29 +101,7 @@
             </div>
           </div>
         </div>
-      </div>
-      
-  </div>
-  
+      </div>     
+  </div> 
   @include('layouts.footer')
-
 </div>
-
-
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-      const profileDropdownToggle = document.getElementById('profileDropdownToggle');
-      const profileDropdown = document.getElementById('profileDropdown');
-
-      profileDropdownToggle.addEventListener('click', function () {
-          profileDropdown.classList.toggle('hidden');
-      });
-      document.addEventListener('click', function (event) {
-          if (!profileDropdownToggle.contains(event.target)) {
-              profileDropdown.classList.add('hidden');
-          }
-      });
-  });
-</script>
